@@ -1,0 +1,357 @@
+/* Card wrapper for the entire contact section */
+.contact-wrapper {
+  color: black;
+  padding: 80px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  position: relative;
+}
+
+.contact-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.contact-card {
+  max-width: 1800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 26px;
+  z-index: -1;
+}
+
+.contact-container {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.content-center {
+  text-align: center;
+  max-width: 600px;
+  padding: 0 20px;
+  z-index: 10;
+  position: relative;
+}
+
+.content-center h1 {
+  font-size: 59px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.content-center p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+.floating-avatar {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.floating-avatar:hover {
+  transform: scale(1.1);
+}
+
+.floating-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Avatar positioning - matching the exact layout from the image */
+.avatar-1 {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 5%;
+}
+
+.avatar-2 {
+  width: 85px;
+  height: 85px;
+  top: 9%;
+  left: 25%;
+}
+
+.avatar-3 {
+  width: 88px;
+  height: 88px;
+  top: 9%;
+  right: 20%;
+}
+
+.avatar-4 {
+  width: 75px;
+  height: 75px;
+  top: 19%;
+  right: 8%;
+}
+
+.avatar-5 {
+  width: 90px;
+  height: 90px;
+  top: 42%;
+  left: 15%;
+}
+
+.avatar-6 {
+  width: 85px;
+  height: 85px;
+  top: 45%;
+  right: 8%;
+}
+
+.avatar-7 {
+  width: 78px;
+  height: 78px;
+  bottom: 30%;
+  left: 5%;
+}
+
+.avatar-8 {
+  width: 82px;
+  height: 82px;
+  bottom: 25%;
+  left: 34%;
+}
+
+.avatar-9 {
+  width: 88px;
+  height: 88px;
+  bottom: 25%;
+  right: 17%;
+}
+
+.avatar-10 {
+  width: 80px;
+  height: 80px;
+  bottom: 15%;
+  right: 31%;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-avatar:nth-child(odd) {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-avatar:nth-child(even) {
+  animation: float 6s ease-in-out infinite reverse;
+  animation-delay: 3s;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .contact-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    padding: 50px 20px;
+  }
+  
+  .contact-card {
+    padding: 35px;
+    border-radius: 20px;
+  }
+  
+  .content-center h1 {
+    font-size: 36px;
+  }
+  
+  .content-center p {
+    font-size: 16px;
+  }
+  
+  /* Hide specific avatars on mobile to keep only 6 visible */
+  .hide-mobile {
+    display: none;
+  }
+  
+  /* Reposition remaining avatars for better mobile layout */
+  .avatar-1 {
+    width: 60px;
+    height: 60px;
+    top: 15%;
+    left: 8%;
+  }
+  
+  .avatar-2 {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    right: 8%;
+  }
+  
+  .avatar-3 {
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    left: 3%;
+  }
+  
+  .avatar-5 {
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    right: 3%;
+  }
+  
+  .avatar-6 {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    left: 8%;
+  }
+  
+  .avatar-9 {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    right: 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 15px;
+  }
+  
+  .content-center h1 {
+    font-size: 28px;
+  }
+  
+  .content-center p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  /* Further adjustments for very small screens */
+  .avatar-1,
+  .avatar-2,
+  .avatar-3,
+  .avatar-5,
+  .avatar-6,
+  .avatar-9 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Adjust positioning for smaller screens */
+  .avatar-1 {
+    top: 25%;
+    left: 9%;
+  }
+  
+  .avatar-2 {
+    top: 8%;
+    left: 43%;
+  }
+  
+  .avatar-3 {
+    top: 25%;
+    left: 75%;
+  }
+  
+  .avatar-5 {
+    top: 75%;
+    left: 9%;
+  }
+  
+  .avatar-6 {
+    top: 90%;
+    left: 43%;
+  }
+  
+  .avatar-9 {
+    bottom: 18%;
+    right: 12%;
+  }
+}
