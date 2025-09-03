@@ -11,24 +11,5 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  /* background: radial-gradient(circle, #3a2fda 0%, #f5f5ff 100%) */
-  /* background-image: radial-gradient(circle, #ca72a4, #c388c4, #b89fdd, #acb4ee, #a6c8f9, #a7d4fa, #addefa, #b9e8f9, #c6edf5, #d5f1f3, #e4f5f4, #f3f8f7); */
-  background-image: radial-gradient(circle, 
-  #ca72a4 0%,   /* pink core */
-  #ca72a4 20%,  /* extend pink */
-  #ca72a4 30%,  /* extend pink */
-  #ca72a4 40%,  /* extend pink */
-  #ca72a4 45%,  /* extend pink */
-  #ca72a4 50%,  /* extend pink */
-  #ca72a4 60%,  /* extend pink */
-  #acb4ee 75%,  /* pale blue */
-  #a6c8f9 80%,  /* soft blue */
-  #a7d4fa 82%,  /* sky blue */
-  #addefa 88%,  /* lighter blue */
-  #b9e8f9 92%,  /* aqua tint */
-  #c6edf5 96%,  /* very light cyan */
-  #d5f1f3 98%,  /* pastel teal */
-  #e4f5f4 99%,  /* almost white aqua */
-  #f3f8f7 100%  /* near white */
-);
+  background-image: radial-gradient(circle, #579ad4 50%, #91b0df, #bdc8ea, #e1e2f4, #ffffff);
 }

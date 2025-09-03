@@ -1,8 +1,12 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Quicksand:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+
 /* Card wrapper for the entire contact section */
 .contact-wrapper {
+ 
   color: black;
   padding: 80px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   position: relative;
 }
 
@@ -19,6 +23,7 @@
 }
 
 .contact-card {
+   background-color: #FFE8DB;
   max-width: 1800px;
   margin: 0 auto;
   position: relative;
@@ -50,13 +55,13 @@
 .contact-container {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .content-center {
@@ -68,15 +73,19 @@
 }
 
 .content-center h1 {
-  font-size: 59px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 50px;
   font-weight: 700;
   color: #333;
   margin-bottom: 24px;
-  line-height: 1.2;
+  line-height: 0.8;
+  letter-spacing: -0.5px;
 }
 
 .content-center p {
-  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   color: #666;
   line-height: 1.6;
   margin-bottom: 32px;
@@ -86,18 +95,21 @@
 }
 
 .cta-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
   background-color: #000;
   color: white;
   border: none;
   border-radius: 25px;
   padding: 14px 28px;
   font-size: 16px;
-  font-weight: 500;
+  margin-bottom: 30px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.5px;
 }
 
 .cta-button:hover {
@@ -107,6 +119,24 @@
 
 .arrow {
   font-size: 18px;
+}
+
+/* Optional: Add a decorative element with script font */
+.content-center::before {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: #999;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Alternative script font styling for special text */
+.script-text {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  font-size: 18px;
+  color: #777;
+  font-style: italic;
 }
 
 .floating-avatar {
@@ -130,71 +160,71 @@
 
 /* Avatar positioning - matching the exact layout from the image */
 .avatar-1 {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   top: 20%;
   left: 5%;
 }
 
 .avatar-2 {
-  width: 85px;
-  height: 85px;
+  width: 65px;
+  height: 65px;
   top: 9%;
   left: 25%;
 }
 
 .avatar-3 {
-  width: 88px;
-  height: 88px;
+  width: 65px;
+  height: 65px;
   top: 9%;
   right: 20%;
 }
 
 .avatar-4 {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   top: 19%;
   right: 8%;
 }
 
 .avatar-5 {
-  width: 90px;
-  height: 90px;
+  width: 65px;
+  height: 65px;
   top: 42%;
   left: 15%;
 }
 
 .avatar-6 {
-  width: 85px;
-  height: 85px;
+  width: 65px;
+  height: 65px;
   top: 45%;
   right: 8%;
 }
 
 .avatar-7 {
-  width: 78px;
-  height: 78px;
+  width: 65px;
+  height: 65px;
   bottom: 30%;
   left: 5%;
 }
 
 .avatar-8 {
-  width: 82px;
-  height: 82px;
+  width: 65px;
+  height: 65px;
   bottom: 25%;
   left: 34%;
 }
 
 .avatar-9 {
-  width: 88px;
-  height: 88px;
+  width: 65px;
+  height: 65px;
   bottom: 25%;
   right: 17%;
 }
 
 .avatar-10 {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   bottom: 15%;
   right: 31%;
 }
@@ -234,7 +264,11 @@
   
   .contact-card {
     padding: 35px;
-    border-radius: 20px;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
   }
   
   .content-center h1 {
@@ -297,6 +331,10 @@
 @media (max-width: 480px) {
   .contact-card {
     padding: 15px;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
   }
   
   .content-center h1 {
