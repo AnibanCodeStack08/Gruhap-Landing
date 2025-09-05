@@ -4,7 +4,6 @@ import "./Hero.css";
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Category");
@@ -63,10 +62,6 @@ const Hero = () => {
       typed.destroy();
     };
   }, [isMobile]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   const toggleCategoryDropdown = () => {
     setIsCategoryOpen(!isCategoryOpen);
@@ -207,53 +202,6 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      {/* Navigation */}
-      <nav className="hero-nav">
-        <div className="hero-logo">
-          <div className="hero-logo-icon">G</div>
-          <span className="hero-logo-text">Gruhap</span>
-        </div>
-        {/* Desktop Navigation in center */}
-        <div className="hero-nav-links">
-          <a href="#" className="hero-nav-link">Menu-1</a>
-          <a href="#" className="hero-nav-link">Menu-2</a>
-          <a href="#" className="hero-nav-link">Menu-3</a>
-          <a href="#" className="hero-nav-link">Menu-4</a>
-          <a href="#" className="hero-nav-link">Menu-5</a>
-        </div>
-        {/* Desktop Actions right-aligned */}
-        <div className="hero-nav-actions">
-          <button className="hero-login-btn">Join Community</button>
-          <button className="hero-get-started-btn">Join Waitlist</button>
-        </div>
-        {isMobile && (
-          <button
-            className="hero-mobile-menu-btn"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        )}
-        {isMobile && isMobileMenuOpen && (
-          <div className="hero-mobile-dropdown">
-            <div className="hero-mobile-nav-links">
-              <a href="#" className="hero-mobile-nav-link">Menu-1</a>
-              <a href="#" className="hero-mobile-nav-link">Menu-2</a>
-              <a href="#" className="hero-mobile-nav-link">Menu-3</a>
-              <a href="#" className="hero-mobile-nav-link">Menu-4</a>
-              <a href="#" className="hero-mobile-nav-link">Menu-5</a>
-            </div>
-            <div className="hero-mobile-nav-actions">
-              <button className="hero-mobile-login-btn">Log in</button>
-              <button className="hero-mobile-get-started-btn">Get started</button>
-            </div>
-          </div>
-        )}
-      </nav>
-
       {/* Floating Message Bubbles - show all on desktop */}
       {!isMobile && avatars.map((avatar) => (
         <div key={avatar.id} className={`floating-message floating-message-${avatar.position}`}>

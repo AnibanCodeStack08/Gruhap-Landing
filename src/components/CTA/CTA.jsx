@@ -1,11 +1,11 @@
 import React from 'react';
-import './Contact.css';
+import './CTA.css';
 
-const Contact = () => {
+const CTA = () => {
   return (
-    <div className="contact-wrapper">
-      <div className="contact-card">
-        <div className="contact-container">
+    <div className="cta-wrapper">
+      <div className="cta-card">
+        <div className="cta-container">
           <div className="floating-avatar avatar-1">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Person 1" />
           </div>
@@ -53,4 +53,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default CTA;

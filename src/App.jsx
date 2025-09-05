@@ -1,26 +1,33 @@
-import React, { useState, useEffect } from "react";
+// src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
-import Hero from "./Components/Hero";
-import Service from "./Components/Service";
-import Team from "./Components/Team";
-import Testimonial from "./Components/Testimonial";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
 
-function App() {
+// Pages
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import OurServices from "./pages/OurServices/OurServices";
+import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import Contact from "./pages/Contact/Contact";
 
+// Components
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
+const App = () => {
   return (
-    <>
-      <Hero />
-      <Service/>
-      {/* <Team/> */}
-      <Testimonial/>
-      <Contact/>
-      <Footer/>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/our-services" element={<OurServices />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;

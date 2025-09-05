@@ -121,12 +121,12 @@ const Service = () => {
     const handleCategorySelect = (category) => {
         setSelectedCategory(category)
         setIsDropdownOpen(false)
-        
+
         // Reset scroll position when category changes
         if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollLeft = 0
         }
-        
+
         // Update scroll buttons state after a brief delay to allow for DOM update
         setTimeout(() => {
             handleScroll()
@@ -145,8 +145,8 @@ const Service = () => {
                             {/* Desktop Navigation */}
                             <div className="service-nav desktop-nav">
                                 {categories.map((category, index) => (
-                                    <button 
-                                        key={index} 
+                                    <button
+                                        key={index}
                                         className={`nav-btn ${selectedCategory === category ? 'active' : ''}`}
                                         onClick={() => handleCategorySelect(category)}
                                     >
@@ -175,7 +175,7 @@ const Service = () => {
                                         className="discover-btn"
                                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                     >
-                                        <span>{selectedCategory || 'Select Category'}</span>
+                                        <span>{selectedCategory || 'Category'}</span>
                                         <svg
                                             className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}
                                             width="20"
@@ -209,7 +209,7 @@ const Service = () => {
                                 </div>
                             </div>
 
-                            {/* Mobile View All Button - positioned below dropdown */}
+                            {/* Mobile View All Button - positioned next to dropdown */}
                             <button className="view-all-btn mobile-view-all">
                                 <span>View All</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
