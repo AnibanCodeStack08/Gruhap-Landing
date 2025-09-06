@@ -10,7 +10,7 @@ const Hero = () => {
 
   // For Typed.js placeholder
   const textareaRef = useRef(null);
-  const basePlaceholder = "How can I help you today...";
+  const basePlaceholder = "";
 
   const categories = [
     "Mental Health",
