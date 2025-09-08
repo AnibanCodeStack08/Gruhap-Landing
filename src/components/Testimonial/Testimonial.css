@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh; /* Reduced from original 70vh */
+  min-height: 76vh; /* Reduced from original 70vh */
   background: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
     "Helvetica Neue", Arial, sans-serif;
@@ -396,8 +396,8 @@ font-family: 'Satisfy', cursive;
   }
   
   .testimonial-avatar-wrapper {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     top: -30px;
     padding: 3px;
   }

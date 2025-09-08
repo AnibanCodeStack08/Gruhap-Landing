@@ -74,7 +74,7 @@
 
 .content-center h1 {
   font-family: 'Comfortaa', cursive;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   color: #333;
   margin-bottom: 24px;
@@ -84,10 +84,10 @@
 
 .content-center p {
   font-family: 'Quicksand', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 900;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 32px;
   max-width: 550px;
   margin-left: auto;
@@ -101,7 +101,7 @@
   color: white;
   border: none;
   border-radius: 25px;
-  padding: 14px 28px;
+  padding: 10px 23px;
   font-size: 16px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -334,7 +334,7 @@
 @media (max-width: 480px) {
   .cta-card {
     padding: 15px;
-    background: #d9dcd6;
+    background: #e9eaf7;
     backdrop-filter: none;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: none;
@@ -342,12 +342,12 @@
   }
   
   .content-center h1 {
-    font-size: 28px;
+    font-size: 25px;
   }
   
   .content-center p {
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 12px;
+    padding: 0 9px;
   }
   
   .cta-button {
@@ -393,7 +393,7 @@
   }
   
   .avatar-9 {
-    bottom: 18%;
+    bottom: 15%;
     right: 12%;
   }
 }

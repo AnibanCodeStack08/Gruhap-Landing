@@ -5,6 +5,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -15,12 +16,22 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-logo">
         <div className="navbar-logo-icon">G</div>
         <span className="navbar-logo-text">Gruhap</span>
