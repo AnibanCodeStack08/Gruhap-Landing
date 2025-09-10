@@ -329,6 +329,7 @@ font-family: 'Satisfy', cursive;
   .testimonial-card {
     padding: 50px 24px 30px;
     border-radius: 18px;
+    height: 230px;
   }
   
   .testimonial-avatar-wrapper {
