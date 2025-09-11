@@ -520,13 +520,14 @@ font-size: 4.8rem;
   
   .hero-title { 
     font-size: 2.5rem; /* Reduced from 2.8rem */
-      font-family: "Comic Sans MS", "Comic Neue", "Chalkboard SE", "Marker Felt", cursive;
+    font-family: "Yeseva One", serif;
     margin-bottom: 0.5rem; /* Reduced from 0.6rem */
     gap: 0rem; 
   }
   
   .hero-subtitle { 
     font-size: 0.85rem; /* Reduced from 0.9rem */
+    font-family: "Josefin Sans", sans-serif;
     margin: 0rem auto 1rem auto; /* Reduced from 1.2rem */
     max-width: 36rem; /* Reduced from 40.8rem */
   }
@@ -584,6 +585,7 @@ font-size: 4.8rem;
   .hero-subtitle { 
     font-size: 1.3rem; /* Reduced from 1.35rem */
     font-weight: 600;
+    font-family: "Josefin Sans", sans-serif;
     margin: 0rem auto 1rem auto; /* Reduced from 1.2rem */
     max-width: 35rem; /* Reduced from 38.4rem */
   }
@@ -664,14 +666,15 @@ font-size: 4.8rem;
     margin: 0 0 16px 0;
     padding: 0;
     line-height: 0.8;
-    font-family: "Comic Sans MS", "Comic Neue", "Chalkboard SE", "Marker Felt", cursive;
+    font-family: "Yeseva One", serif;
     text-align: center;
     color: black; /* Match desktop */
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 900; /* Match desktop weight */
+    font-family: "Josefin Sans", sans-serif;
     margin: 0 0 24px 0;
     color: #5C5C5C; /* Match desktop color */
     text-align: center;
