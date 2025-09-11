@@ -48,8 +48,8 @@ const Navbar = () => {
       
       {/* Desktop Actions */}
       <div className="navbar-nav-actions">
-        <button className="navbar-login-btn">Join Community</button>
-        <button className="navbar-get-started-btn">Join Waitlist</button>
+        <button className="navbar-login-btn">Login</button>
+        <button className="navbar-get-started-btn">Get Started</button>
       </div>
       
       {isMobile && (
@@ -74,8 +74,8 @@ const Navbar = () => {
             <Link to="/contact" className="navbar-mobile-nav-link">Contact Us</Link>
           </div>
           <div className="navbar-mobile-nav-actions">
-            <button className="navbar-mobile-login-btn">Join Community</button>
-            <button className="navbar-mobile-get-started-btn">Join Waitlist</button>
+            <button className="navbar-mobile-login-btn">Login</button>
+            <button className="navbar-mobile-get-started-btn">Get Started</button>
           </div>
         </div>
       )}

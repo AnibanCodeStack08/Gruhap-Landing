@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
+
 /* === CONTAINER === */
 .testimonial-container {
   --current-slide: 0;
@@ -20,7 +22,7 @@
 .testimonial-title {
   font-size: 30px; /* Reduced from original 35px */
   font-weight: 900;
-font-family: 'Satisfy', cursive;
+font-family: "Yeseva One", serif; 
   color: #1a1a1a;
   text-align: center;
   margin-bottom: 35px; /* Reduced from original 45px */
@@ -148,15 +150,16 @@ font-family: 'Satisfy', cursive;
   margin: 38px 0 8px 0; /* Reduced from original 45px 0 10px 0 */
   font-size: 20px; /* Reduced from original 22px */
   font-weight: 800;
-  font-family: 'Space Mono', monospace;
+  font-family: "Yeseva One", serif; 
   color: #111115;
 }
 
 .testimonial-quote {
   margin: 0 auto;
   max-width: 450px; /* Reduced from original 500px */
-  font-size: 14px; /* Reduced from original 15px */
-  font-family: 'Inconsolata', monospace;
+  font-size: 15px; /* Reduced from original 15px */
+  font-family: "Josefin Sans", sans-serif;
+  font-style: italic;
   line-height: 1.5; /* Reduced from original 1.6 */
   color: #3c3c44;
 }
@@ -283,7 +286,11 @@ font-family: 'Satisfy', cursive;
   }
   
   .testimonial-card {
-    padding: 55px 28px 35px;
+    padding: 40px 28px; /* equal top & bottom */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .testimonial-name {
@@ -308,7 +315,6 @@ font-family: 'Satisfy', cursive;
   .testimonial-container {
     --card-width: 75%;
     padding: 17px 12px;
-    
   }
   
   .testimonial-title {
@@ -327,9 +333,12 @@ font-family: 'Satisfy', cursive;
   }
   
   .testimonial-card {
-    padding: 50px 24px 30px;
+    padding: 35px 24px; /* equal top & bottom */
     border-radius: 18px;
     height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .testimonial-avatar-wrapper {
@@ -363,6 +372,7 @@ font-family: 'Satisfy', cursive;
   
   .testimonial-dots {
     margin-top: 25px;
+    padding-bottom: 35px;
   }
 }
 
@@ -391,9 +401,12 @@ font-family: 'Satisfy', cursive;
   }
   
   .testimonial-card {
-    padding: 45px 20px 25px;
+    padding: 30px 20px; /* equal top & bottom */
     border-radius: 16px;
     min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .testimonial-avatar-wrapper {
@@ -437,8 +450,11 @@ font-family: 'Satisfy', cursive;
   }
   
   .testimonial-card {
-    padding: 40px 16px 20px;
+    padding: 25px 16px; /* equal top & bottom */
     border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .testimonial-avatar-wrapper {

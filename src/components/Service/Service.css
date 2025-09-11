@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
+
 
 
 .service-section {
@@ -66,7 +67,7 @@
   font-size: 2.25rem;   
   font-weight: 900;   
   color: #333333;   
-  font-family: 'Comfortaa', 'Montserrat', sans-serif;   
+ font-family: "Yeseva One", serif; 
   margin: 0;   
   padding-left: 22.5px;   
   background: linear-gradient(135deg, #333333 0%, #666666 100%);   
@@ -118,7 +119,7 @@
   display: flex;
   gap: 0.9rem;
   background: rgba(1, 1, 1, 0.05);
-  padding: 0.5rem;
+  padding: 0.40rem;
   border-radius: 9px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
@@ -430,7 +431,8 @@
 
 .card-title {
   font-size: 0.975rem;
-  font-weight: 700;
+  font-weight: 900;
+  font-family: "Josefin Sans", sans-serif;
   margin: 0;
   color: #333333;
   text-align: center;
