@@ -1,12 +1,205 @@
-import React from 'react'
+import React from 'react';
+import './OurServices.css';
 
 const OurServices = () => {
-  return (
-    <>
-        <h1>This is Our Services page </h1>
-        <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe asperiores suscipit quidem perferendis ipsam praesentium non doloremque, dolores facilis totam reprehenderit est alias impedit minus necessitatibus doloribus excepturi molestias sequi!</h3>
-    </>
-  )
-}
+  const mainServices = [
+    {
+      icon: "🧠",
+      title: "Mental Health Support",
+      description: "24/7 access to AI-powered mental health professionals for stress, anxiety, depression, and emotional well-being.",
+      features: ["Stress Management", "Anxiety Support", "Depression Care", "Mindfulness Training", "Cognitive Behavioral Therapy", "Crisis Support"],
+      color: "blue"
+    },
+    {
+      icon: "💪",
+      title: "Fitness & Exercise",
+      description: "Personalized fitness plans, workout guidance, and exercise recommendations tailored to your goals and fitness level.",
+      features: ["Custom Workout Plans", "Exercise Form Guidance", "Progress Tracking", "Injury Prevention", "Strength Training", "Cardio Programs"],
+      color: "purple"
+    },
+    {
+      icon: "🍎",
+      title: "Nutrition Guidance",
+      description: "Expert nutritional advice, meal planning, and dietary recommendations for optimal health and wellness.",
+      features: ["Meal Planning", "Dietary Analysis", "Weight Management", "Special Diets", "Supplement Advice", "Healthy Recipes"],
+      color: "coral"
+    }
+  ];
 
-export default OurServices
+  const additionalServices = [
+    {
+      icon: "🌙",
+      title: "Sleep Optimization",
+      description: "Improve your sleep quality with personalized sleep hygiene recommendations and relaxation techniques.",
+      color: "indigo"
+    },
+    {
+      icon: "⚡",
+      title: "Productivity & Focus",
+      description: "Enhance your productivity with time management strategies and focus-building techniques.",
+      color: "yellow"
+    },
+    {
+      icon: "👥",
+      title: "Relationship Support",
+      description: "Navigate relationship challenges with communication strategies and emotional intelligence tools.",
+      color: "green"
+    },
+    {
+      icon: "⏰",
+      title: "Burnout Prevention",
+      description: "Identify early signs of burnout and develop healthy coping mechanisms for work-life balance.",
+      color: "red"
+    }
+  ];
+
+  const howItWorks = [
+    {
+      step: "1",
+      title: "Share Your Concerns",
+      description: "Tell our AI about your wellness goals, challenges, or questions in natural language."
+    },
+    {
+      step: "2",
+      title: "Get Personalized Guidance",
+      description: "Receive expert advice tailored to your specific situation and needs."
+    },
+    {
+      step: "3",
+      title: "Follow Your Plan",
+      description: "Implement the recommendations with ongoing support and progress tracking."
+    },
+    {
+      step: "4",
+      title: "Track & Adjust",
+      description: "Monitor your progress and get plan adjustments as your needs evolve."
+    }
+  ];
+
+  return (
+    <div className="ourservices-container">
+      {/* Hero Section */}
+      <section className="ourservices-hero">
+        <div className="ourservices-hero-content">
+          <h1 className="ourservices-hero-title">Our Services</h1>
+          <p className="ourservices-hero-description">
+            Comprehensive wellness support powered by AI professionals, available 24/7 to help you achieve your health and wellness goals.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Services */}
+      <section className="ourservices-main-section">
+        <div className="ourservices-section-container">
+          <div className="ourservices-section-header">
+            <h2 className="ourservices-section-title">Core Services</h2>
+            <p className="ourservices-section-subtitle">
+              Our three main pillars of wellness support, each powered by specialized AI professionals.
+            </p>
+          </div>
+          
+          <div className="ourservices-main-grid">
+            {mainServices.map((service, index) => (
+              <div key={index} className="ourservices-main-card">
+                <div className="ourservices-card-header">
+                  <div className={`ourservices-icon-wrapper ourservices-icon-${service.color}`}>
+                    <span className="ourservices-icon">{service.icon}</span>
+                  </div>
+                  <h3 className="ourservices-card-title">{service.title}</h3>
+                </div>
+                <div className="ourservices-card-content">
+                  <p className="ourservices-card-description">
+                    {service.description}
+                  </p>
+                  <div className="ourservices-features">
+                    <h4 className="ourservices-features-title">What's Included:</h4>
+                    <div className="ourservices-features-list">
+                      {service.features.map((feature, idx) => (
+                        <span 
+                          key={idx} 
+                          className={`ourservices-feature-badge ourservices-badge-${service.color}`}
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <button className="ourservices-card-button">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Services */}
+      <section className="ourservices-additional-section">
+        <div className="ourservices-section-container">
+          <div className="ourservices-section-header">
+            <h2 className="ourservices-section-title">Additional Wellness Areas</h2>
+            <p className="ourservices-section-subtitle">
+              Specialized support for specific wellness challenges and lifestyle improvements.
+            </p>
+          </div>
+          
+          <div className="ourservices-additional-grid">
+            {additionalServices.map((service, index) => (
+              <div key={index} className="ourservices-additional-card">
+                <div className="ourservices-additional-content">
+                  <div className={`ourservices-additional-icon ourservices-additional-icon-${service.color}`}>
+                    <span>{service.icon}</span>
+                  </div>
+                  <div className="ourservices-additional-text">
+                    <h3 className="ourservices-additional-title">{service.title}</h3>
+                    <p className="ourservices-additional-description">{service.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="ourservices-how-section">
+        <div className="ourservices-section-container">
+          <div className="ourservices-section-header">
+            <h2 className="ourservices-section-title">How Our Services Work</h2>
+            <p className="ourservices-section-subtitle">
+              Getting started with Gruhap is simple and straightforward.
+            </p>
+          </div>
+          
+          <div className="ourservices-how-grid">
+            {howItWorks.map((step, index) => (
+              <div key={index} className="ourservices-how-card">
+                <div className="ourservices-step-number">
+                  {step.step}
+                </div>
+                <h3 className="ourservices-step-title">{step.title}</h3>
+                <p className="ourservices-step-description">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="ourservices-cta-section">
+        <div className="ourservices-cta-container">
+          <h2 className="ourservices-cta-title">Ready to Start Your Wellness Journey?</h2>
+          <p className="ourservices-cta-description">
+            Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
+          </p>
+          <button className="ourservices-cta-button">
+            Get Started Today
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default OurServices;
