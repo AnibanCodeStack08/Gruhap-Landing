@@ -580,6 +580,7 @@ font-size: 4.8rem;
      font-family: "Yeseva One", serif !important;
     margin-bottom: 0.5rem; /* Reduced from 0.6rem */
     line-height: 1.2;
+    color: black;
   }
   
   .hero-subtitle { 

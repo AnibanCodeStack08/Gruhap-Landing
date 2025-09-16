@@ -1,438 +1,454 @@
-/* About Container */
-.about-container {
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
+
+/* Body and heading styles for About page */
+.about-page-container {
+  margin: 0;
+  background: #FAFAFA;
+  color: #1F2937;
+  font-family: "Yeseva One", serif; /* Default for body text */
   min-height: 100vh;
   padding: 0;
-  margin: 0;
 }
 
-/* Hero Section */
-.hero-section {
-  width: 100%;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
-  margin-bottom: 40px;
+.about-page-container a { 
+  text-decoration: none; 
+  color: inherit; 
 }
 
-.hero-content {
+.about-page-container h1, 
+.about-page-container h2, 
+.about-page-container h3, 
+.about-page-container h4, 
+.about-page-container h5 { 
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700; 
+  margin: 0.5em 0; 
+}
+
+.about-page-container p { 
+  font-family: "Yeseva One", serif;
+  font-weight: 400; 
+  margin: 0.1em 6; 
+}
+
+/* About hero section */
+.about-hero-section {
+  background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
   text-align: center;
-  max-width: 900px;
+  padding: 80px 20px 60px 20px;
+  position: relative;
+}
+
+.about-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-hero-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  color: #3B82F6;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.about-hero-subtitle {
+  font-family: "Yeseva One", serif;
+  font-size: 1.15rem;
+  color: #14B8A6;
+  margin-bottom: 1.7em;
+  font-weight: 500;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Section wrappers */
+.about-story-wrapper,
+.about-values-wrapper,
+.about-team-wrapper,
+.about-cta-wrapper {
   width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 30px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+.about-story-card,
+.about-values-card,
+.about-team-card {
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+  padding: 2em;
 }
 
-.hero-description {
-  font-size: 1.4rem;
-  color: #475569;
+.about-cta-card {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  border-radius: 16px;
+  padding: 2em;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  border: 1px solid #E5E7EB;
+}
+
+/* Section headers */
+.about-section-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.about-section-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: #3B82F6;
+  margin: 0 auto 16px auto;
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-section-subtitle {
+  font-family: "Yeseva One", serif;
+  font-size: 1.08rem;
+  color: #6B7280;
   line-height: 1.7;
-  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* About story section */
+.about-story-card {
+  color: #1F2937;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.about-story-content {
+  text-align: center;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Section Wrapper - Full Screen Width Cards */
-.section-wrapper {
-  width: 100%;
-  padding: 0 20px;
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: center;
+.about-story-text {
+  display: block;
 }
 
-.section-card {
-  width: 100%;
-  max-width: 1400px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  padding: 60px 40px;
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.section-card:hover {
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Section Headers */
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  color: #64748b;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-  font-weight: 400;
-}
-
-/* Our Story Content */
-.story-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.story-text {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.story-paragraph {
-  font-size: 1.15rem;
+.about-story-paragraph {
+  font-family: "Yeseva One", serif;
+  font-size: 1.05rem;
   color: #374151;
   line-height: 1.8;
   margin: 0;
   font-weight: 400;
+  text-align: center;
 }
 
-.story-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.story-img {
-  width: 100%;
-  height: auto;
-  min-height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
-}
-
-.story-img:hover {
-  transform: scale(1.02);
-}
-
-/* Values Grid */
-.values-grid {
+/* Value Cards Grid */
+.about-values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
 }
 
-.value-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
-  overflow: hidden;
+@media (min-width: 700px) {
+  .about-values-grid {
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 
-.value-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-5px);
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.15),
-    0 10px 10px -5px rgba(0, 0, 0, 0.08);
+@media (max-width: 700px) {
+  .about-values-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.value-card-content {
-  padding: 35px;
+/* Value Card Style */
+.about-value-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  padding: 2em 1em;
+  text-align: center;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
 }
 
-.value-title {
-  font-size: 1.6rem;
+.about-value-card:hover {
+  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  transform: translateY(-4px);
+}
+
+.about-value-icon {
+  font-size: 2.3rem;
+  color: #14B8A6;
+  margin-bottom: 0.6em;
+}
+
+.about-value-card-content {
+  text-align: center;
+}
+
+.about-value-title {
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
-  color: #1e293b;
+  color: #3B82F6;
+  font-size: 1.13rem;
   margin-bottom: 16px;
-  letter-spacing: -0.01em;
 }
 
-.value-description {
-  color: #475569;
-  font-size: 1.1rem;
-  line-height: 1.7;
+.about-value-description {
+  font-family: "Yeseva One", serif;
+  font-size: 0.97rem;
+  color: #6B7280;
+  margin-top: 0.7em;
+  line-height: 1.6;
   margin: 0;
-  font-weight: 400;
 }
 
 /* Team Grid */
-.team-grid {
+.about-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
-  margin-top: 20px;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
 }
 
-.team-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
+@media (min-width: 700px) {
+  .about-team-grid {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Team Card Style */
+.about-team-member-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2em 1em;
   text-align: center;
-  overflow: hidden;
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  border: 1px solid #E5E7EB;
+  min-height: 320px;
 }
 
-.team-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-5px);
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.15),
-    0 10px 10px -5px rgba(0, 0, 0, 0.08);
+.about-team-member-card:hover {
+  box-shadow: 0 4px 32px rgba(59,130,246,0.15);
+  transform: translateY(-4px);
 }
 
-.team-card-content {
-  padding: 35px;
+.about-team-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.member-info {
-  margin-bottom: 20px;
+.about-member-image-wrapper {
+  position: relative;
+  margin-bottom: 24px;
 }
 
-.member-image {
-  width: 120px;
-  height: 120px;
+.about-member-image {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 20px auto;
   display: block;
-  border: 4px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  border: 4px solid #ffffff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
 }
 
-.member-image:hover {
-  transform: scale(1.05);
+.about-team-member-card:hover .about-member-image {
+  transform: scale(1.1);
 }
 
-.member-name {
-  font-size: 1.4rem;
+.about-member-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-member-name {
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
-  color: #1e293b;
+  color: #10B981;
+  font-size: 1.3rem;
   margin: 0 0 8px 0;
-  letter-spacing: -0.01em;
 }
 
-.member-role {
-  color: #f87171;
+.about-member-role {
+  font-family: "Josefin Sans", sans-serif;
+  color: #3B82F6;
+  font-size: 1rem;
   font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.about-member-specialty {
+  font-family: "Yeseva One", serif;
+  color: #6B7280;
+  font-size: 0.97rem;
+  margin-top: 0.3em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ECFDF5;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 1px solid #d1fae5;
+}
+
+.about-specialty-icon {
+  font-size: 0.9rem;
+}
+
+/* Call to Action Section */
+.about-cta-card {
+  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  color: white;
+  text-align: center;
+}
+
+.about-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-cta-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.about-cta-description {
+  font-family: "Yeseva One", serif;
+  font-size: 1.2rem;
+  color: #E5E7EB;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.about-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-cta-primary,
+.about-cta-secondary {
   font-size: 1.1rem;
-  margin: 0 0 20px 0;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 180px;
+  font-family: "Josefin Sans", sans-serif; /* Buttons keep consistent style */
 }
 
-.member-specialty {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-  color: #475569;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+.about-cta-primary {
+  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  color: white;
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
+}
+
+.about-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
+}
+
+.about-cta-secondary {
+  background: transparent;
+  color: #14B8A6;
+  border: 2px solid #14B8A6;
+}
+
+.about-cta-secondary:hover {
+  background: #14B8A6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  .section-card {
-    padding: 50px 35px;
-  }
-  
-  .hero-title {
-    font-size: 3.5rem;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-  }
-  
-  .story-content {
-    gap: 50px;
-  }
-}
-
 @media (max-width: 1024px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .hero-description {
-    font-size: 1.25rem;
-  }
-  
-  .section-card {
-    padding: 45px 30px;
-  }
-  
-  .section-title {
-    font-size: 2.25rem;
-  }
-  
-  .story-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .story-image {
-    order: -1;
-  }
-  
-  .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-  }
-  
-  .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+  .about-hero-section {
+    padding: 60px 20px 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 60px 15px;
-    min-height: 50vh;
+  .about-hero-section {
+    padding: 60px 20px 40px;
   }
   
-  .hero-title {
-    font-size: 2.5rem;
+  .about-hero-title {
+    font-size: 2.8rem;
   }
   
-  .hero-description {
+  .about-hero-subtitle {
     font-size: 1.1rem;
   }
   
-  .section-wrapper {
-    padding: 0 15px;
-    margin-bottom: 40px;
+  .about-story-card,
+  .about-values-card,
+  .about-team-card,
+  .about-cta-card {
+    padding: 1.5em;
   }
   
-  .section-card {
-    padding: 35px 25px;
-    border-radius: 20px;
-  }
-  
-  .section-title {
+  .about-section-title {
     font-size: 2rem;
   }
   
-  .section-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .section-header {
-    margin-bottom: 35px;
-  }
-  
-  .story-content {
-    gap: 30px;
-  }
-  
-  .story-paragraph {
-    font-size: 1.05rem;
-  }
-  
-  .story-img {
-    min-height: 300px;
-  }
-  
-  .values-grid,
-  .team-grid {
+  .about-values-grid,
+  .about-team-grid {
     gap: 20px;
   }
   
-  .value-card-content,
-  .team-card-content {
-    padding: 25px;
+  .about-cta-title {
+    font-size: 2rem;
   }
   
-  .value-title {
-    font-size: 1.4rem;
-  }
-  
-  .value-description {
-    font-size: 1rem;
-  }
-  
-  .member-image {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .member-name {
-    font-size: 1.25rem;
-  }
-  
-  .member-role {
-    font-size: 1rem;
+  .about-cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
+  .about-hero-title {
+    font-size: 2.2rem;
   }
   
-  .hero-description {
+  .about-hero-subtitle {
     font-size: 1rem;
   }
   
-  .section-card {
-    padding: 25px 20px;
+  .about-section-title {
+    font-size: 1.8rem;
   }
   
-  .section-title {
-    font-size: 1.75rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
-  }
-  
-  .values-grid,
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .value-card-content,
-  .team-card-content {
-    padding: 20px;
-  }
-  
-  .story-img {
-    min-height: 250px;
-  }
-  
-  .member-image {
-    width: 90px;
-    height: 90px;
+  .about-value-card,
+  .about-team-member-card {
+    min-width: 220px;
   }
 }
