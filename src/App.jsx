@@ -9,6 +9,8 @@ import About from "./pages/About/About";
 import OurServices from "./pages/OurServices/OurServices";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Contact from "./pages/Contact/Contact";
+import Login from "./pages/Auth/Login";
+import SignUp from "./pages/Auth/SignUp";
 
 // Components
 import Navbar from "./components/Navbar/Navbar";
@@ -24,6 +26,8 @@ const App = () => {
         <Route path="/our-services" element={<OurServices />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
 
-
-
 /* Navbar Component Styles */
 .navbar {
   display: flex;
@@ -66,8 +64,8 @@
 }
 
 .navbar-nav-link {
-  color: black;
-  text-decoration: none;
+  color: black !important;
+  text-decoration: none !important;
   transition: color 0.3s ease;
   font-weight: 500;
   font-size: 0.91rem;
@@ -75,7 +73,7 @@
 }
 
 .navbar-nav-link:hover {
-  color: #16a34a;
+  color: #16a34a !important;
 }
 
 .navbar-nav-actions {
@@ -85,9 +83,9 @@
 }
 
 .navbar-login-btn {
-   background-color: none; /* light cream background */
-  border: none; /* no border */
-  color: #000000; /* black text */
+  background-color: #f0f0f0!important; /* light cream background */
+  border: none !important; /* no border */
+  color: #000000 !important; /* black text */
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
@@ -96,18 +94,21 @@
   border-radius: 0.5rem; /* rounded corners */
   font-family: "Josefin Sans", sans-serif;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* subtle shadow */
+  text-decoration: none !important;
+  display: inline-block;
 }
 
 .navbar-login-btn:hover {
-  color: #16a34a;
-  background-color: rgba(22, 163, 74, 0.05);
+  color: #16a34a !important;
+  background-color: rgba(22, 163, 74, 0.05) !important;
+  text-decoration: none !important;
 }
 
 .navbar-get-started-btn {
-  background: black;
+  background: black !important;
   backdrop-filter: blur(10px);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   padding: 0.70rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -115,12 +116,16 @@
   font-size: 0.90rem;
   font-weight: 500;
   font-family: "Josefin Sans", sans-serif;
+  text-decoration: none !important;
+  display: inline-block;
 }
 
 .navbar-get-started-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8) !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /* Mobile Menu Button */
@@ -188,8 +193,8 @@
 
 .navbar-mobile-nav-link {
   display: block;
-  color: black;
-  text-decoration: none;
+  color: black !important;
+  text-decoration: none !important;
   padding: 1rem 1.5rem;
   transition: all 0.3s ease;
   font-weight: 500;
@@ -200,7 +205,8 @@
 .navbar-mobile-nav-link:hover,
 .navbar-mobile-nav-link:active {
   background-color: rgba(22, 163, 74, 0.1);
-  color: #16a34a;
+  color: #16a34a !important;
+  text-decoration: none !important;
 }
 
 .navbar-mobile-nav-actions {
@@ -212,9 +218,9 @@
 }
 
 .navbar-mobile-login-btn {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: black;
+  background: #f0f0f0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: black !important;
   cursor: pointer;
   padding: 0.875rem 1rem;
   border-radius: 0.5rem;
@@ -224,19 +230,23 @@
   width: 100%;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
+  text-decoration: none !important;
+  display: block;
+  box-sizing: border-box;
 }
 
 .navbar-mobile-login-btn:hover,
 .navbar-mobile-login-btn:active {
-  background-color: rgba(22, 163, 74, 0.05);
-  border-color: #16a34a;
-  color: #16a34a;
+  background-color: rgba(22, 163, 74, 0.05) !important;
+  border-color: #16a34a !important;
+  color: #16a34a !important;
+  text-decoration: none !important;
 }
 
 .navbar-mobile-get-started-btn {
-  background: black;
-  color: white;
-  border: none;
+  background: black !important;
+  color: white !important;
+  border: none !important;
   cursor: pointer;
   padding: 0.875rem 1rem;
   border-radius: 0.5rem;
@@ -245,13 +255,19 @@
   font-weight: 500;
   width: 100%;
   text-align: center;
+  text-decoration: none !important;
+  display: block;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .navbar-mobile-get-started-btn:hover,
 .navbar-mobile-get-started-btn:active {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.85) !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /* Body offset for sticky navbar */
