@@ -7,22 +7,19 @@ const OurServices = () => {
       icon: "🧠",
       title: "Mental Health Support",
       description: "24/7 access to AI-powered mental health professionals for stress, anxiety, depression, and emotional well-being.",
-      features: ["Stress Management", "Anxiety Support", "Depression Care", "Mindfulness Training", "Cognitive Behavioral Therapy", "Crisis Support"],
-      color: "blue"
+      features: ["Stress Management", "Anxiety Support", "Depression Care", "Mindfulness Training", "Cognitive Behavioral Therapy", "Crisis Support"]
     },
     {
       icon: "💪",
       title: "Fitness & Exercise",
       description: "Personalized fitness plans, workout guidance, and exercise recommendations tailored to your goals and fitness level.",
-      features: ["Custom Workout Plans", "Exercise Form Guidance", "Progress Tracking", "Injury Prevention", "Strength Training", "Cardio Programs"],
-      color: "purple"
+      features: ["Custom Workout Plans", "Exercise Form Guidance", "Progress Tracking", "Injury Prevention", "Strength Training", "Cardio Programs"]
     },
     {
       icon: "🍎",
       title: "Nutrition Guidance",
       description: "Expert nutritional advice, meal planning, and dietary recommendations for optimal health and wellness.",
-      features: ["Meal Planning", "Dietary Analysis", "Weight Management", "Special Diets", "Supplement Advice", "Healthy Recipes"],
-      color: "coral"
+      features: ["Meal Planning", "Dietary Analysis", "Weight Management", "Special Diets", "Supplement Advice", "Healthy Recipes"]
     }
   ];
 
@@ -30,26 +27,22 @@ const OurServices = () => {
     {
       icon: "🌙",
       title: "Sleep Optimization",
-      description: "Improve your sleep quality with personalized sleep hygiene recommendations and relaxation techniques.",
-      color: "indigo"
+      description: "Improve your sleep quality with personalized sleep hygiene recommendations and relaxation techniques."
     },
     {
       icon: "⚡",
       title: "Productivity & Focus",
-      description: "Enhance your productivity with time management strategies and focus-building techniques.",
-      color: "yellow"
+      description: "Enhance your productivity with time management strategies and focus-building techniques."
     },
     {
       icon: "👥",
       title: "Relationship Support",
-      description: "Navigate relationship challenges with communication strategies and emotional intelligence tools.",
-      color: "green"
+      description: "Navigate relationship challenges with communication strategies and emotional intelligence tools."
     },
     {
       icon: "⏰",
       title: "Burnout Prevention",
-      description: "Identify early signs of burnout and develop healthy coping mechanisms for work-life balance.",
-      color: "red"
+      description: "Identify early signs of burnout and develop healthy coping mechanisms for work-life balance."
     }
   ];
 
@@ -77,20 +70,20 @@ const OurServices = () => {
   ];
 
   return (
-    <div className="ourservices-container">
+    <div className="ourservices-page-container">
       {/* Hero Section */}
-      <section className="ourservices-hero">
+      <section className="ourservices-hero-section">
         <div className="ourservices-hero-content">
           <h1 className="ourservices-hero-title">Our Services</h1>
-          <p className="ourservices-hero-description">
+          <p className="ourservices-hero-subtitle">
             Comprehensive wellness support powered by AI professionals, available 24/7 to help you achieve your health and wellness goals.
           </p>
         </div>
       </section>
 
-      {/* Main Services */}
-      <section className="ourservices-main-section">
-        <div className="ourservices-section-container">
+      {/* Main Services Section */}
+      <div className="ourservices-main-wrapper">
+        <div className="ourservices-main-container">
           <div className="ourservices-section-header">
             <h2 className="ourservices-section-title">Core Services</h2>
             <p className="ourservices-section-subtitle">
@@ -100,10 +93,10 @@ const OurServices = () => {
           
           <div className="ourservices-main-grid">
             {mainServices.map((service, index) => (
-              <div key={index} className="ourservices-main-card">
+              <div key={index} className="ourservices-service-card">
                 <div className="ourservices-card-header">
-                  <div className={`ourservices-icon-wrapper ourservices-icon-${service.color}`}>
-                    <span className="ourservices-icon">{service.icon}</span>
+                  <div className="ourservices-icon-wrapper">
+                    <span>{service.icon}</span>
                   </div>
                   <h3 className="ourservices-card-title">{service.title}</h3>
                 </div>
@@ -115,10 +108,7 @@ const OurServices = () => {
                     <h4 className="ourservices-features-title">What's Included:</h4>
                     <div className="ourservices-features-list">
                       {service.features.map((feature, idx) => (
-                        <span 
-                          key={idx} 
-                          className={`ourservices-feature-badge ourservices-badge-${service.color}`}
-                        >
+                        <span key={idx} className="ourservices-feature-badge">
                           {feature}
                         </span>
                       ))}
@@ -132,11 +122,11 @@ const OurServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Additional Services */}
-      <section className="ourservices-additional-section">
-        <div className="ourservices-section-container">
+      {/* Additional Services Section */}
+      <div className="ourservices-additional-wrapper">
+        <div className="ourservices-additional-container">
           <div className="ourservices-section-header">
             <h2 className="ourservices-section-title">Additional Wellness Areas</h2>
             <p className="ourservices-section-subtitle">
@@ -146,9 +136,9 @@ const OurServices = () => {
           
           <div className="ourservices-additional-grid">
             {additionalServices.map((service, index) => (
-              <div key={index} className="ourservices-additional-card">
+              <div key={index} className="ourservices-additional-service-card">
                 <div className="ourservices-additional-content">
-                  <div className={`ourservices-additional-icon ourservices-additional-icon-${service.color}`}>
+                  <div className="ourservices-additional-icon">
                     <span>{service.icon}</span>
                   </div>
                   <div className="ourservices-additional-text">
@@ -160,11 +150,11 @@ const OurServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* How It Works */}
-      <section className="ourservices-how-section">
-        <div className="ourservices-section-container">
+      {/* How It Works Section */}
+      <div className="ourservices-how-wrapper">
+        <div className="ourservices-how-container">
           <div className="ourservices-section-header">
             <h2 className="ourservices-section-title">How Our Services Work</h2>
             <p className="ourservices-section-subtitle">
@@ -174,7 +164,7 @@ const OurServices = () => {
           
           <div className="ourservices-how-grid">
             {howItWorks.map((step, index) => (
-              <div key={index} className="ourservices-how-card">
+              <div key={index} className="ourservices-how-step-card">
                 <div className="ourservices-step-number">
                   {step.step}
                 </div>
@@ -184,20 +174,27 @@ const OurServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* CTA Section */}
-      <section className="ourservices-cta-section">
+      <div className="ourservices-cta-wrapper">
         <div className="ourservices-cta-container">
-          <h2 className="ourservices-cta-title">Ready to Start Your Wellness Journey?</h2>
-          <p className="ourservices-cta-description">
-            Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
-          </p>
-          <button className="ourservices-cta-button">
-            Get Started Today
-          </button>
+          <div className="ourservices-cta-content">
+            <h2 className="ourservices-cta-title">Ready to Start Your Wellness Journey?</h2>
+            <p className="ourservices-cta-description">
+              Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
+            </p>
+            <div className="ourservices-cta-buttons">
+              <button className="ourservices-cta-primary">
+                Get Started Today
+              </button>
+              <button className="ourservices-cta-secondary">
+                Learn More
+              </button>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

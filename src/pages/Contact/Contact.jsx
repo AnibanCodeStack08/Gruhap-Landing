@@ -30,24 +30,21 @@ const Contact = () => {
       title: 'Live Chat',
       description: 'Chat with our support team in real-time',
       action: 'Start Chat',
-      availability: '24/7 Available',
-      color: 'blue'
+      availability: '24/7 Available'
     },
     {
       icon: '✉️',
       title: 'Email Support',
       description: 'Send us a detailed message',
       action: 'Send Email',
-      availability: 'Response within 24 hours',
-      color: 'purple'
+      availability: 'Response within 24 hours'
     },
     {
       icon: '📞',
       title: 'Phone Support',
       description: 'Speak directly with our team',
       action: 'Call Now',
-      availability: 'Mon-Fri, 9AM-6PM EST',
-      color: 'coral'
+      availability: 'Mon-Fri, 9AM-6PM EST'
     }
   ];
 
@@ -130,7 +127,7 @@ const Contact = () => {
             <div className="contact-methods-grid">
               {contactMethods.map((method, index) => (
                 <div key={index} className="contact-method-card">
-                  <div className={`contact-method-icon ${method.color}`}>
+                  <div className="contact-method-icon">
                     {method.icon}
                   </div>
                   <h3 className="contact-method-title">{method.title}</h3>
@@ -151,14 +148,23 @@ const Contact = () => {
       {/* Contact Form & Office Info */}
       <section className="contact-form-section">
         <div className="contact-container">
+          <div className="contact-section-header">
+            <h2 className="contact-section-title">Send us a Message</h2>
+            <p className="contact-section-subtitle">
+              Fill out the form below and we'll get back to you within 24 hours.
+            </p>
+          </div>
+          
           <div className="contact-form-wrapper">
             <div className="contact-form-grid">
               {/* Contact Form Card */}
               <div className="contact-form-card">
                 <div className="contact-card-header">
-                  <h2 className="contact-card-title">Send us a Message</h2>
+                  <h2 className="contact-card-title">
+                    <span>📝</span> Contact Form
+                  </h2>
                   <p className="contact-card-subtitle">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Tell us how we can help you with your wellness journey.
                   </p>
                 </div>
                 <form onSubmit={handleSubmit} className="contact-form">

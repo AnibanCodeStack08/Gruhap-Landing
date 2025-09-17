@@ -1,193 +1,236 @@
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
 
-/* Base Styles */
+/* Body and heading styles for Contact page */
 .contact-page {
+  margin: 0;
+  background: #FAFAFA;
+  color: #1F2937;
+  font-family: "Yeseva One", serif; /* Default for body text */
   min-height: 100vh;
+  padding: 0;
+}
+
+.contact-page a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.contact-page h1, 
+.contact-page h2, 
+.contact-page h3, 
+.contact-page h4, 
+.contact-page h5 { 
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700; 
+  margin: 0.5em 0; 
+}
+
+.contact-page p { 
+  font-family: "Yeseva One", serif;
+  font-weight: 400; 
+  margin: 0.1em 6; 
 }
 
 .contact-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Hero Section */
+/* Contact hero section */
 .contact-hero {
-  background: transparent;
-  padding: 100px 0;
+  background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
   text-align: center;
+  padding: 80px 20px 60px 20px;
+  position: relative;
 }
 
 .contact-hero-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 56px;
-  font-weight: 600;
-  color: black;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
+  font-size: 2.5rem;
+  color: #3B82F6;
+  margin-bottom: 24px;
+  font-weight: 700;
 }
 
 .contact-hero-subtitle {
   font-family: "Yeseva One", serif;
-  font-size: 20px;
-  color: black;
-  max-width: 700px;
-  margin: 0 auto;
+  font-size: 1.15rem;
+  color: #14B8A6;
+  margin-bottom: 1.7em;
+  font-weight: 500;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.6;
 }
 
-/* Section Headers */
+/* Section wrappers */
+.contact-methods-section,
+.contact-form-section,
+.contact-faq-section,
+.contact-cta-section {
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Section headers */
 .contact-section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 2em;
 }
 
 .contact-section-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 42px;
-  font-weight: 600;
-  color: #1a202c;
-  margin-bottom: 16px;
+  font-size: 2rem;
+  color: #3B82F6;
+  margin: 0 auto 16px auto;
+  font-weight: 700;
+  text-align: center;
 }
 
 .contact-section-subtitle {
   font-family: "Yeseva One", serif;
-  font-size: 18px;
-  color: #718096;
-  max-width: 700px;
+  font-size: 1.08rem;
+  color: #6B7280;
+  line-height: 1.7;
+  max-width: 600px;
   margin: 0 auto;
-  line-height: 1.6;
+  text-align: center;
 }
 
 /* Contact Methods Section */
-.contact-methods-section {
-  padding: 80px 0;
-  /* background-color: #ffffff; */
-}
-
 .contact-cards-wrapper {
-  background-color: #f7fafc;
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+  padding: 2em;
 }
 
 .contact-methods-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 900px) {
+  .contact-methods-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-methods-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-method-card {
-  background: #ffffff;
+  background: #e9eaf7;
   border-radius: 16px;
-  padding: 40px 30px;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  padding: 2em 1em;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
 }
 
 .contact-method-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  border-color: #667eea;
+  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  transform: translateY(-4px);
 }
 
 .contact-method-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
-  display: inline-block;
-}
-
-.contact-method-icon.blue {
-  background: linear-gradient(135deg, #667eea, #5a67d8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.contact-method-icon.purple {
-  background: linear-gradient(135deg, #764ba2, #667eea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.contact-method-icon.coral {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.3rem;
+  color: #14B8A6;
+  margin-bottom: 0.6em;
+  display: block;
 }
 
 .contact-method-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #1a202c;
-  margin-bottom: 12px;
+  font-weight: 700;
+  color: #3B82F6;
+  font-size: 1.13rem;
+  margin-bottom: 16px;
 }
 
 .contact-method-description {
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #718096;
+  font-size: 0.97rem;
+  color: #6B7280;
   margin-bottom: 20px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .contact-availability-badge {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #edf2f7;
-  color: #4a5568;
-  border-radius: 20px;
+  background: #ECFDF5;
+  color: #6B7280;
+  border-radius: 16px;
   font-family: "Yeseva One", serif;
-  font-size: 14px;
+  font-size: 0.85rem;
   margin-bottom: 24px;
+  border: 1px solid #d1fae5;
 }
 
 .contact-method-button {
-  width: 100%;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 16px;
   border: none;
-  border-radius: 8px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 140px;
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  color: white;
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
 }
 
 .contact-method-button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
 }
 
 /* Contact Form Section */
-.contact-form-section {
-  padding: 80px 0;
-  /* background-color: #f7fafc; */
-}
-
 .contact-form-wrapper {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 60px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+  padding: 2em;
 }
 
 .contact-form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-gap: 60px;
+  margin: 2em auto;
+}
+
+@media (min-width: 900px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-form-card {
-  background-color: #ffffff;
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  padding: 2em;
+  border: 1px solid #E5E7EB;
 }
 
 .contact-card-header {
@@ -196,10 +239,10 @@
 
 .contact-card-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a202c;
+  font-size: 1.5rem;
+  color: #3B82F6;
   margin-bottom: 10px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -207,9 +250,9 @@
 
 .contact-card-subtitle {
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #718096;
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #6B7280;
+  line-height: 1.6;
 }
 
 .contact-form {
@@ -224,6 +267,12 @@
   gap: 20px;
 }
 
+@media (max-width: 600px) {
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-form-group {
   display: flex;
   flex-direction: column;
@@ -231,20 +280,20 @@
 
 .contact-label {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3B82F6;
   margin-bottom: 8px;
 }
 
 .contact-input,
 .contact-textarea {
   padding: 12px 16px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid #E5E7EB;
   border-radius: 8px;
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #2d3748;
+  font-size: 1rem;
+  color: #1F2937;
   transition: all 0.3s ease;
   background-color: #ffffff;
 }
@@ -252,8 +301,8 @@
 .contact-input:focus,
 .contact-textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .contact-textarea {
@@ -262,16 +311,17 @@
 }
 
 .contact-submit-button {
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  border-radius: 16px;
   border: none;
-  border-radius: 8px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  color: white;
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,10 +330,10 @@
 
 .contact-submit-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
 }
 
-/* Office Information */
+/* Info Column */
 .contact-info-column {
   display: flex;
   flex-direction: column;
@@ -292,10 +342,11 @@
 
 .contact-office-card,
 .contact-social-card {
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid #e2e8f0;
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  padding: 2em;
+  border: 1px solid #E5E7EB;
 }
 
 .contact-office-info {
@@ -311,8 +362,8 @@
 }
 
 .contact-info-icon {
-  font-size: 20px;
-  color: #718096;
+  font-size: 1.2rem;
+  color: #14B8A6;
   margin-top: 2px;
 }
 
@@ -322,16 +373,16 @@
 
 .contact-info-label {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3B82F6;
   margin-bottom: 4px;
 }
 
 .contact-info-value {
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #2d3748;
+  font-size: 1rem;
+  color: #1F2937;
   line-height: 1.5;
 }
 
@@ -342,75 +393,86 @@
 
 .contact-social-text {
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #718096;
+  font-size: 1rem;
+  color: #6B7280;
   margin-bottom: 20px;
 }
 
 .contact-social-buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .contact-social-button {
   padding: 10px 20px;
-  background-color: #ffffff;
-  border: 2px solid #e2e8f0;
+  background: transparent;
+  border: 2px solid #14B8A6;
   border-radius: 8px;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #14B8A6;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-social-button:hover {
-  background-color: #667eea;
-  border-color: #667eea;
+  background: #14B8A6;
   color: white;
   transform: translateY(-2px);
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
 }
 
 /* FAQ Section */
-.contact-faq-section {
-  padding: 80px 0;
-}
-
 .contact-faq-wrapper {
-  background-color: #f7fafc;
-  border-radius: 20px;
-  padding: 60px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+  padding: 2em;
 }
 
 .contact-faq-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 900px) {
+  .contact-faq-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-faq-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-faq-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  padding: 2em;
+  border: 1px solid #E5E7EB;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
 }
 
 .contact-faq-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  transform: translateY(-4px);
 }
 
 .contact-faq-category {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #1a202c;
+  font-weight: 700;
+  color: #3B82F6;
+  font-size: 1.25rem;
   margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #E5E7EB;
 }
 
 .contact-faq-list {
@@ -430,112 +492,139 @@
   background-color: transparent;
   border: none;
   font-family: "Yeseva One", serif;
-  font-size: 16px;
-  color: #4a5568;
+  font-size: 0.95rem;
+  color: #6B7280;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 8px;
 }
 
 .contact-faq-button:hover {
-  background-color: #edf2f7;
-  color: #667eea;
+  background: #ECFDF5;
+  color: #14B8A6;
   padding-left: 24px;
+  border: 1px solid #d1fae5;
 }
 
 /* CTA Section */
 .contact-cta-section {
-  padding: 100px 0;
+  padding: 30px 20px;
 }
 
 .contact-cta-content {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  border-radius: 16px;
+  padding: 2em;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  border: 1px solid #E5E7EB;
   text-align: center;
-  max-width: 800px;
+  color: white;
   margin: 0 auto;
 }
 
 .contact-cta-title {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 42px;
-  font-weight: 600;
-  color: black;
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: white;
 }
 
 .contact-cta-text {
   font-family: "Yeseva One", serif;
-  font-size: 20px;
-  color: black;
+  font-size: 1.2rem;
+  color: #E5E7EB;
+  line-height: 1.7;
   margin-bottom: 40px;
-  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-cta-button {
-  padding: 18px 48px;
-  background-color: #ffffff;
-  color: black;
-  border: none;
-  border-radius: 50px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 16px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 180px;
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  color: white;
+  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
 }
 
 .contact-cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  background-color: #f7fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .contact-form-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .contact-faq-grid {
-    grid-template-columns: 1fr;
+  .contact-hero {
+    padding: 60px 20px 40px;
   }
 }
 
 @media (max-width: 768px) {
+  .contact-hero {
+    padding: 60px 20px 40px;
+  }
+  
   .contact-hero-title {
-    font-size: 36px;
+    font-size: 2.2rem;
+  }
+  
+  .contact-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .contact-cards-wrapper,
+  .contact-form-wrapper,
+  .contact-faq-wrapper {
+    padding: 1.5em;
   }
   
   .contact-section-title {
-    font-size: 32px;
+    font-size: 1.8rem;
   }
   
-  .contact-methods-grid {
-    grid-template-columns: 1fr;
+  .contact-methods-grid,
+  .contact-faq-grid {
+    gap: 20px;
   }
   
-  .contact-form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-form-wrapper {
-    padding: 30px;
-  }
-  
-  .contact-cards-wrapper {
-    padding: 20px;
-  }
-  
-  .contact-faq-wrapper {
-    padding: 30px;
+  .contact-cta-title {
+    font-size: 2rem;
   }
   
   .contact-social-buttons {
-    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero-title {
+    font-size: 2rem;
   }
   
-  .contact-social-button {
-    width: 100%;
+  .contact-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-section-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-method-card,
+  .contact-form-card,
+  .contact-office-card,
+  .contact-social-card,
+  .contact-faq-card {
+    min-width: 220px;
   }
 }
