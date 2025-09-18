@@ -24,33 +24,6 @@ const values = [
   }
 ];
 
-const team = [
-  {
-    name: "Dr. Sarah Chen",
-    role: "Chief Medical Officer",
-    specialty: "Clinical Psychology",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=center"
-  },
-  {
-    name: "Alex Rodriguez",
-    role: "Head of Fitness Programs",
-    specialty: "Exercise Science",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center"
-  },
-  {
-    name: "Maya Patel",
-    role: "Chief Nutritionist",
-    specialty: "Clinical Nutrition",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b1c5?w=400&h=400&fit=crop&crop=center"
-  },
-  {
-    name: "Dr. David Kim",
-    role: "Head of Mental Health",
-    specialty: "Psychiatry",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=center"
-  }
-];
-
 export default function About() {
   return (
     <div className="about-page-container">
@@ -59,9 +32,8 @@ export default function About() {
         <div className="about-hero-content">
           <h1 className="about-hero-title">About Gruhap</h1>
           <p className="about-hero-subtitle">
-            We're on a mission to make wellness accessible, personalized, and effective for everyone through the power of AI technology.
+            Making wellness simple, personal, and effective with AI.
           </p>
-
         </div>
       </section>
 
@@ -77,6 +49,13 @@ export default function About() {
                 Gruhap was founded to make wellness support more accessible and effective by replacing expensive, time-consuming traditional methods with instant, personalized guidance from AI-trained professionals. Our platform delivers 24/7 expert support for mental health, fitness, and nutrition, combining the latest research with compassionate care.
               </p>
             </div>
+            <div className="about-story-image">
+              <img
+                src="https://magai.co/wp-content/uploads/2025/07/magai-conclusion-aligning-AI-goals-1024x572.jpg"
+                alt="AI Goals Alignment"
+                className="about-story-img"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -87,7 +66,7 @@ export default function About() {
           <div className="about-section-header">
             <h2 className="about-section-title">Our Values</h2>
             <p className="about-section-subtitle">
-              These core values guide everything we do at Gruhap, from product development to customer support.
+              Everything at Gruhap starts with our core values.
             </p>
           </div>
           <div className="about-values-grid">
@@ -104,48 +83,13 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="about-team-wrapper">
-        <div className="about-team-card">
-          <div className="about-section-header">
-            <h2 className="about-section-title">Meet Our Team</h2>
-            <p className="about-section-subtitle">
-              Our diverse team of experts brings together decades of experience in healthcare, technology, and wellness.
-            </p>
-          </div>
-          <div className="about-team-grid">
-            {team.map((member, index) => (
-              <div key={index} className="about-team-member-card">
-                <div className="about-team-card-content">
-                  <div className="about-member-image-wrapper">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="about-member-image"
-                    />
-                  </div>
-                  <div className="about-member-info">
-                    <h3 className="about-member-name">{member.name}</h3>
-                    <p className="about-member-role">{member.role}</p>
-                    <div className="about-member-specialty">
-                      <span className="about-specialty-icon">📋</span>
-                      {member.specialty}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action Section */}
       <section className="about-cta-wrapper">
         <div className="about-cta-card">
           <div className="about-cta-content">
             <h2 className="about-cta-title">Ready to Start Your Wellness Journey?</h2>
             <p className="about-cta-description">
-              Join thousands of others who have transformed their lives with Gruhap's AI-powered wellness support.
+              Join thousands of others who have transformed their lives with Gruhap's AI-Trained wellness support.
             </p>
             <div className="about-cta-buttons">
               <button className="about-cta-primary">Get Started Today</button>

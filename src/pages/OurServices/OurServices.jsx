@@ -35,9 +35,10 @@ const OurServices = () => {
       description: "Enhance your productivity with time management strategies and focus-building techniques."
     },
     {
-      icon: "👥",
-      title: "Relationship Support",
-      description: "Navigate relationship challenges with communication strategies and emotional intelligence tools."
+      icon: "🥗",
+      title: "Nutrition Guidance",
+      description: "Build healthy eating habits with personalized meal plans, expert tips, and sustainable nutrition strategies."
+
     },
     {
       icon: "⏰",
@@ -76,7 +77,7 @@ const OurServices = () => {
         <div className="ourservices-hero-content">
           <h1 className="ourservices-hero-title">Our Services</h1>
           <p className="ourservices-hero-subtitle">
-            Comprehensive wellness support powered by AI professionals, available 24/7 to help you achieve your health and wellness goals.
+            Smarter, always-on support to keep you on track with your wellness journey.
           </p>
         </div>
       </section>
@@ -90,7 +91,7 @@ const OurServices = () => {
               Our three main pillars of wellness support, each powered by specialized AI professionals.
             </p>
           </div>
-          
+
           <div className="ourservices-main-grid">
             {mainServices.map((service, index) => (
               <div key={index} className="ourservices-service-card">
@@ -133,7 +134,7 @@ const OurServices = () => {
               Specialized support for specific wellness challenges and lifestyle improvements.
             </p>
           </div>
-          
+
           <div className="ourservices-additional-grid">
             {additionalServices.map((service, index) => (
               <div key={index} className="ourservices-additional-service-card">
@@ -161,7 +162,7 @@ const OurServices = () => {
               Getting started with Gruhap is simple and straightforward.
             </p>
           </div>
-          
+
           <div className="ourservices-how-grid">
             {howItWorks.map((step, index) => (
               <div key={index} className="ourservices-how-step-card">

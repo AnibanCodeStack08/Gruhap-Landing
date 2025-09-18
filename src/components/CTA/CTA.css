@@ -1,11 +1,13 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap');
+
 /* Card wrapper for the entire CTA section */
 .cta-wrapper {
   color: black;
   padding: 80px 20px;
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   position: relative;
+  margin-bottom: 90px;
 }
 
 .cta-wrapper::before {
@@ -60,7 +62,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .content-center {
@@ -72,7 +74,7 @@
 }
 
 .content-center h1 {
-  font-family: "Yeseva One", serif; 
+  font-family: "Playfair Display", serif; 
   font-size: 40px;
   font-weight: 700;
   color: #333;
@@ -82,9 +84,9 @@
 }
 
 .content-center p {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 400;
   color: #666;
   line-height: 1.4;
   margin-bottom: 32px;
@@ -94,7 +96,7 @@
 }
 
 .cta-button {
- font-family: "Josefin Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   background-color: #000;
   color: white;
@@ -122,7 +124,7 @@
 
 /* Optional: Add a decorative element with script font */
 .content-center::before {
-  font-family: 'Caveat', cursive;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
   color: #999;
   display: block;
@@ -131,7 +133,7 @@
 
 /* Alternative script font styling for special text */
 .script-text {
-  font-family: 'Caveat', cursive;
+  font-family: "Playfair Display", serif;
   font-weight: 500;
   font-size: 18px;
   color: #777;

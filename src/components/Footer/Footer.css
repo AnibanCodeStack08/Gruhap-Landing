@@ -4,7 +4,7 @@
 /* Footer.css */
 .footer {
   color: black;
-  padding: 80px 20px;
+  padding: 0px 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   position: relative;
   zoom: 0.8;
@@ -24,7 +24,7 @@
 
 .footer-container {
   max-width: 1850px;
-  margin: 40px auto;
+  margin: 0px auto;
   position: relative;
   z-index: 1;
 }

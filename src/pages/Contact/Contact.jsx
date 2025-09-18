@@ -108,7 +108,7 @@ const Contact = () => {
         <div className="contact-container">
           <h1 className="contact-hero-title">Contact Us</h1>
           <p className="contact-hero-subtitle">
-            We're here to help! Reach out to our team with any questions, feedback, or support needs.
+           We’re here for you! Get in touch for any questions, feedback, or support.
           </p>
         </div>
       </section>

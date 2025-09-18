@@ -1,19 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap');
 
 .service-section {
-  
   min-height: 80vh;
   padding: 4.5rem 2.25rem;
   color: #333333;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   position: relative;
   zoom: 0.9;
 }
 
 .service-section::before {
-  
   content: '';
   position: absolute;
   top: 0;
@@ -33,8 +29,6 @@
   /* padding: 2rem; */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
-
-
 
 /* Header Styling */
 .service-header {
@@ -62,12 +56,11 @@
   justify-content: flex-end;
 }
 
-
 .service-title {   
   font-size: 2.25rem;   
-  font-weight: 900;   
+  font-weight: 700;   
   color: #333333;   
- font-family: "Yeseva One", serif; 
+  font-family: "Playfair Display", serif; 
   margin: 0;   
   padding-left: 22.5px;   
   background: linear-gradient(135deg, #333333 0%, #666666 100%);   
@@ -79,12 +72,12 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Alternative option with Quicksand for more readability */
+/* Alternative option with Playfair Display for more elegance */
 .service-title-alt {   
   font-size: 2.25rem;   
-  font-weight: 900;   
+  font-weight: 600;   
   color: #333333;   
-  font-family: 'Quicksand', 'Montserrat', sans-serif;   
+  font-family: "Playfair Display", serif;   
   margin: 0;   
   padding-left: 22.5px;   
   background: linear-gradient(135deg, #333333 0%, #666666 100%);   
@@ -96,12 +89,12 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Premium option with Archivo Black for strong impact */
+/* Premium option with Playfair Display for strong impact */
 .service-title-bold {   
   font-size: 2.25rem;   
-  font-weight: 900;   
+  font-weight: 700;   
   color: #333333;   
-  font-family: 'Archivo Black', 'Montserrat', sans-serif;   
+  font-family: "Playfair Display", serif;   
   margin: 0;   
   padding-left: 22.5px;   
   background: linear-gradient(135deg, #333333 0%, #666666 100%);   
@@ -134,7 +127,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
   white-space: nowrap;
 }
 
@@ -190,6 +184,7 @@
   transition: all 0.3s ease;
   font-size: 0.675rem;
   font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
   backdrop-filter: blur(10px);
   width: 100%;
 }
@@ -229,6 +224,7 @@
   transition: all 0.3s ease;
   font-size: 0.675rem;
   font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
   width: 100%;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -265,6 +261,7 @@
   transition: all 0.3s ease;
   font-size: 0.8rem;
   font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .view-all-btn:hover {
@@ -281,14 +278,14 @@
 /* Desktop View All Button */
 .desktop-view-all {
   display: flex;
-  font-weight: 800;
+  font-weight: 600;
   color: black;
 }
 
 /* Cards Background */
 .cards-background {
   /* background: #EFFFFD; */
-  background: #e2dffa;
+  background: #e9eaf7;
   padding: 1.875rem;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -388,7 +385,7 @@
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   border-color: rgba(0, 0, 0, 0.2);
-  background: rgba(62, 32, 32, 0.05);;
+  background: rgba(62, 32, 32, 0.05);
 }
 
 /* Mobile Cards */
@@ -421,7 +418,6 @@
 
 /* Card Content */
 .card-content {
-  
   padding: 0.75rem;
   display: flex;
   align-items: center;
@@ -431,8 +427,8 @@
 
 .card-title {
   font-size: 0.975rem;
-  font-weight: 900;
-  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
   margin: 0;
   color: #333333;
   text-align: center;
@@ -514,7 +510,6 @@
 @media (max-width: 768px) {
   .service-section {
     padding: 1.5rem 1rem;
-    
   }
 
   .header-left {
@@ -533,7 +528,8 @@
   .dropdown-container {
     width: 135px;
   }
-  .view-all-btn span{
+  
+  .view-all-btn span {
     font-size: 0.8rem;
   }
 
@@ -557,7 +553,6 @@
 @media (max-width: 480px) {
   .service-section {
     padding: 1rem 0.5rem;
-    
   }
 
   .header-left {

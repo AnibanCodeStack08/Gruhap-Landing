@@ -81,7 +81,7 @@ const HowItWorks = () => {
         <div className="howitworks-hero-content">
           <h1 className="howitworks-hero-title">How It Works</h1>
           <p className="howitworks-hero-description">
-            Getting wellness support with Gruhap is as simple as having a conversation. Here's how our AI professionals help you achieve your wellness goals.
+            Wellness with Gruhap is simple: just a conversation with AI to guide your goals.
           </p>
         </div>
       </section>
@@ -141,7 +141,7 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Use Cases Section */}
+      {/* Use Cases Section
       <section className="howitworks-usecases-section">
         <div className="howitworks-section-container">
           <div className="howitworks-section-header">
@@ -173,7 +173,7 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="howitworks-cta-section">
