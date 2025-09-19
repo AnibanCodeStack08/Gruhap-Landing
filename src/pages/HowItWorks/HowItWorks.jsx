@@ -75,8 +75,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="howitworks-container">
-      {/* Hero Section */}
+    <>
+    {/* Hero Section */}
       <section className="howitworks-hero">
         <div className="howitworks-hero-content">
           <h1 className="howitworks-hero-title">How It Works</h1>
@@ -85,7 +85,7 @@ const HowItWorks = () => {
           </p>
         </div>
       </section>
-
+    <div className="howitworks-container">
       {/* Steps Section */}
       <section className="howitworks-steps-section">
         <div className="howitworks-section-container">
@@ -188,6 +188,7 @@ const HowItWorks = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

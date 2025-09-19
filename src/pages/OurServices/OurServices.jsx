@@ -71,8 +71,8 @@ const OurServices = () => {
   ];
 
   return (
-    <div className="ourservices-page-container">
-      {/* Hero Section */}
+    <>
+    {/* Hero Section */}
       <section className="ourservices-hero-section">
         <div className="ourservices-hero-content">
           <h1 className="ourservices-hero-title">Our Services</h1>
@@ -81,7 +81,7 @@ const OurServices = () => {
           </p>
         </div>
       </section>
-
+    <div className="ourservices-page-container">
       {/* Main Services Section */}
       <div className="ourservices-main-wrapper">
         <div className="ourservices-main-container">
@@ -197,6 +197,7 @@ const OurServices = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

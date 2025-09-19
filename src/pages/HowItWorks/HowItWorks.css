@@ -11,29 +11,28 @@
   padding: 0;
 }
 
-.howitworks-container a { 
-  text-decoration: none; 
-  color: inherit; 
+.howitworks-container a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.howitworks-container h1, 
-.howitworks-container h2, 
-.howitworks-container h3, 
-.howitworks-container h4, 
-.howitworks-container h5 { 
-  font-weight: 700; 
-  margin: 0.5em 0; 
+.howitworks-container h1,
+.howitworks-container h2,
+.howitworks-container h3,
+.howitworks-container h4,
+.howitworks-container h5 {
+  font-weight: 700;
+  margin: 0.5em 0;
 }
 
-.howitworks-container p { 
-  font-weight: 400; 
-  margin: 0.1em 6; 
+.howitworks-container p {
+  font-weight: 400;
+  margin: 0.1em 6;
 }
 
 /* Hero Section */
 .howitworks-hero {
-background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
-
+  background: transparent;
   text-align: center;
   padding: 80px 20px 60px 20px;
   position: relative;
@@ -47,7 +46,6 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 .howitworks-hero-title {
   font-family: 'Inter', sans-serif;
   font-size: 2.5rem;
-  color: #3B82F6;
   margin-bottom: 24px;
   font-weight: 700;
 }
@@ -55,7 +53,6 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 .howitworks-hero-description {
   font-family: 'Inter', sans-serif;
   font-size: 1.15rem;
-  color: #14B8A6;
   margin-bottom: 1.7em;
   font-weight: 500;
   max-width: 800px;
@@ -125,7 +122,7 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 .howitworks-step-card {
   background: #e9eaf7;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
   padding: 2em 1em;
   text-align: center;
   transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
@@ -134,7 +131,7 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 }
 
 .howitworks-step-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
   transform: translateY(-4px);
 }
 
@@ -231,7 +228,7 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 .howitworks-feature-card {
   background: #e9eaf7;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
   padding: 2em 1em;
   text-align: center;
   transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
@@ -239,7 +236,7 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 }
 
 .howitworks-feature-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
   transform: translateY(-4px);
 }
 
@@ -298,14 +295,14 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
 .howitworks-usecase-card {
   background: #e9eaf7;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
   padding: 2em 1.5em;
   transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid #E5E7EB;
 }
 
 .howitworks-usecase-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
   transform: translateY(-4px);
 }
 
@@ -378,7 +375,7 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
   background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
   border-radius: 16px;
   padding: 3em 2em;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   border: 1px solid #E5E7EB;
   text-align: center;
   color: white;
@@ -434,28 +431,28 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
   .howitworks-hero {
     padding: 60px 20px 40px;
   }
-  
+
   .howitworks-hero-title {
     font-size: 2.8rem;
   }
-  
+
   .howitworks-hero-description {
     font-size: 1.1rem;
   }
-  
+
   .howitworks-section-title {
     font-size: 2rem;
   }
-  
+
   .howitworks-steps-grid,
   .howitworks-features-grid {
     gap: 20px;
   }
-  
+
   .howitworks-cta-title {
     font-size: 2rem;
   }
-  
+
   .howitworks-cta-container {
     padding: 2em 1.5em;
   }
@@ -465,29 +462,29 @@ background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
   .howitworks-hero-title {
     font-size: 2.2rem;
   }
-  
+
   .howitworks-hero-description {
     font-size: 1rem;
   }
-  
+
   .howitworks-section-title {
     font-size: 1.8rem;
   }
-  
+
   .howitworks-step-card,
   .howitworks-feature-card,
   .howitworks-usecase-card {
     min-width: 220px;
   }
-  
+
   .howitworks-step-number {
     font-size: 2rem;
   }
-  
+
   .howitworks-step-icon {
     font-size: 2rem;
   }
-  
+
   .howitworks-cta-button {
     padding: 14px 28px;
     font-size: 1rem;

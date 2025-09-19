@@ -40,7 +40,7 @@
 
 /* Contact hero section */
 .contact-hero {
-  background: linear-gradient(90deg, #D0F0F7, #FAFAFA 100%);
+  background: transparent;
   text-align: center;
   padding: 80px 20px 60px 20px;
   position: relative;
@@ -49,7 +49,6 @@
 .contact-hero-title {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.5rem;
-  color: #3B82F6;
   margin-bottom: 24px;
   font-weight: 700;
 }
@@ -57,7 +56,6 @@
 .contact-hero-subtitle {
   font-family: "Yeseva One", serif;
   font-size: 1.15rem;
-  color: #14B8A6;
   margin-bottom: 1.7em;
   font-weight: 500;
   max-width: 800px;

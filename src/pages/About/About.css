@@ -7,7 +7,7 @@
   background: #e9eaf7;
   color: #1F2937;
   font-family: "Yeseva One", serif; /* Default for body text */
-  min-height: 245vh;
+  min-height: 210vh;
   padding: 0;
 }
 
@@ -34,7 +34,8 @@
 
 /* About hero section */
 .about-hero-section {
-  background: rgb(117,135,236);
+  /* background: rgb(117,135,236); */
+  background: transparent;
   text-align: center;
   padding: 80px 20px 60px 20px;
   position: relative;
@@ -48,7 +49,7 @@
 .about-hero-title {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.5rem;
-  color: white;
+  /* color: white; */
   margin-bottom: 24px;
   font-weight: 700;
 }
@@ -56,7 +57,7 @@
 .about-hero-subtitle {
   font-family: "Yeseva One", serif;
   font-size: 1.15rem;
-  color: white;
+  /* color: white; */
   margin-bottom: 1.7em;
   font-weight: 500;
   max-width: 800px;

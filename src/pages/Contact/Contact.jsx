@@ -102,8 +102,8 @@ const Contact = () => {
   ];
 
   return (
-    <div className="contact-page">
-      {/* Hero Section */}
+    <>
+    {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-container">
           <h1 className="contact-hero-title">Contact Us</h1>
@@ -112,7 +112,7 @@ const Contact = () => {
           </p>
         </div>
       </section>
-
+    <div className="contact-page">
       {/* Contact Methods */}
       <section className="contact-methods-section">
         <div className="contact-container">
@@ -331,6 +331,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

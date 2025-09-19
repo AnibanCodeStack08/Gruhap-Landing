@@ -26,8 +26,8 @@ const values = [
 
 export default function About() {
   return (
-    <div className="about-page-container">
-      {/* Hero Section */}
+    <>
+    {/* Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-content">
           <h1 className="about-hero-title">About Gruhap</h1>
@@ -36,7 +36,7 @@ export default function About() {
           </p>
         </div>
       </section>
-
+    <div className="about-page-container">
       {/* Story Section */}
       <section className="about-story-wrapper">
         <div className="about-story-card">
@@ -99,5 +99,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }
