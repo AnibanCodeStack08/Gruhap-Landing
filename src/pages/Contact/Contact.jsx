@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -103,6 +105,7 @@ const Contact = () => {
 
   return (
     <>
+    <Navbar/>
     {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-container">
@@ -331,6 +334,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
+    <Footer/>
     </>
   );
 };

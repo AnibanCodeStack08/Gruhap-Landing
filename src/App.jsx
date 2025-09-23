@@ -11,15 +11,11 @@ import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
-
-// Components
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import MainDashboard from "./pages/DashboardPage/MainDashboard";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -28,9 +24,9 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/MainDashBoard" element={<MainDashboard />} />
       </Routes>
-      <Footer />
-    </Router>
+    </Router>    
   );
 };
 

@@ -6,30 +6,31 @@
   margin: 0;
   background: #FAFAFA;
   color: #1F2937;
-  font-family: "Yeseva One", serif; /* Default for body text */
+  font-family: "Yeseva One", serif;
+  /* Default for body text */
   min-height: 100vh;
   padding: 0;
 }
 
-.ourservices-page-container a { 
-  text-decoration: none; 
-  color: inherit; 
+.ourservices-page-container a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.ourservices-page-container h1, 
-.ourservices-page-container h2, 
-.ourservices-page-container h3, 
-.ourservices-page-container h4, 
-.ourservices-page-container h5 { 
+.ourservices-page-container h1,
+.ourservices-page-container h2,
+.ourservices-page-container h3,
+.ourservices-page-container h4,
+.ourservices-page-container h5 {
   font-family: "Josefin Sans", sans-serif;
-  font-weight: 700; 
-  margin: 0.5em 0; 
+  font-weight: 700;
+  margin: 0.5em 0;
 }
 
-.ourservices-page-container p { 
+.ourservices-page-container p {
   font-family: "Yeseva One", serif;
-  font-weight: 400; 
-  margin: 0.1em 6; 
+  font-weight: 400;
+  margin: 0.1em 6;
 }
 
 /* Services hero section */
@@ -38,6 +39,7 @@
   text-align: center;
   padding: 80px 20px 60px 20px;
   position: relative;
+  margin-top: 85px;
 }
 
 .ourservices-hero-content {
@@ -91,7 +93,7 @@
   background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
   border-radius: 16px;
   padding: 2em;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   border: 1px solid #E5E7EB;
 }
 
@@ -150,7 +152,7 @@
 .ourservices-service-card {
   background: #e9eaf7;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
   padding: 2em 1.5em;
   text-align: center;
   transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
@@ -162,7 +164,7 @@
 }
 
 .ourservices-service-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.17);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
   transform: translateY(-4px);
 }
 
@@ -286,13 +288,13 @@
   background: #e9eaf7;
   border-radius: 16px;
   padding: 2em;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid #E5E7EB;
 }
 
 .ourservices-additional-service-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.15);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-3px);
 }
 
@@ -366,14 +368,14 @@
   border-radius: 16px;
   padding: 2em 1.5em;
   text-align: center;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid #E5E7EB;
   min-height: 280px;
 }
 
 .ourservices-how-step-card:hover {
-  box-shadow: 0 4px 32px rgba(59,130,246,0.15);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-5px);
 }
 
@@ -410,7 +412,7 @@
 
 /* Call to Action Section */
 .ourservices-cta-container {
-  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  background: rgb(117, 135, 236);
   color: white;
   text-align: center;
 }
@@ -457,7 +459,7 @@
 }
 
 .ourservices-cta-primary {
-  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  background: black;
   color: white;
   box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
 }
@@ -469,8 +471,8 @@
 
 .ourservices-cta-secondary {
   background: transparent;
-  color: #14B8A6;
-  border: 2px solid #14B8A6;
+  /* color: #14B8A6; */
+  border: 2px solid black;
 }
 
 .ourservices-cta-secondary:hover {
@@ -485,12 +487,12 @@
   .ourservices-hero-section {
     padding: 60px 20px 40px;
   }
-  
+
   .ourservices-additional-content {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .ourservices-additional-icon {
     margin: 0 auto;
   }
@@ -500,36 +502,36 @@
   .ourservices-hero-section {
     padding: 60px 20px 40px;
   }
-  
+
   .ourservices-hero-title {
     font-size: 2.8rem;
   }
-  
+
   .ourservices-hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .ourservices-main-container,
   .ourservices-additional-container,
   .ourservices-how-container,
   .ourservices-cta-container {
     padding: 1.5em;
   }
-  
+
   .ourservices-section-title {
     font-size: 2rem;
   }
-  
+
   .ourservices-main-grid,
   .ourservices-additional-grid,
   .ourservices-how-grid {
     gap: 20px;
   }
-  
+
   .ourservices-cta-title {
     font-size: 2rem;
   }
-  
+
   .ourservices-cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -540,15 +542,15 @@
   .ourservices-hero-title {
     font-size: 2.2rem;
   }
-  
+
   .ourservices-hero-subtitle {
     font-size: 1rem;
   }
-  
+
   .ourservices-section-title {
     font-size: 1.8rem;
   }
-  
+
   .ourservices-service-card,
   .ourservices-additional-service-card,
   .ourservices-how-step-card {

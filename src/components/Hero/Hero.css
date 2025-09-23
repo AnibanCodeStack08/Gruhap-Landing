@@ -6,6 +6,7 @@
   overflow: hidden;
   position: relative;
   zoom: 0.65; /* Scale everything to 85% - slightly bigger than before */
+  margin-top: 125px;
 }
 
 /* Floating Message Bubbles - MADE LARGER */

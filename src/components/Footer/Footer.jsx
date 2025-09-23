@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-card">
           <div className="footer-brand">
-            <h2 className="brand-name">Gruhap</h2>
-            <p className="brand-description">
+            <h2 className="footer-brand-name">Gruhap</h2>
+            <p className="footer-brand-description">
               Gruhap is an AI wellness platform for stress, sleep, focus, fitness, nutrition, and balance. Secure, private, and available anytime.
             </p>
             <div className="social-icons">

@@ -1,5 +1,7 @@
 import React from 'react';
 import './HowItWorks.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const HowItWorks = () => {
   const steps = [
@@ -76,6 +78,7 @@ const HowItWorks = () => {
 
   return (
     <>
+    <Navbar/>
     {/* Hero Section */}
       <section className="howitworks-hero">
         <div className="howitworks-hero-content">
@@ -188,6 +191,7 @@ const HowItWorks = () => {
         </div>
       </section>
     </div>
+    <Footer/>
     </>
   );
 };

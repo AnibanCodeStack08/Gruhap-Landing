@@ -1,5 +1,7 @@
 import React from 'react';
 import './OurServices.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const OurServices = () => {
   const mainServices = [
@@ -72,6 +74,7 @@ const OurServices = () => {
 
   return (
     <>
+    <Navbar/>
     {/* Hero Section */}
       <section className="ourservices-hero-section">
         <div className="ourservices-hero-content">
@@ -197,6 +200,7 @@ const OurServices = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import './About.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const values = [
   {
@@ -27,6 +29,7 @@ const values = [
 export default function About() {
   return (
     <>
+    <Navbar/>
     {/* Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-content">
@@ -99,6 +102,7 @@ export default function About() {
         </div>
       </section>
     </div>
+    <Footer/>
     </>
   );
 }
