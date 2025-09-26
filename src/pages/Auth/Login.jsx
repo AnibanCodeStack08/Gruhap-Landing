@@ -94,21 +94,21 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-content">
+    <div className="Login-container">
+      <div className="Login-content">
         {/* Left Side - Login Form */}
-        <div className="login-form-section">
-          <div className="login-card">
-            <div className="login-header">
-              <div className="logo">
+        <div className="Login-form-section">
+          <div className="Login-card">
+            <div className="Login-header">
+              <div className="Login-logo">
                 <h1>Gruhap</h1>
               </div>
               <h2>Welcome Back</h2>
               <p>Sign in to your account to continue</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="login-form">
-              <div className="input-group">
+            <form onSubmit={handleSubmit} className="Login-form">
+              <div className="Login-input-group">
                 <label htmlFor="email">Email Address</label>
                 <input
                   type="email"
@@ -121,9 +121,9 @@ const Login = () => {
                 />
               </div>
 
-              <div className="input-group">
+              <div className="Login-input-group">
                 <label htmlFor="password">Password</label>
-                <div className="password-input-wrapper">
+                <div className="Login-password-input-wrapper">
                   <input
                     type={showPassword ? "text" : "password"}
                     id="password"
@@ -135,7 +135,7 @@ const Login = () => {
                   />
                   <button
                     type="button"
-                    className="password-toggle"
+                    className="Login-password-toggle"
                     onClick={togglePasswordVisibility}
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
@@ -144,44 +144,44 @@ const Login = () => {
                 </div>
               </div>
 
-              <div className="form-options">
-                <label className="remember-me" onClick={handleRememberMeChange}>
+              <div className="Login-form-options">
+                <label className="Login-remember-me" onClick={handleRememberMeChange}>
                   <input
                     type="checkbox"
                     checked={rememberMe}
                     onChange={handleRememberMeChange}
                   />
-                  <span className="checkmark"></span>
+                  <span className="Login-checkmark"></span>
                   Remember me
                 </label>
-                <a href="#forgot" className="forgot-password">
+                <a href="#forgot" className="Login-forgot-password">
                   Forgot Password?
                 </a>
               </div>
 
               <button
                 type="submit"
-                className={`login-button ${isLoading ? "loading" : ""}`}
+                className={`Login-button ${isLoading ? "Login-loading" : ""}`}
                 disabled={isLoading}
               >
-                {isLoading ? <span className="loading-spinner"></span> : "Sign In"}
+                {isLoading ? <span className="Login-loading-spinner"></span> : "Sign In"}
               </button>
             </form>
 
-            <div className="divider">
+            <div className="Login-divider">
               <span>Or continue with</span>
             </div>
 
-            <div className="social-login">
+            <div className="Login-social-login">
               <button 
-                className="social-button google"
+                className="Login-social-button Login-google"
                 onClick={() => handleSocialLogin('Google')}
                 type="button"
               >
                 Google
               </button>
               <button 
-                className="social-button facebook"
+                className="Login-social-button Login-facebook"
                 onClick={() => handleSocialLogin('Facebook')}
                 type="button"
               >
@@ -189,7 +189,7 @@ const Login = () => {
               </button>
             </div>
 
-            <div className="signup-link">
+            <div className="Login-signup-link">
               <p>
                 Don't have an account? <Link to="/signup">Sign up here</Link>
               </p>
@@ -198,28 +198,28 @@ const Login = () => {
         </div>
 
         {/* Right Side - Chat Animation */}
-        <div className="chat-animation-section">
-          <div className="chat-container">
-            <div className="chat-header">
+        <div className="Login-chat-animation-section">
+          <div className="Login-chat-container">
+            <div className="Login-chat-header">
               <h3>Experience Gruhap</h3>
               <p>Your AI wellness assistant in action</p>
             </div>
-            <div className="chat-messages">
+            <div className="Login-chat-messages">
               {chatMessages.slice(0, currentMessageIndex).map((msg, index) => (
-                <div key={index} className={`message ${msg.type}`}>
-                  <div className="message-content">
-                    <div className="avatar">
+                <div key={index} className={`Login-message Login-${msg.type}`}>
+                  <div className="Login-message-content">
+                    <div className="Login-avatar">
                       {msg.type === 'bot' ? (
-                        <div className="bot-avatar">🤖</div>
+                        <div className="Login-bot-avatar">🤖</div>
                       ) : (
-                        <div className="user-avatar">👤</div>
+                        <div className="Login-user-avatar">👤</div>
                       )}
                     </div>
-                    <div className="message-bubble">
+                    <div className="Login-message-bubble">
                       <p>{msg.message}</p>
                     </div>
                   </div>
-                  <div className="message-label">
+                  <div className="Login-message-label">
                     {msg.type === 'bot' ? 'Gruhap' : 'User'}
                   </div>
                 </div>

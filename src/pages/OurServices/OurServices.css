@@ -1,15 +1,15 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Body and heading styles for Services page */
 .ourservices-page-container {
   margin: 0;
-  background: #FAFAFA;
+  background: #e9eaf7;
   color: #1F2937;
-  font-family: "Yeseva One", serif;
-  /* Default for body text */
+  font-family: "Lora", serif;
   min-height: 100vh;
   padding: 0;
+  padding-bottom: 55px;
 }
 
 .ourservices-page-container a {
@@ -22,13 +22,13 @@
 .ourservices-page-container h3,
 .ourservices-page-container h4,
 .ourservices-page-container h5 {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   margin: 0.5em 0;
 }
 
 .ourservices-page-container p {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-weight: 400;
   margin: 0.1em 6;
 }
@@ -48,17 +48,15 @@
 }
 
 .ourservices-hero-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2.5rem;
-  /* color: #3B82F6; */
   margin-bottom: 24px;
   font-weight: 700;
 }
 
 .ourservices-hero-subtitle {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 1.15rem;
-  /* color: #14B8A6; */
   margin-bottom: 1.7em;
   font-weight: 500;
   max-width: 800px;
@@ -104,16 +102,15 @@
 }
 
 .ourservices-section-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2rem;
-  color: #3B82F6;
   margin: 0 auto 16px auto;
   font-weight: 700;
   text-align: center;
 }
 
 .ourservices-section-subtitle {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 1.08rem;
   color: #6B7280;
   line-height: 1.7;
@@ -135,13 +132,11 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 @media (min-width: 700px) and (max-width: 1023px) {
   .ourservices-main-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 700px) {
   .ourservices-main-grid {
     grid-template-columns: 1fr;
@@ -172,6 +167,7 @@
   margin-bottom: 1.5em;
 }
 
+/* blue gradient in icon */
 .ourservices-icon-wrapper {
   width: 80px;
   height: 80px;
@@ -180,15 +176,16 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #162d48 100%);
   font-size: 2.5rem;
+  color: white;
 }
 
 .ourservices-card-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #10B981;
+  color: #3B82F6;
   margin-bottom: 16px;
 }
 
@@ -200,7 +197,7 @@
 }
 
 .ourservices-card-description {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 0.97rem;
   color: #6B7280;
   text-align: center;
@@ -214,7 +211,7 @@
 }
 
 .ourservices-features-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: #3B82F6;
@@ -229,24 +226,26 @@
   justify-content: center;
 }
 
+/* blue accent on feature badge */
 .ourservices-feature-badge {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 0.8rem;
   padding: 6px 12px;
   border-radius: 16px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #ECFDF5;
-  color: #10B981;
-  border: 1px solid #d1fae5;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #3B82F6;
 }
 
+/* Button Styles */
 .ourservices-card-button {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   width: 100%;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #162d48 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -255,12 +254,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
-  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 2px 16px rgba(59,130,246,.15);
 }
 
 .ourservices-card-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.23);
 }
 
 /* Additional Services Grid */
@@ -276,7 +275,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 1023px) {
   .ourservices-additional-grid {
     grid-template-columns: 1fr;
@@ -292,18 +290,16 @@
   transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
   border: 1px solid #E5E7EB;
 }
-
 .ourservices-additional-service-card:hover {
   box-shadow: 0 4px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-3px);
 }
-
 .ourservices-additional-content {
   display: flex;
   gap: 24px;
   align-items: flex-start;
 }
-
+/* blue gradient icon */
 .ourservices-additional-icon {
   flex-shrink: 0;
   width: 60px;
@@ -313,23 +309,21 @@
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  background: linear-gradient(135deg, #14B8A6 0%, #10B981 100%);
+  background: linear-gradient(135deg, #3B82F6 0%, #162d48 100%);
+  color: white;
 }
-
 .ourservices-additional-text {
   flex: 1;
 }
-
 .ourservices-additional-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #10B981;
+  color: #3B82F6;
   margin-bottom: 12px;
 }
-
 .ourservices-additional-description {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 0.97rem;
   color: #6B7280;
   line-height: 1.6;
@@ -349,13 +343,11 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 @media (min-width: 700px) and (max-width: 1023px) {
   .ourservices-how-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 700px) {
   .ourservices-how-grid {
     grid-template-columns: 1fr;
@@ -373,12 +365,10 @@
   border: 1px solid #E5E7EB;
   min-height: 280px;
 }
-
 .ourservices-how-step-card:hover {
   box-shadow: 0 4px 32px rgba(59, 130, 246, 0.15);
   transform: translateY(-5px);
 }
-
 .ourservices-step-number {
   width: 70px;
   height: 70px;
@@ -388,22 +378,20 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0 auto 24px;
 }
-
 .ourservices-step-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.13rem;
   font-weight: 700;
   color: #3B82F6;
   margin-bottom: 16px;
 }
-
 .ourservices-step-description {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 0.97rem;
   color: #6B7280;
   line-height: 1.6;
@@ -421,30 +409,26 @@
   max-width: 800px;
   margin: 0 auto;
 }
-
 .ourservices-cta-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: white;
 }
-
 .ourservices-cta-description {
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-size: 1.2rem;
   color: #E5E7EB;
   line-height: 1.7;
   margin-bottom: 40px;
 }
-
 .ourservices-cta-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .ourservices-cta-primary,
 .ourservices-cta-secondary {
   font-size: 1.1rem;
@@ -455,31 +439,27 @@
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 180px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
-
 .ourservices-cta-primary {
   background: black;
   color: white;
-  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 2px 16px rgba(59,130,246,.20);
 }
-
 .ourservices-cta-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 32px rgba(20, 184, 166, 0.4);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.4);
 }
-
 .ourservices-cta-secondary {
   background: transparent;
-  /* color: #14B8A6; */
+  color: black;
   border: 2px solid black;
 }
-
 .ourservices-cta-secondary:hover {
-  background: #14B8A6;
+  background: #3B82F6;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 2px 16px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 2px 16px rgba(59,130,246,.18);
 }
 
 /* Responsive Design */
@@ -487,70 +467,56 @@
   .ourservices-hero-section {
     padding: 60px 20px 40px;
   }
-
   .ourservices-additional-content {
     flex-direction: column;
     text-align: center;
   }
-
   .ourservices-additional-icon {
     margin: 0 auto;
   }
 }
-
 @media (max-width: 768px) {
   .ourservices-hero-section {
     padding: 60px 20px 40px;
   }
-
   .ourservices-hero-title {
     font-size: 2.8rem;
   }
-
   .ourservices-hero-subtitle {
     font-size: 1.1rem;
   }
-
   .ourservices-main-container,
   .ourservices-additional-container,
   .ourservices-how-container,
   .ourservices-cta-container {
     padding: 1.5em;
   }
-
   .ourservices-section-title {
     font-size: 2rem;
   }
-
   .ourservices-main-grid,
   .ourservices-additional-grid,
   .ourservices-how-grid {
     gap: 20px;
   }
-
   .ourservices-cta-title {
     font-size: 2rem;
   }
-
   .ourservices-cta-buttons {
     flex-direction: column;
     align-items: center;
   }
 }
-
 @media (max-width: 480px) {
   .ourservices-hero-title {
     font-size: 2.2rem;
   }
-
   .ourservices-hero-subtitle {
     font-size: 1rem;
   }
-
   .ourservices-section-title {
     font-size: 1.8rem;
   }
-
   .ourservices-service-card,
   .ourservices-additional-service-card,
   .ourservices-how-step-card {

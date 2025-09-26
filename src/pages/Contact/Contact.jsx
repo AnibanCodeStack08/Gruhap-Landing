@@ -319,20 +319,26 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="contact-cta-section">
-        <div className="contact-container">
-          <div className="contact-cta-content">
-            <h2 className="contact-cta-title">Still Have Questions?</h2>
-            <p className="contact-cta-text">
-              Our AI wellness professionals are available 24/7 to help with any wellness questions you might have.
-            </p>
-            <button className="contact-cta-button">
-              Ask Gruhap Now
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section - Contact */}
+<section className="contact-cta-wrapper">
+  <div className="contact-cta-container">
+    <div className="contact-cta-content">
+      <h2 className="contact-cta-title">Ready to Start Your Wellness Journey?</h2>
+      <p className="contact-cta-description">
+        Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
+      </p>
+      <div className="contact-cta-buttons">
+        <button className="contact-cta-primary">
+          Get Started Today
+        </button>
+        <button className="contact-cta-secondary">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
     <Footer/>
     </>

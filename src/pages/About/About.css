@@ -1,13 +1,13 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Body and heading styles for About page */
 .about-page-container {
   margin: 0;
   background: #e9eaf7;
   color: #1F2937;
-  font-family: "Yeseva One", serif; /* Default for body text */
-  min-height: 210vh;
+  font-family: "Lora", serif; /* Default for body text */
+  min-height: 205vh;
   padding: 0;
 }
 
@@ -21,18 +21,17 @@
 .about-page-container h3, 
 .about-page-container h4, 
 .about-page-container h5 { 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700; 
   margin: 0.5em 0; 
 }
 
 .about-page-container p { 
-  font-family: "Yeseva One", serif;
+  font-family: "Lora", serif;
   font-weight: 400; 
   margin: 0.1em 6; 
 }
-
-/* About hero section */
+/* About ero section */
 .about-hero-section {
   /* background: rgb(117,135,236); */
   background: transparent;
@@ -48,7 +47,7 @@
 }
 
 .about-hero-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2.5rem;
   /* color: white; */
   margin-bottom: 24px;
@@ -56,9 +55,9 @@
 }
 
 .about-hero-subtitle {
-  font-family: "Yeseva One", serif;
-  font-size: 1.15rem;
-  /* color: white; */
+  font-family: "Lora", serif;
+  font-size: 
+1.15rem;  /* color: white; */
   margin-bottom: 1.7em;
   font-weight: 500;
   max-width: 800px;
@@ -102,7 +101,7 @@
 }
 
 .about-section-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2rem;
   /* color: #3B82F6; */
   margin: 0 auto 16px auto;
@@ -111,9 +110,9 @@
 }
 
 .about-section-subtitle {
-  font-family: "Yeseva One", serif;
-  font-size: 1.08rem;
-  color: #6B7280;
+  font-family: "Lora", serif;
+  font-size: 
+1.08rem;  color: #6B7280;
   line-height: 1.7;
   max-width: 600px;
   margin: 0 auto;
@@ -143,9 +142,9 @@
 }
 
 .about-story-paragraph {
-  font-family: "Yeseva One", serif;
-  font-size: 1.05rem;
-  color: #374151;
+  font-family: "Lora", serif;
+  font-size: 
+1.05rem;  color: #374151;
   line-height: 1.8;
   margin: 0;
   font-weight: 400;
@@ -219,7 +218,7 @@
 }
 
 .about-value-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   color: #3B82F6;
   font-size: 1.13rem;
@@ -227,9 +226,9 @@
 }
 
 .about-value-description {
-  font-family: "Yeseva One", serif;
-  font-size: 0.97rem;
-  color: #6B7280;
+  font-family: "Lora", serif;
+  font-size: 
+0.97rem;  color: #6B7280;
   margin-top: 0.7em;
   line-height: 1.6;
   margin: 0;
@@ -248,7 +247,7 @@ background: rgb(117,135,236);
 }
 
 .about-cta-title {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
@@ -256,9 +255,9 @@ background: rgb(117,135,236);
 }
 
 .about-cta-description {
-  font-family: "Yeseva One", serif;
-  font-size: 1.2rem;
-  color: #E5E7EB;
+  font-family: "Lora", serif;
+  font-size: 
+1.2rem;  color: #E5E7EB;
   line-height: 1.7;
   margin-bottom: 40px;
 }
@@ -280,7 +279,7 @@ background: rgb(117,135,236);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 180px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .about-cta-primary {

@@ -12,6 +12,7 @@ import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import MainDashboard from "./pages/DashboardPage/MainDashboard";
+import AIProfessionals from "./pages/AIProfessionals/AIProfessionals";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/MainDashBoard" element={<MainDashboard />} />
+        <Route path="/AIProfessionals" element={<AIProfessionals />} />
       </Routes>
     </Router>    
   );

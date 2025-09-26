@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Navbar Component Styles */
 .navbar {
@@ -46,14 +46,14 @@
   color: white;
   font-weight: bold;
   font-size: 0.875rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .navbar-logo-text {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 900;
   color: black;
-  font-family:"Yeseva One", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* Desktop Navigation */
@@ -69,7 +69,7 @@
   transition: color 0.3s ease;
   font-weight: 500;
   font-size: 0.91rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .navbar-nav-link:hover {
@@ -92,7 +92,7 @@
   font-weight: 600;
   padding: 0.7rem 1.40rem;
   border-radius: 0.5rem; /* rounded corners */
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* subtle shadow */
   text-decoration: none !important;
   display: inline-block;
@@ -115,7 +115,7 @@
   transition: all 0.3s ease;
   font-size: 0.90rem;
   font-weight: 500;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
   text-decoration: none !important;
   display: inline-block;
 }
@@ -199,7 +199,7 @@
   transition: all 0.3s ease;
   font-weight: 500;
   font-size: 1rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .navbar-mobile-nav-link:hover,
@@ -229,7 +229,7 @@
   font-weight: 500;
   width: 100%;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
   text-decoration: none !important;
   display: block;
   box-sizing: border-box;
@@ -258,7 +258,7 @@
   text-decoration: none !important;
   display: block;
   box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .navbar-mobile-get-started-btn:hover,
