@@ -11,6 +11,7 @@ const MainDashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isSidebarCategoryOpen, setIsSidebarCategoryOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const textareaRef = useRef(null);
 
   const userInfo = {
@@ -85,6 +86,7 @@ const MainDashboard = () => {
   const toggleCategoryDropdown = () => setIsCategoryOpen(!isCategoryOpen);
   const toggleSidebarCategory = () => setIsSidebarCategoryOpen(!isSidebarCategoryOpen);
   const toggleAvatarMenu = () => setIsAvatarMenuOpen(!isAvatarMenuOpen);
+  const toggleMobileSidebar = () => setIsMobileSidebarOpen(!isMobileSidebarOpen);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -94,9 +96,15 @@ const MainDashboard = () => {
   const handleNavItemClick = (itemId) => {
     if (itemId === 'category') {
       toggleSidebarCategory();
+      // Don't close mobile sidebar when clicking category to show dropdown
+      return;
     } else {
       setActiveSection(itemId);
       setIsSidebarCategoryOpen(false);
+    }
+    // Only close mobile sidebar for non-category items
+    if (isMobile) {
+      setIsMobileSidebarOpen(false);
     }
   };
 
@@ -116,7 +124,11 @@ const MainDashboard = () => {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setIsMobileSidebarOpen(false);
+      }
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -134,10 +146,19 @@ const MainDashboard = () => {
       if (!event.target.closest('.top-avatar-container')) {
         setIsAvatarMenuOpen(false);
       }
+      // Mobile sidebar - only close if clicking outside AND not clicking on category items
+      if (isMobile && 
+          !event.target.closest('.dashboard-sidebar') && 
+          !event.target.closest('.mobile-menu-btn') && 
+          !event.target.closest('.mobile-sidebar-overlay') &&
+          !event.target.closest('.sidebar-category-menu') &&
+          !event.target.closest('.sidebar-category-container')) {
+        setIsMobileSidebarOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!textareaRef.current) return;
@@ -168,8 +189,16 @@ const MainDashboard = () => {
 
   return (
     <div className="dashboard-container">
+      {/* Mobile Sidebar Overlay */}
+      {isMobile && isMobileSidebarOpen && (
+        <div 
+          className="mobile-sidebar-overlay" 
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className={`dashboard-sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
+      <aside className={`dashboard-sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile && isMobileSidebarOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <div className="brand">
             <div className="brand-icon">
@@ -179,18 +208,20 @@ const MainDashboard = () => {
             </div>
             {!sidebarCollapsed && <span className="brand-name">GruhaP</span>}
           </div>
-          <button
-            className="sidebar-toggle-btn"
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            aria-label="Toggle sidebar"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-            </svg>
-          </button>
+          {!isMobile && (
+            <button
+              className="sidebar-toggle-btn"
+              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              aria-label="Toggle sidebar"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </button>
+          )}
         </div>
 
         <div className="sidebar-content">
@@ -226,7 +257,14 @@ const MainDashboard = () => {
                       <button
                         key={index}
                         className="sidebar-category-item"
-                        onClick={() => console.log('Selected:', category)}
+                        onClick={() => {
+                          console.log('Selected:', category);
+                          // Close mobile sidebar after selecting a category item
+                          if (isMobile) {
+                            setIsMobileSidebarOpen(false);
+                            setIsSidebarCategoryOpen(false);
+                          }
+                        }}
                       >
                         {category}
                       </button>
@@ -250,28 +288,24 @@ const MainDashboard = () => {
             </div>
           )}
         </div>
-
-        {/* <div className="sidebar-footer">
-          <div className="user-section">
-            <div className="user-avatar">
-              <img src={userInfo.avatar} alt={userInfo.name} className="avatar-img" />
-            </div>
-            {!sidebarCollapsed && (
-              <>
-                <div className="user-info">
-                  <div className="user-name">{userInfo.name}</div>
-                  <div className="user-plan">{userInfo.plan}</div>
-                </div>
-                <button className="upgrade-btn-sidebar">Upgrade</button>
-              </>
-            )}
-          </div>
-        </div> */}
       </aside>
 
       {/* Main Content */}
       <main className="dashboard-main">
         <div className="main-header">
+          {isMobile && (
+            <button 
+              className="mobile-menu-btn"
+              onClick={toggleMobileSidebar}
+              aria-label="Open menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+          )}
           <div className="top-avatar-container">
             <img
               src={topRightAvatar}
@@ -303,7 +337,7 @@ const MainDashboard = () => {
                 <textarea
                   ref={textareaRef}
                   className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
-                  rows={isMobile ? "2" : "2"}
+                  rows={isMobile ? "3" : "2"}
                 />
               </div>
               <div className="dashboard-input-controls">

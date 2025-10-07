@@ -50,36 +50,6 @@ const Contact = () => {
     }
   ];
 
-  const faqCategories = [
-    {
-      category: 'Getting Started',
-      questions: [
-        'How do I create an account?',
-        'Is Gruhap free to use?',
-        'What devices can I use Gruhap on?',
-        'How accurate are the AI recommendations?'
-      ]
-    },
-    {
-      category: 'Privacy & Security',
-      questions: [
-        'Is my data secure and private?',
-        'Do you share my information?',
-        'Can I delete my account data?',
-        'How do you protect sensitive information?'
-      ]
-    },
-    {
-      category: 'Features & Support',
-      questions: [
-        'What types of wellness support do you offer?',
-        'Can I track my progress over time?',
-        'Do you offer crisis support?',
-        'How do I provide feedback?'
-      ]
-    }
-  ];
-
   const officeInfo = [
     {
       icon: '📍',
@@ -105,242 +75,211 @@ const Contact = () => {
 
   return (
     <>
-    <Navbar/>
-    {/* Hero Section */}
+      <Navbar/>
+      {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-container">
           <h1 className="contact-hero-title">Contact Us</h1>
           <p className="contact-hero-subtitle">
-           We’re here for you! Get in touch for any questions, feedback, or support.
+            We're here for you! Get in touch for any questions, feedback, or support.
           </p>
         </div>
       </section>
-    <div className="contact-page">
-      {/* Contact Methods */}
-      <section className="contact-methods-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <h2 className="contact-section-title">Get in Touch</h2>
-            <p className="contact-section-subtitle">
-              Choose the method that works best for you. Our team is ready to assist.
-            </p>
-          </div>
-          
-          <div className="contact-cards-wrapper">
-            <div className="contact-methods-grid">
-              {contactMethods.map((method, index) => (
-                <div key={index} className="contact-method-card">
-                  <div className="contact-method-icon">
-                    {method.icon}
+      
+      <div className="contact-page">
+        {/* Contact Methods */}
+        <section className="contact-methods-section">
+          <div className="contact-container">
+            <div className="contact-section-header">
+              <h2 className="contact-section-title">Get in Touch</h2>
+              <p className="contact-section-subtitle">
+                Choose the method that works best for you. Our team is ready to assist.
+              </p>
+            </div>
+            
+            <div className="contact-cards-wrapper">
+              <div className="contact-methods-grid">
+                {contactMethods.map((method, index) => (
+                  <div key={index} className="contact-method-card">
+                    <div className="contact-method-icon">
+                      {method.icon}
+                    </div>
+                    <h3 className="contact-method-title">{method.title}</h3>
+                    <p className="contact-method-description">{method.description}</p>
+                    <span className="contact-availability-badge">
+                      {method.availability}
+                    </span>
+                    <button className="contact-method-button">
+                      {method.action}
+                    </button>
                   </div>
-                  <h3 className="contact-method-title">{method.title}</h3>
-                  <p className="contact-method-description">{method.description}</p>
-                  <span className="contact-availability-badge">
-                    {method.availability}
-                  </span>
-                  <button className="contact-method-button">
-                    {method.action}
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Form & Office Info */}
-      <section className="contact-form-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <h2 className="contact-section-title">Send us a Message</h2>
-            <p className="contact-section-subtitle">
-              Fill out the form below and we'll get back to you within 24 hours.
-            </p>
-          </div>
-          
-          <div className="contact-form-wrapper">
-            <div className="contact-form-grid">
-              {/* Contact Form Card */}
-              <div className="contact-form-card">
-                <div className="contact-card-header">
-                  <h2 className="contact-card-title">
-                    <span>📝</span> Contact Form
-                  </h2>
-                  <p className="contact-card-subtitle">
-                    Tell us how we can help you with your wellness journey.
-                  </p>
-                </div>
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <div className="contact-form-row">
-                    <div className="contact-form-group">
-                      <label htmlFor="firstName" className="contact-label">First Name</label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        className="contact-input"
-                        placeholder="John"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                    <div className="contact-form-group">
-                      <label htmlFor="lastName" className="contact-label">Last Name</label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        className="contact-input"
-                        placeholder="Doe"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="contact-form-group">
-                    <label htmlFor="email" className="contact-label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="contact-input"
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="contact-form-group">
-                    <label htmlFor="subject" className="contact-label">Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      className="contact-input"
-                      placeholder="How can we help you?"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="contact-form-group">
-                    <label htmlFor="message" className="contact-label">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      className="contact-textarea"
-                      placeholder="Tell us more about your question or feedback..."
-                      rows="5"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="contact-submit-button">
-                    <span>📤</span> Send Message
-                  </button>
-                </form>
-              </div>
-
-              {/* Office Information Cards */}
-              <div className="contact-info-column">
-                <div className="contact-office-card">
+        {/* Contact Form & Office Info */}
+        <section className="contact-form-section">
+          <div className="contact-container">
+            <div className="contact-section-header">
+              <h2 className="contact-section-title">Send us a Message</h2>
+              <p className="contact-section-subtitle">
+                Fill out the form below and we'll get back to you within 24 hours.
+              </p>
+            </div>
+            
+            <div className="contact-form-wrapper">
+              <div className="contact-form-grid">
+                {/* Contact Form Card */}
+                <div className="contact-form-card">
                   <div className="contact-card-header">
                     <h2 className="contact-card-title">
-                      <span>📍</span> Office Information
+                      <span>📝</span> Contact Form
                     </h2>
-                  </div>
-                  <div className="contact-office-info">
-                    {officeInfo.map((info, index) => (
-                      <div key={index} className="contact-info-item">
-                        <span className="contact-info-icon">{info.icon}</span>
-                        <div className="contact-info-content">
-                          <p className="contact-info-label">{info.label}</p>
-                          <p className="contact-info-value">{info.value}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="contact-social-card">
-                  <div className="contact-card-header">
-                    <h2 className="contact-card-title">
-                      <span>👥</span> Follow Us
-                    </h2>
-                  </div>
-                  <div className="contact-social-content">
-                    <p className="contact-social-text">
-                      Stay connected with our wellness community
+                    <p className="contact-card-subtitle">
+                      Tell us how we can help you with your wellness journey.
                     </p>
-                    <div className="contact-social-buttons">
-                      <button className="contact-social-button">Twitter</button>
-                      <button className="contact-social-button">LinkedIn</button>
-                      <button className="contact-social-button">Instagram</button>
+                  </div>
+                  <form onSubmit={handleSubmit} className="contact-form">
+                    <div className="contact-form-row">
+                      <div className="contact-form-group">
+                        <label htmlFor="firstName" className="contact-label">First Name</label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          name="firstName"
+                          className="contact-input"
+                          placeholder="John"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          required
+                        />
+                      </div>
+                      <div className="contact-form-group">
+                        <label htmlFor="lastName" className="contact-label">Last Name</label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          className="contact-input"
+                          placeholder="Doe"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="contact-form-group">
+                      <label htmlFor="email" className="contact-label">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="contact-input"
+                        placeholder="john@example.com"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="contact-form-group">
+                      <label htmlFor="subject" className="contact-label">Subject</label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        className="contact-input"
+                        placeholder="How can we help you?"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="contact-form-group">
+                      <label htmlFor="message" className="contact-label">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        className="contact-textarea"
+                        placeholder="Tell us more about your question or feedback..."
+                        rows="5"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" className="contact-submit-button">
+                      <span>📤</span> Send Message
+                    </button>
+                  </form>
+                </div>
+
+                {/* Office Information Cards */}
+                <div className="contact-info-column">
+                  <div className="contact-office-card">
+                    <div className="contact-card-header">
+                      <h2 className="contact-card-title">
+                        <span>📍</span> Office Information
+                      </h2>
+                    </div>
+                    <div className="contact-office-info">
+                      {officeInfo.map((info, index) => (
+                        <div key={index} className="contact-info-item">
+                          <span className="contact-info-icon">{info.icon}</span>
+                          <div className="contact-info-content">
+                            <p className="contact-info-label">{info.label}</p>
+                            <p className="contact-info-value">{info.value}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="contact-social-card">
+                    <div className="contact-card-header">
+                      <h2 className="contact-card-title">
+                        <span>👥</span> Follow Us
+                      </h2>
+                    </div>
+                    <div className="contact-social-content">
+                      <p className="contact-social-text">
+                        Stay connected with our wellness community
+                      </p>
+                      <div className="contact-social-buttons">
+                        <button className="contact-social-button">Twitter</button>
+                        <button className="contact-social-button">LinkedIn</button>
+                        <button className="contact-social-button">Instagram</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="contact-faq-section">
-        <div className="contact-container">
-          <div className="contact-section-header">
-            <h2 className="contact-section-title">Frequently Asked Questions</h2>
-            <p className="contact-section-subtitle">
-              Find quick answers to common questions about Gruhap and our services.
-            </p>
-          </div>
-          
-          <div className="contact-faq-wrapper">
-            <div className="contact-faq-grid">
-              {faqCategories.map((category, index) => (
-                <div key={index} className="contact-faq-card">
-                  <h3 className="contact-faq-category">{category.category}</h3>
-                  <ul className="contact-faq-list">
-                    {category.questions.map((question, idx) => (
-                      <li key={idx} className="contact-faq-item">
-                        <button className="contact-faq-button">
-                          {question}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+        {/* CTA Section - Contact */}
+        <section className="contact-cta-wrapper">
+          <div className="contact-cta-container">
+            <div className="contact-cta-content">
+              <h2 className="contact-cta-title">Ready to Start Your Wellness Journey?</h2>
+              <p className="contact-cta-description">
+                Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
+              </p>
+              <div className="contact-cta-buttons">
+                <button className="contact-cta-primary">
+                  Get Started Today
+                </button>
+                <button className="contact-cta-secondary">
+                  Learn More
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section - Contact */}
-<section className="contact-cta-wrapper">
-  <div className="contact-cta-container">
-    <div className="contact-cta-content">
-      <h2 className="contact-cta-title">Ready to Start Your Wellness Journey?</h2>
-      <p className="contact-cta-description">
-        Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
-      </p>
-      <div className="contact-cta-buttons">
-        <button className="contact-cta-primary">
-          Get Started Today
-        </button>
-        <button className="contact-cta-secondary">
-          Learn More
-        </button>
+        </section>
       </div>
-    </div>
-  </div>
-</section>
-
-    </div>
-    <Footer/>
+      <Footer/>
     </>
   );
 };

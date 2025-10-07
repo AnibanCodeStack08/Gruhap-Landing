@@ -283,45 +283,6 @@
   text-overflow: ellipsis;
 }
 
-/* Footer */
-.sidebar-footer {
-  border-top: 1px solid #2a2a2a;
-  padding: 12px;
-}
-
-.user-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.user-section:hover {
-  background: rgba(255,255,255,0.05);
-}
-
-.user-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 /* Hide user info in collapsed mode */
 .dashboard-sidebar.collapsed .user-info,
 .dashboard-sidebar.collapsed .upgrade-btn-sidebar {
@@ -377,6 +338,27 @@
   flex-direction: column;
   background: #e9e7fe;
   position: relative;
+}
+
+/* Main Header */
+.main-header {
+  position: relative;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Top Right Avatar */
@@ -649,36 +631,272 @@
   100% { transform: translateX(-33.33%); }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile Sidebar Overlay */
+.mobile-sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
+/* Responsive Design - Mobile Only Changes */
+@media (max-width: 767px) {
+  /* Mobile Overlay */
+  .mobile-sidebar-overlay {
+    display: block;
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* Sidebar Adjustments - Mobile Only */
   .dashboard-sidebar {
-    width: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
-  
+
+  .dashboard-sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Force sidebar to be expanded on mobile */
   .dashboard-sidebar.collapsed {
-    width: 60px;
+    width: 280px;
+  }
+
+  /* Show all elements on mobile */
+  .dashboard-sidebar .nav-label,
+  .dashboard-sidebar .brand-name,
+  .dashboard-sidebar .recents-section,
+  .dashboard-sidebar .sidebar-dropdown-arrow {
+    display: block !important;
+  }
+
+  .dashboard-sidebar .nav-item {
+    justify-content: flex-start !important;
+    padding: 12px 12px !important;
+  }
+
+  /* Main content adjustments - Keep same background */
+  .dashboard-main {
+    width: 100%;
+    margin-left: 0;
+    background: #e9e7fe; /* Keep original background */
+  }
+
+  .main-header {
+    padding: 12px 16px;
+    background: transparent; /* Keep main background visible */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main-content {
+    padding: 20px 16px;
+    justify-content: center; /* Center content */
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+  }
+
+  .welcome-section {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .greeting-icon {
+    font-size: 22px;
+  }
+
+  /* Chat section mobile adjustments - Keep centered */
+  .dashboard-chat-section {
+    max-width: 600px; /* Keep original max-width */
+    width: 100%;
+  }
+
+  .dashboard-input-container {
+    border-radius: 20px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+
+  .dashboard-textarea {
+    font-size: 15px;
+    min-height: 44px;
+  }
+
+  .dashboard-input-controls {
+    margin-top: 10px;
+    gap: 12px;
+  }
+
+  .dashboard-category-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+
+  .dashboard-submit-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  /* Mobile quick actions */
+  .dashboard-actions-wrapper {
+    margin-top: 20px;
+  }
+
+  .dashboard-action-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 18px;
+  }
+
+  .dashboard-action-icon {
+    font-size: 14px;
+  }
+
+  /* Avatar adjustments for mobile */
+  .top-avatar-container {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+  .top-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .top-avatar-menu {
+    right: 0;
+    top: 40px;
+    min-width: 160px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .top-avatar-item {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Extra small devices - Portrait phones */
+@media (max-width: 374px) {
+  .main-content {
+    padding: 16px 12px;
+    align-items: center; /* Keep centered */
+  }
+
+  .welcome-title {
+    font-size: 22px;
+  }
+
+  .dashboard-input-container {
+    padding: 12px 14px;
+  }
+
+  .dashboard-textarea {
+    font-size: 14px;
+  }
+
+  .dashboard-category-btn {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .dashboard-submit-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .dashboard-action-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 16px;
+  }
+}
+
+/* Small tablets and large phones - Landscape */
+@media (min-width: 480px) and (max-width: 767px) {
+  .main-content {
+    padding: 24px 20px;
+    align-items: center; /* Keep centered */
+  }
+
+  .welcome-title {
+    font-size: 28px;
+  }
+
+  .dashboard-input-container {
+    padding: 16px 18px;
+  }
+}
+
+/* Remove tablet and desktop responsive overrides to keep original */
+/* Only keep mobile-specific changes below 768px */
+
+/* Ensure smooth animations on all devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 767px) {
+  .nav-item,
+  .dashboard-category-btn,
+  .dashboard-submit-btn,
+  .dashboard-action-btn,
+  .top-avatar-item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .top-avatar,
+  .brand-icon svg,
+  .nav-icon svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-scrolling-actions {
+    animation: none;
   }
   
-  .nav-label,
-  .brand-name,
-  .recents-section,
-  .user-info,
-  .upgrade-btn-sidebar {
-    display: none !important;
-  }
-  
-  .nav-item {
-    justify-content: center;
-    padding: 12px 0;
-  }
-  
-  .user-section {
-    justify-content: center;
-    padding: 8px 0;
-  }
-  
-  .sidebar-category-menu,
-  .sidebar-dropdown-arrow {
-    display: none !important;
+  .dashboard-sidebar,
+  .nav-item,
+  .dashboard-action-btn,
+  .dashboard-submit-btn {
+    transition: none;
   }
 }

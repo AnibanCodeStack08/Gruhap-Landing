@@ -7,6 +7,13 @@ const Hero = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Category");
+  const [isScrollPaused, setIsScrollPaused] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
+  
+  const scrollWrapperRef = useRef(null);
+  const heroActionsRef = useRef(null);
+  const touchStartX = useRef(0);
+  const scrollLeft = useRef(0);
 
   // For Typed.js placeholder
   const textareaRef = useRef(null);
@@ -70,6 +77,71 @@ const Hero = () => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     setIsCategoryOpen(false);
+  };
+
+  // Handle click to pause/resume for mobile
+  const handleQuickActionClick = (action) => {
+    if (isMobile && !isTouching) {
+      // Toggle pause state only if not currently swiping
+      setIsScrollPaused(!isScrollPaused);
+    }
+    // You can add additional action handling here if needed
+    console.log(`Action clicked: ${action.text}`);
+  };
+
+  // Touch event handlers for manual swiping
+  const handleTouchStart = (e) => {
+    if (!isMobile) return;
+    setIsTouching(true);
+    setIsScrollPaused(true); // Pause animation when touching
+    touchStartX.current = e.touches[0].pageX;
+    scrollLeft.current = scrollWrapperRef.current?.scrollLeft || 0;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isMobile || !scrollWrapperRef.current) return;
+    e.preventDefault();
+    const touchX = e.touches[0].pageX;
+    const diff = touchStartX.current - touchX;
+    scrollWrapperRef.current.scrollLeft = scrollLeft.current + diff;
+  };
+
+  const handleTouchEnd = () => {
+    if (!isMobile) return;
+    setIsTouching(false);
+    // Resume animation after a short delay if it was playing before
+    setTimeout(() => {
+      if (!isScrollPaused) {
+        setIsScrollPaused(false);
+      }
+    }, 100);
+  };
+
+  // Mouse event handlers for desktop (optional, for testing)
+  const handleMouseDown = (e) => {
+    if (isMobile) return;
+    e.preventDefault();
+    setIsTouching(true);
+    touchStartX.current = e.pageX;
+    scrollLeft.current = scrollWrapperRef.current?.scrollLeft || 0;
+  };
+
+  const handleMouseMove = (e) => {
+    if (isMobile || !isTouching || !scrollWrapperRef.current) return;
+    e.preventDefault();
+    const mouseX = e.pageX;
+    const diff = touchStartX.current - mouseX;
+    scrollWrapperRef.current.scrollLeft = scrollLeft.current + diff;
+  };
+
+  const handleMouseUp = () => {
+    if (isMobile) return;
+    setIsTouching(false);
+  };
+
+  const handleMouseLeave = () => {
+    if (isMobile) return;
+    setIsTouching(false);
   };
 
   const quickActions = [
@@ -291,10 +363,28 @@ const Hero = () => {
           </div>
 
           {/* Quick Actions Wrapper */}
-          <div className="quick-actions-wrapper">
-            <div className="hero-actions">
+          <div 
+            className="quick-actions-wrapper"
+            ref={scrollWrapperRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            style={{ cursor: isTouching ? 'grabbing' : 'grab' }}
+          >
+            <div 
+              ref={heroActionsRef}
+              className={`hero-actions ${isScrollPaused ? 'paused' : ''}`}
+            >
               {scrollingActions.map((action, index) => (
-                <button key={index} className="hero-action-btn">
+                <button 
+                  key={index} 
+                  className="hero-action-btn"
+                  onClick={() => handleQuickActionClick(action)}
+                >
                   {renderIcon(action.iconType)}
                   <span className="hero-action-text">{action.text}</span>
                 </button>

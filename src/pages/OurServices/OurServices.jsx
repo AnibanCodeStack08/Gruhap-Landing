@@ -9,43 +9,19 @@ const OurServices = () => {
       icon: "🧠",
       title: "Mental Health Support",
       description: "24/7 access to AI-powered mental health professionals for stress, anxiety, depression, and emotional well-being.",
-      features: ["Stress Management", "Anxiety Support", "Depression Care", "Mindfulness Training", "Cognitive Behavioral Therapy", "Crisis Support"]
+      features: ["Stress Management", "Anxiety Support", "Depression Care", "Mindfulness Training"]
     },
     {
       icon: "💪",
       title: "Fitness & Exercise",
       description: "Personalized fitness plans, workout guidance, and exercise recommendations tailored to your goals and fitness level.",
-      features: ["Custom Workout Plans", "Exercise Form Guidance", "Progress Tracking", "Injury Prevention", "Strength Training", "Cardio Programs"]
+      features: ["Custom Workout Plans", "Exercise Form Guidance", "Progress Tracking", "Injury Prevention"]
     },
     {
       icon: "🍎",
       title: "Nutrition Guidance",
       description: "Expert nutritional advice, meal planning, and dietary recommendations for optimal health and wellness.",
-      features: ["Meal Planning", "Dietary Analysis", "Weight Management", "Special Diets", "Supplement Advice", "Healthy Recipes"]
-    }
-  ];
-
-  const additionalServices = [
-    {
-      icon: "🌙",
-      title: "Sleep Optimization",
-      description: "Improve your sleep quality with personalized sleep hygiene recommendations and relaxation techniques."
-    },
-    {
-      icon: "⚡",
-      title: "Productivity & Focus",
-      description: "Enhance your productivity with time management strategies and focus-building techniques."
-    },
-    {
-      icon: "🥗",
-      title: "Nutrition Guidance",
-      description: "Build healthy eating habits with personalized meal plans, expert tips, and sustainable nutrition strategies."
-
-    },
-    {
-      icon: "⏰",
-      title: "Burnout Prevention",
-      description: "Identify early signs of burnout and develop healthy coping mechanisms for work-life balance."
+      features: ["Meal Planning", "Dietary Analysis", "Weight Management", "Special Diets"]
     }
   ];
 
@@ -127,35 +103,7 @@ const OurServices = () => {
           </div>
         </div>
       </div>
-
-      {/* Additional Services Section */}
-      <div className="ourservices-additional-wrapper">
-        <div className="ourservices-additional-container">
-          <div className="ourservices-section-header">
-            <h2 className="ourservices-section-title">Additional Wellness Areas</h2>
-            <p className="ourservices-section-subtitle">
-              Specialized support for specific wellness challenges and lifestyle improvements.
-            </p>
-          </div>
-
-          <div className="ourservices-additional-grid">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="ourservices-additional-service-card">
-                <div className="ourservices-additional-content">
-                  <div className="ourservices-additional-icon">
-                    <span>{service.icon}</span>
-                  </div>
-                  <div className="ourservices-additional-text">
-                    <h3 className="ourservices-additional-title">{service.title}</h3>
-                    <p className="ourservices-additional-description">{service.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+      
       {/* How It Works Section */}
       <div className="ourservices-how-wrapper">
         <div className="ourservices-how-container">
