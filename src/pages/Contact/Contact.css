@@ -621,26 +621,26 @@
 /* Mobile Responsive - 768px and below */
 @media (max-width: 768px) {
   .contact-page {
-    padding-bottom: 60px;
+    padding-bottom: 30px;
   }
 
   .contact-hero {
-    padding: 50px 15px 35px;
+    padding: 5px 10px 15px;
     margin-top: 70px;
   }
   
   .contact-hero-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 20px;
   }
   
   .contact-hero-subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
     padding: 0 10px;
   }
 
   .contact-container {
-    padding: 0 15px;
+    padding: 0 5px;
   }
   
   .contact-section-header {
@@ -659,7 +659,7 @@
   
   .contact-cards-wrapper,
   .contact-form-wrapper {
-    padding: 1em 0.5em;
+    padding: 1em 0;
   }
 
   .contact-methods-section,
@@ -670,7 +670,47 @@
   
   .contact-methods-grid {
     gap: 24px;
-    padding: 0 8px;
+    padding: 0;
     margin: 1.5em auto;
+    max-width: 100%;
+  }
+
+  .contact-method-card {
+    margin: 0;
+  }
+
+  .contact-form-grid {
+    gap: 30px;
+    margin: 1.5em 0;
+  }
+
+  .contact-form-card,
+  .contact-office-card,
+  .contact-social-card {
+    margin: 0;
+  }
+
+  .contact-cta-container {
+    padding: 2em 1.5em;
+  }
+
+  .contact-cta-title {
+    font-size: 1.85rem;
+  }
+
+  .contact-cta-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-cta-primary,
+  .contact-cta-secondary {
+    max-width: 100%;
+    width: 100%;
   }
 }

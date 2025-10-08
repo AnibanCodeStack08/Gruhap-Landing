@@ -79,13 +79,12 @@ const Hero = () => {
     setIsCategoryOpen(false);
   };
 
-  // Handle click to pause/resume for mobile
+  // Handle click - removed pause functionality for mobile
   const handleQuickActionClick = (action) => {
-    if (isMobile && !isTouching) {
-      // Toggle pause state only if not currently swiping
-      setIsScrollPaused(!isScrollPaused);
+    // Only add functionality for desktop if needed
+    if (!isMobile) {
+      // Desktop behavior if needed
     }
-    // You can add additional action handling here if needed
     console.log(`Action clicked: ${action.text}`);
   };
 
@@ -109,12 +108,8 @@ const Hero = () => {
   const handleTouchEnd = () => {
     if (!isMobile) return;
     setIsTouching(false);
-    // Resume animation after a short delay if it was playing before
-    setTimeout(() => {
-      if (!isScrollPaused) {
-        setIsScrollPaused(false);
-      }
-    }, 100);
+    // Always resume animation after touch ends on mobile
+    setIsScrollPaused(false);
   };
 
   // Mouse event handlers for desktop (optional, for testing)

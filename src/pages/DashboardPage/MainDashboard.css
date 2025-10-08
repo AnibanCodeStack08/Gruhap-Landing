@@ -472,7 +472,7 @@
   color: #333;
   font-family: inherit;
   background: transparent;
-  line-height: 1.5;
+  line-height: 1;
   min-height: 24px;
 }
 
@@ -511,7 +511,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
   font-weight: 500;
   color: #666;
   transition: all 0.2s ease;
@@ -743,7 +743,7 @@
   }
 
   .dashboard-textarea {
-    font-size: 15px;
+    font-size: 13px;
     min-height: 44px;
   }
 
@@ -759,7 +759,7 @@
   }
 
   .dashboard-submit-btn {
-    width: 36px;
+    width: 35px;
     height: 36px;
     flex-shrink: 0;
   }
@@ -871,7 +871,7 @@
   .dashboard-submit-btn,
   .dashboard-action-btn,
   .top-avatar-item {
-    min-height: 44px;
+    min-height: 35px;
     display: flex;
     align-items: center;
   }

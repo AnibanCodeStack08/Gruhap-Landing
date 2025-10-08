@@ -238,7 +238,8 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 50px 20px;
+    padding: 0px 20px;
+    margin-bottom: 0px;
   }
   
   .footer-card {
@@ -292,7 +293,8 @@
 
 @media (max-width: 600px) {
   .footer {
-    padding: 40px 15px;
+    padding: 0px 15px;
+    margin-bottom: 0px;
   }
   
   .footer-card {
@@ -335,7 +337,8 @@
 
 @media (max-width: 400px) {
   .footer {
-    padding: 35px 15px;
+    padding: 0px 15px;
+    margin-bottom: 0px;
   }
   
   .footer-card {

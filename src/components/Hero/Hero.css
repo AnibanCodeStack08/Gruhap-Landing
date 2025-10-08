@@ -623,7 +623,7 @@
   }
 }
 
-/* Mobile responsiveness - Fixed color matching and auto-scroll */
+/* Mobile responsiveness - Fixed continuous loop scrolling */
 @media (max-width: 767px) {
   .hero {
     min-height: 130vh;
@@ -830,7 +830,7 @@
     transform: translateY(-1px); /* Match desktop hover effect */
   }
   
-  /* Quick actions with auto-scroll - Fixed for mobile */
+  /* Quick actions with continuous loop auto-scroll */
   .quick-actions-wrapper {
     width: 100%;
     max-width: 150vw;
@@ -856,14 +856,14 @@
     width: max-content;
     position: relative;
     z-index: 15;
-    /* Enable auto-scroll animation with exact same timing as desktop */
+    /* Enable continuous loop auto-scroll animation - no pause on mobile */
     animation: smoothScroll 25s linear infinite;
     will-change: transform;
     flex-wrap: nowrap;
   }
   
-  /* Pause animation on hover for mobile too */
-  .hero-actions:hover {
+  /* Remove hover pause effect for mobile - continuous scrolling */
+  .hero-actions.paused {
     animation-play-state: paused;
   }
   
