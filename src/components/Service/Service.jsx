@@ -1,6 +1,21 @@
 import React, { useState, useRef } from 'react'
 import './Service.css'
 
+// Import images
+import img1 from '../../Images/1.png'
+import img2 from '../../Images/2.png'
+import img3 from '../../Images/3.png'
+import img4 from '../../Images/4.png'
+import img5 from '../../Images/5.png'
+import img6 from '../../Images/6.png'
+import img7 from '../../Images/7.png'
+import img8 from '../../Images/8.png'
+import img9 from '../../Images/9.png'
+import img10 from '../../Images/10.png'
+import img11 from '../../Images/11.png'
+import img12 from '../../Images/12.png'
+import img13 from '../../Images/13.png'
+
 const Service = () => {
     const scrollContainerRef = useRef(null)
     const [canScrollLeft, setCanScrollLeft] = useState(false)
@@ -11,90 +26,26 @@ const Service = () => {
     // All cards with their categories
     const allCards = [
         // Mental Health Cards
-        {
-            img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=400&fit=crop&crop=center",
-            title: "Stress Management",
-            category: "Mental Health"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop&crop=center",
-            title: "Burnout Prevention",
-            category: "Mental Health"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=400&fit=crop&crop=center",
-            title: "Anxiety Management",
-            category: "Mental Health"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400&h=400&fit=crop&crop=center",
-            title: "Work-Life Balance",
-            category: "Mental Health"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center",
-            title: "Empathy Buddy",
-            category: "Mental Health"
-        },
+        { img: img1, title: "Stress Management", category: "Mental Health" },
+        { img: img2, title: "Burnout Prevention", category: "Mental Health" },
+        { img: img3, title: "Anxiety Management", category: "Mental Health" },
+        { img: img4, title: "Work-Life Balance", category: "Mental Health" },
+        { img: img5, title: "Empathy Buddy", category: "Mental Health" },
+
         // Fitness Cards
-        {
-            img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center",
-            title: "Weight Loss",
-            category: "Fitness"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=400&fit=crop&crop=center",
-            title: "Muscle Building",
-            category: "Fitness"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=400&fit=crop&crop=center",
-            title: "Weight Maintenance",
-            category: "Fitness"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=400&fit=crop&crop=center",
-            title: "Sleep and Recovery",
-            category: "Fitness"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center",
-            title: "Activity Lifestyle",
-            category: "Fitness"
-        },
+        { img: img6, title: "Weight Loss", category: "Fitness" },
+        { img: img7, title: "Muscle Building", category: "Fitness" },
+        { img: img8, title: "Weight Maintenance", category: "Fitness" },
+        { img: img9, title: "Sleep and Recovery", category: "Fitness" },
+        { img: img10, title: "Activity Lifestyle", category: "Fitness" },
+
         // Nutrition Cards
-        {
-            img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&crop=center",
-            title: "Personalized plan",
-            category: "Nutrition"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=400&fit=crop&crop=center",
-            title: "Nutritional Tracking",
-            category: "Nutrition"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&crop=center",
-            title: "Weight loss meal",
-            category: "Nutrition"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop&crop=center",
-            title: "Muscle-building plan",
-            category: "Nutrition"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=400&h=400&fit=crop&crop=center",
-            title: "Diabetic plan",
-            category: "Nutrition"
-        }
+        { img: img11, title: "Personalized Plan", category: "Nutrition" },
+        { img: img12, title: "Nutritional Tracking", category: "Nutrition" },
+        { img: img13, title: "Weight Loss Meal", category: "Nutrition" },
     ]
 
-    const categories = [
-        'Mental Health',
-        'Fitness',
-        'Nutrition'
-    ]
+    const categories = ['Mental Health', 'Fitness', 'Nutrition']
 
     // Filter cards based on selected category
     const filteredCards = selectedCategory ? allCards.filter(card => card.category === selectedCategory) : allCards
@@ -102,35 +53,21 @@ const Service = () => {
     const scroll = (direction) => {
         const container = scrollContainerRef.current
         const scrollAmount = 320 // Card width + gap
-
-        if (direction === 'left') {
-            container.scrollLeft -= scrollAmount
-        } else {
-            container.scrollLeft += scrollAmount
-        }
+        if (direction === 'left') container.scrollLeft -= scrollAmount
+        else container.scrollLeft += scrollAmount
     }
 
     const handleScroll = () => {
         const container = scrollContainerRef.current
         setCanScrollLeft(container.scrollLeft > 0)
-        setCanScrollRight(
-            container.scrollLeft < container.scrollWidth - container.clientWidth
-        )
+        setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth)
     }
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category)
         setIsDropdownOpen(false)
-
-        // Reset scroll position when category changes
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollLeft = 0
-        }
-
-        // Update scroll buttons state after a brief delay to allow for DOM update
-        setTimeout(() => {
-            handleScroll()
-        }, 100)
+        if (scrollContainerRef.current) scrollContainerRef.current.scrollLeft = 0
+        setTimeout(() => handleScroll(), 100)
     }
 
     return (
@@ -142,7 +79,6 @@ const Service = () => {
                             <h2 className="service-title">AI Professionals</h2>
                         </div>
                         <div className="header-center">
-                            {/* Desktop Navigation */}
                             <div className="service-nav desktop-nav">
                                 {categories.map((category, index) => (
                                     <button
@@ -166,30 +102,15 @@ const Service = () => {
                         </div>
                     </div>
 
-                    {/* Mobile Navigation Row - Below Title */}
+                    {/* Mobile Navigation Row */}
                     <div className="mobile-nav-row">
                         <div className="mobile-nav-container">
                             <div className="service-nav-mobile">
                                 <div className="dropdown-container">
-                                    <button
-                                        className="discover-btn"
-                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                    >
+                                    <button className="discover-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                                         <span>{selectedCategory || 'Category'}</span>
-                                        <svg
-                                            className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                        >
-                                            <path
-                                                d="M6 9L12 15L18 9"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
+                                        <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </button>
 
@@ -209,7 +130,6 @@ const Service = () => {
                                 </div>
                             </div>
 
-                            {/* Mobile View All Button - positioned next to dropdown */}
                             <button className="view-all-btn mobile-view-all">
                                 <span>View All</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,23 +140,13 @@ const Service = () => {
                         </div>
                     </div>
 
-                    {/* Desktop Grid Container with Arrows */}
+                    {/* Desktop Grid */}
                     <div className="service-grid-container desktop-grid-container">
-                        <button
-                            className={`nav-arrow nav-arrow-left ${!canScrollLeft ? 'disabled' : ''}`}
-                            onClick={() => scroll('left')}
-                            disabled={!canScrollLeft}
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                        <button className={`nav-arrow nav-arrow-left ${!canScrollLeft ? 'disabled' : ''}`} onClick={() => scroll('left')} disabled={!canScrollLeft}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </button>
 
-                        <div
-                            className="service-grid"
-                            ref={scrollContainerRef}
-                            onScroll={handleScroll}
-                        >
+                        <div className="service-grid" ref={scrollContainerRef} onScroll={handleScroll}>
                             {filteredCards.map((card, index) => (
                                 <div className="service-card" key={index}>
                                     <div className="card-image">
@@ -249,18 +159,12 @@ const Service = () => {
                             ))}
                         </div>
 
-                        <button
-                            className={`nav-arrow nav-arrow-right ${!canScrollRight ? 'disabled' : ''}`}
-                            onClick={() => scroll('right')}
-                            disabled={!canScrollRight}
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                        <button className={`nav-arrow nav-arrow-right ${!canScrollRight ? 'disabled' : ''}`} onClick={() => scroll('right')} disabled={!canScrollRight}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </button>
                     </div>
 
-                    {/* Mobile Grid Container - Vertical Layout */}
+                    {/* Mobile Grid */}
                     <div className="mobile-grid-container">
                         <div className="mobile-service-grid">
                             {filteredCards.slice(0, 4).map((card, index) => (

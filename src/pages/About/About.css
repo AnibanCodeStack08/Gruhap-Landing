@@ -313,7 +313,7 @@
 /* Tablets */
 @media (max-width: 768px) {
   .about-page-container {
-    min-height: auto;
+    min-height: 2150px;
   }
   
   .about-hero-section {

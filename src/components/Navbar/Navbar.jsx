@@ -1,38 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Modal from "./Modal"; // ✅ Import modal
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 0);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
@@ -53,7 +44,12 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="navbar-nav-actions">
-          <Link to="/login" className="navbar-login-btn">Login</Link>
+          <button
+            className="navbar-login-btn"
+            onClick={() => setIsLoginModalOpen(true)} // ✅ only opens modal
+          >
+            Login
+          </button>
           <Link to="/signup" className="navbar-get-started-btn">Get Started</Link>
         </div>
 
@@ -65,19 +61,9 @@ const Navbar = () => {
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
@@ -97,9 +83,15 @@ const Navbar = () => {
               <Link to="/contact" className="navbar-mobile-nav-link" onClick={closeMobileMenu}>Contact Us</Link>
             </div>
             <div className="navbar-mobile-nav-actions">
-              <Link to="/login" className="navbar-mobile-login-btn" onClick={closeMobileMenu}>
+              <button
+                className="navbar-mobile-login-btn"
+                onClick={() => {
+                  closeMobileMenu();
+                  setIsLoginModalOpen(true);
+                }}
+              >
                 Login
-              </Link>
+              </button>
               <Link to="/signup" className="navbar-mobile-get-started-btn" onClick={closeMobileMenu}>
                 Get Started
               </Link>
@@ -107,6 +99,9 @@ const Navbar = () => {
           </div>
         </>
       )}
+
+      {/* Modal Component */}
+      <Modal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </>
   );
 };

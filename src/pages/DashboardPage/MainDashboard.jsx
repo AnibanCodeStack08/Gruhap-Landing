@@ -70,6 +70,7 @@ const MainDashboard = () => {
     'Nutritionist'
   ];
 
+  // Desktop quick actions (scrolling)
   const quickActions = [
     { text: "Stress", iconType: "stress" },
     { text: "Anxiety", iconType: "anxiety" },
@@ -96,13 +97,11 @@ const MainDashboard = () => {
   const handleNavItemClick = (itemId) => {
     if (itemId === 'category') {
       toggleSidebarCategory();
-      // Don't close mobile sidebar when clicking category to show dropdown
       return;
     } else {
       setActiveSection(itemId);
       setIsSidebarCategoryOpen(false);
     }
-    // Only close mobile sidebar for non-category items
     if (isMobile) {
       setIsMobileSidebarOpen(false);
     }
@@ -146,7 +145,6 @@ const MainDashboard = () => {
       if (!event.target.closest('.top-avatar-container')) {
         setIsAvatarMenuOpen(false);
       }
-      // Mobile sidebar - only close if clicking outside AND not clicking on category items
       if (isMobile && 
           !event.target.closest('.dashboard-sidebar') && 
           !event.target.closest('.mobile-menu-btn') && 
@@ -259,7 +257,6 @@ const MainDashboard = () => {
                         className="sidebar-category-item"
                         onClick={() => {
                           console.log('Selected:', category);
-                          // Close mobile sidebar after selecting a category item
                           if (isMobile) {
                             setIsMobileSidebarOpen(false);
                             setIsSidebarCategoryOpen(false);
@@ -333,20 +330,13 @@ const MainDashboard = () => {
           </div>
           <div className="dashboard-chat-section">
             <div className="dashboard-input-container">
-              <div className="dashboard-input-top">
-                <textarea
-                  ref={textareaRef}
-                  className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
-                  rows={isMobile ? "3" : "2"}
-                />
-              </div>
-              <div className="dashboard-input-controls">
+              {isMobile && (
                 <div className="dashboard-input-left">
                   <div className="dashboard-category-dropdown">
                     <button
                       className="dashboard-category-btn"
                       onClick={toggleCategoryDropdown}
-                      aria-label="Select category"
+                      aria-label="Add attachment"
                     >
                       <span>{selectedCategory}</span>
                       <svg
@@ -378,6 +368,63 @@ const MainDashboard = () => {
                     )}
                   </div>
                 </div>
+              )}
+              <div className="dashboard-input-top">
+                <textarea
+                  ref={textareaRef}
+                  className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
+                  rows={isMobile ? "1" : "2"}
+                />
+              </div>
+              {!isMobile && (
+                <div className="dashboard-input-controls">
+                  <div className="dashboard-input-left">
+                    <div className="dashboard-category-dropdown">
+                      <button
+                        className="dashboard-category-btn"
+                        onClick={toggleCategoryDropdown}
+                        aria-label="Select category"
+                      >
+                        <span>{selectedCategory}</span>
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className={`dashboard-dropdown-arrow ${isCategoryOpen ? 'open' : ''}`}
+                        >
+                          <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                      </button>
+                      {isCategoryOpen && (
+                        <div className="dashboard-category-menu">
+                          {categories.map((category, index) => (
+                            <button
+                              key={index}
+                              className="dashboard-category-item"
+                              onClick={() => handleCategorySelect(category)}
+                            >
+                              {category}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="dashboard-input-right">
+                    <button className="dashboard-submit-btn" aria-label="Submit">
+                      <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
+              {isMobile && (
                 <div className="dashboard-input-right">
                   <button className="dashboard-submit-btn" aria-label="Submit">
                     <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -385,18 +432,60 @@ const MainDashboard = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
+              )}
             </div>
-            <div className="dashboard-actions-wrapper">
-              <div className="dashboard-scrolling-actions">
-                {scrollingActions.map((action, index) => (
-                  <button key={index} className="dashboard-action-btn">
-                    {renderIcon(action.iconType)}
-                    <span className="dashboard-action-text">{action.text}</span>
-                  </button>
-                ))}
+            
+            {/* Desktop: Scrolling Actions */}
+            {!isMobile && (
+              <div className="dashboard-actions-wrapper">
+                <div className="dashboard-scrolling-actions">
+                  {scrollingActions.map((action, index) => (
+                    <button key={index} className="dashboard-action-btn">
+                      {renderIcon(action.iconType)}
+                      <span className="dashboard-action-text">{action.text}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Mobile: Category Buttons */}
+            {isMobile && (
+              <div className="mobile-category-buttons">
+                <button className="mobile-category-btn-one mobile-category-mental-health">
+                  <img 
+                    src="https://cdn-icons-png.freepik.com/512/2913/2913008.png" 
+                    alt="Mental Health" 
+                    className="mobile-category-icon-img"
+                  />
+                  <span className="mobile-category-text">Mental Health</span>
+                </button>
+                <button className="mobile-category-btn-two mobile-category-fitness">
+                  <img 
+                    src="https://cdn-icons-png.freepik.com/512/7241/7241777.png" 
+                    alt="Fitness" 
+                    className="mobile-category-icon-img"
+                  />
+                  <span className="mobile-category-text">Fitness</span>
+                </button>
+                <button className="mobile-category-btn-three mobile-category-nutritionist">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/9768/9768147.png" 
+                    alt="Nutritionist" 
+                    className="mobile-category-icon-img"
+                  />
+                  <span className="mobile-category-text">Nutritionist</span>
+                </button>
+                <button className="mobile-category-btn-four mobile-category-more">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" 
+                    alt="More" 
+                    className="mobile-category-icon-img"
+                  />
+                  <span className="mobile-category-text">More</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>
