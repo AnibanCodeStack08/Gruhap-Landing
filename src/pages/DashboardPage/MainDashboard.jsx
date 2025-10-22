@@ -12,7 +12,11 @@ const MainDashboard = () => {
   const [isSidebarCategoryOpen, setIsSidebarCategoryOpen] = useState(false);
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [messages, setMessages] = useState([]);
   const textareaRef = useRef(null);
+  const typedInstanceRef = useRef(null);
 
   const userInfo = {
     name: 'Anirban Sarkar',
@@ -107,6 +111,37 @@ const MainDashboard = () => {
     }
   };
 
+  const handleSubmit = () => {
+    if (inputValue.trim()) {
+      setMessages([...messages, { text: inputValue, sender: 'user' }]);
+      setInputValue('');
+      setHasSubmitted(true);
+      
+      // Destroy typed instance when submitting
+      if (typedInstanceRef.current) {
+        typedInstanceRef.current.destroy();
+        typedInstanceRef.current = null;
+      }
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    
+    // Destroy typed instance when user starts typing
+    if (typedInstanceRef.current && e.target.value) {
+      typedInstanceRef.current.destroy();
+      typedInstanceRef.current = null;
+    }
+  };
+
   const renderIcon = (iconType) => {
     const icons = {
       stress: '😰',
@@ -159,7 +194,8 @@ const MainDashboard = () => {
   }, [isMobile]);
 
   useEffect(() => {
-    if (!textareaRef.current) return;
+    if (!textareaRef.current || hasSubmitted || inputValue) return;
+    
     const typed = new Typed(textareaRef.current, {
       strings: [
         "Ask Gruhap to manage stress...",
@@ -180,10 +216,16 @@ const MainDashboard = () => {
       onStringTyped: () => setIsTyping(false),
       onDestroy: () => setIsTyping(false),
     });
+    
+    typedInstanceRef.current = typed;
+    
     return () => {
-      typed.destroy();
+      if (typedInstanceRef.current) {
+        typedInstanceRef.current.destroy();
+        typedInstanceRef.current = null;
+      }
     };
-  }, [isMobile]);
+  }, [hasSubmitted, inputValue, isMobile]);
 
   return (
     <div className="dashboard-container">
@@ -322,13 +364,29 @@ const MainDashboard = () => {
           </div>
         </div>
         <div className="main-content">
-          <div className="welcome-section">
-            <h1 className="welcome-title">
-              <span className="greeting-icon">🌟</span>
-              Welcome back, {userInfo.name.split(' ')[0]}!
-            </h1>
-          </div>
-          <div className="dashboard-chat-section">
+          {!hasSubmitted && (
+            <div className="welcome-section">
+              <h1 className="welcome-title">
+                <span className="greeting-icon">🌟</span>
+                Welcome back, {userInfo.name.split(' ')[0]}!
+              </h1>
+            </div>
+          )}
+          
+          {/* Messages Display Area */}
+          {hasSubmitted && (
+            <div className="messages-container">
+              {messages.map((message, index) => (
+                <div key={index} className="message-wrapper">
+                  <div className="message user-message">
+                    {message.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          <div className={`dashboard-chat-section ${hasSubmitted ? 'chat-submitted' : ''}`}>
             <div className="dashboard-input-container">
               {isMobile && (
                 <div className="dashboard-input-left">
@@ -374,6 +432,9 @@ const MainDashboard = () => {
                   ref={textareaRef}
                   className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
                   rows={isMobile ? "1" : "2"}
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  onKeyPress={handleKeyPress}
                 />
               </div>
               {!isMobile && (
@@ -416,7 +477,11 @@ const MainDashboard = () => {
                     </div>
                   </div>
                   <div className="dashboard-input-right">
-                    <button className="dashboard-submit-btn" aria-label="Submit">
+                    <button 
+                      className="dashboard-submit-btn" 
+                      aria-label="Submit"
+                      onClick={handleSubmit}
+                    >
                       <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
                       </svg>
@@ -426,7 +491,11 @@ const MainDashboard = () => {
               )}
               {isMobile && (
                 <div className="dashboard-input-right">
-                  <button className="dashboard-submit-btn" aria-label="Submit">
+                  <button 
+                    className="dashboard-submit-btn" 
+                    aria-label="Submit"
+                    onClick={handleSubmit}
+                  >
                     <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
                     </svg>
@@ -436,7 +505,7 @@ const MainDashboard = () => {
             </div>
             
             {/* Desktop: Scrolling Actions */}
-            {!isMobile && (
+            {!isMobile && !hasSubmitted && (
               <div className="dashboard-actions-wrapper">
                 <div className="dashboard-scrolling-actions">
                   {scrollingActions.map((action, index) => (
@@ -450,7 +519,7 @@ const MainDashboard = () => {
             )}
 
             {/* Mobile: Category Buttons */}
-            {isMobile && (
+            {isMobile && !hasSubmitted && (
               <div className="mobile-category-buttons">
                 <button className="mobile-category-btn-one mobile-category-mental-health">
                   <img 

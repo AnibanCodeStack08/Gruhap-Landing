@@ -1,9 +1,11 @@
 // src/components/Modal.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
   const [step, setStep] = useState('phone'); // 'phone', 'otp', 'email', 'emailOtp'
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -43,17 +45,22 @@ const Modal = ({ isOpen, onClose }) => {
       if (enteredOtp === generatedOtp) {
         setShowSuccessAnimation(true);
         setTimeout(() => {
-          onClose();
-          setShowSuccessAnimation(false);
-          // Reset form
-          setStep('phone');
-          setPhoneNumber('');
-          setEmail('');
-          setOtp(['', '', '', '']);
+          // Navigate to MainDashboard first
+          navigate('/MainDashBoard');
+          
+          // Then close modal and reset
+          setTimeout(() => {
+            onClose();
+            setShowSuccessAnimation(false);
+            setStep('phone');
+            setPhoneNumber('');
+            setEmail('');
+            setOtp(['', '', '', '']);
+          }, 100);
         }, 2000);
       }
     }
-  }, [otp, generatedOtp, onClose]);
+  }, [otp, generatedOtp, onClose, navigate]);
 
   if (!isOpen) return null;
 

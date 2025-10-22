@@ -50,7 +50,7 @@ const Navbar = () => {
           >
             Login
           </button>
-          <Link to="/signup" className="navbar-get-started-btn">Get Started</Link>
+          <Link to="/MainDashBoard" className="navbar-get-started-btn">Get Started</Link>
         </div>
 
         {isMobile && (
@@ -92,7 +92,7 @@ const Navbar = () => {
               >
                 Login
               </button>
-              <Link to="/signup" className="navbar-mobile-get-started-btn" onClick={closeMobileMenu}>
+              <Link to="/MainDashBoard" className="navbar-mobile-get-started-btn" onClick={closeMobileMenu}>
                 Get Started
               </Link>
             </div>
