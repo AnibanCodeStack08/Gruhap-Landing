@@ -640,7 +640,8 @@
   .hero-main {
     min-height: 100vh;
     width: 100%;
-    margin: 0;
+    margin-top: 260px;
+    margin-bottom: 150px;
     padding: 20px;
     display: flex;
     flex-direction: column;
