@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Footer.css */
+.footer {
+  color: black;
+  padding: 0px 20px;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+  zoom: 0.8;
+  margin-bottom: 50px;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.footer-container {
+  max-width: 1850px;
+  margin: 0px auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Styling */
+.footer-card {
+  /* background: linear-gradient(135deg, #2c5f5a 0%, #4a7c75 100%); */
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 26px;
+  z-index: -1;
+}
+
+/* Brand Section */
+.footer-brand {
+  flex: 1.2;
+  max-width: 380px;
+}
+
+.footer-brand-name {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: black;
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-brand-description {
+  font-size: 16px;
+  font-family: "Lora", serif;
+  line-height: 1.6;
+  margin: 0 0 35px 0;
+  color: black;
+  opacity: 0.9;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  gap: 50px;
+  flex: 2;
+}
+
+.footer-column {
+  flex: 1;
+}
+
+.column-title {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif; 
+  margin: 0 0 25px 0;
+  color: black;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.column-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3));
+  border-radius: 2px;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  margin-bottom: 15px;
+  transition: transform 0.2s ease;
+}
+
+.link-list li:hover {
+  transform: translateX(5px);
+}
+
+.link-list a {
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Lora", serif;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+  display: inline-block;
+}
+
+.link-list a::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5));
+  transition: width 0.3s ease;
+}
+
+.link-list a:hover {
+  color: #ffffff;
+}
+
+.link-list a:hover::before {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .footer-card {
+    gap: 40px;
+  }
+  
+  .footer-links {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-card {
+    padding: 40px;
+    gap: 40px;
+  }
+  
+  .footer-links {
+    gap: 30px;
+  }
+  
+  .brand-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 0px 20px;
+    margin-bottom: 0px;
+  }
+  
+  .footer-card {
+    flex-direction: column;
+    gap: 40px;
+    padding: 35px;
+    border-radius: 20px;
+
+  }
+  
+  .footer-brand {
+    max-width: 100%;
+    text-align: center;    
+  }
+  
+  .brand-description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 370px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+  }
+  
+  .footer-column {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .column-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .column-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .link-list a {
+    font-size: 13px;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 0px 15px;
+    margin-bottom: 0px;
+  }
+  
+  .footer-card {
+    padding: 30px 20px;
+    border-radius: 18px;
+  }
+  
+  .footer-links {
+    gap: 20px;
+  }
+  
+  .column-title {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  
+  .link-list li {
+    margin-bottom: 12px;
+  }
+  
+  .link-list a {
+    font-size: 12px;
+  }
+  
+  .brand-name {
+    font-size: 30px;
+  }
+  
+  .brand-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .social-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer {
+    padding: 0px 15px;
+    margin-bottom: 0px;
+  }
+  
+  .footer-card {
+    padding: 25px 20px;
+  }
+  
+  .footer-links {
+    gap: 15px;
+  }
+  
+  .column-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .link-list li {
+    margin-bottom: 10px;
+  }
+  
+  .link-list a {
+    font-size: 11px;
+  }
+  
+  .brand-name {
+    font-size: 26px;
+  }
+  
+  .brand-description {
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .social-icons {
+    gap: 12px;
+  }
+  
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+}

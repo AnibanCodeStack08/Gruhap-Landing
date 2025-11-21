@@ -1,0 +1,19 @@
+/* =======================
+   Global styles
+======================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /* background-image: radial-gradient(circle, #579ad4 50%, #91b0df, #bdc8ea, #e1e2f4, #ffffff); */
+  /* background-image: radial-gradient(circle, #7587ec 50%, #9da1ff, #c2bfff, #e2deff, #ffffff); */
+  /* background-image: radial-gradient(circle, #7587ec 50%, #9fa3f1, #c2c0f6, #e2dffa, #ffffff); */
+  background-image: radial-gradient(circle, #8ca8fe 50%, #b1bcfe, #cfd1fe, #e9e7fe, #ffffff);
+  
+}

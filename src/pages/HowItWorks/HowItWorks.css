@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Container and Layout */
+.howitworks-container {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  background: #FAFAFA;
+  color: #1F2937;
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  padding-bottom: 85px;
+}
+
+.howitworks-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.howitworks-container h1,
+.howitworks-container h2,
+.howitworks-container h3,
+.howitworks-container h4,
+.howitworks-container h5 {
+  font-weight: 700;
+  margin: 0.5em 0;
+}
+
+.howitworks-container p {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  margin: 0.1em 6;
+}
+
+/* Hero Section */
+.howitworks-hero {
+  background: transparent;
+  text-align: center;
+  padding: 80px 20px 60px 20px;
+  position: relative;
+  margin-top: 85px;
+}
+
+.howitworks-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.howitworks-hero-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.howitworks-hero-description {
+  font-family: "Lora", serif;
+  font-size: 1.15rem;
+  margin-bottom: 1.7em;
+  font-weight: 500;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Section Containers */
+.howitworks-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.howitworks-section-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.howitworks-section-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  margin: 0 auto 16px auto;
+  font-weight: 700;
+  text-align: center;
+}
+
+.howitworks-section-subtitle {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.08rem;
+  color: #6B7280;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Steps Section */
+.howitworks-steps-section {
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.howitworks-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+.howitworks-step-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
+  padding: 2em 1em;
+  text-align: center;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
+  min-height: 320px;
+}
+
+.howitworks-step-card:hover {
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
+  transform: translateY(-4px);
+}
+
+.howitworks-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.howitworks-step-number {
+  font-family: "Lora", serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.howitworks-step-icon {
+  font-size: 2.3rem;
+  color: #14B8A6;
+}
+
+.howitworks-step-title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #3B82F6;
+  font-size: 1.13rem;
+  margin-bottom: 16px;
+}
+
+.howitworks-step-description {
+  font-family: "Lora", serif;
+  font-size: 0.97rem;
+  color: #6B7280;
+  margin-top: 0.7em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.howitworks-step-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.howitworks-step-detail-item {
+  font-family: "Lora", serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #6B7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.howitworks-bullet {
+  color: #10B981;
+  font-size: 1rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+/* Features Section */
+.howitworks-features-section {
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.howitworks-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+.howitworks-feature-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
+  padding: 2em 1em;
+  text-align: center;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
+}
+
+.howitworks-feature-card:hover {
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
+  transform: translateY(-4px);
+}
+
+.howitworks-feature-icon {
+  font-size: 2.3rem;
+  color: #14B8A6;
+  margin-bottom: 0.6em;
+  display: inline-block;
+}
+
+.howitworks-feature-title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: #3B82F6;
+  font-size: 1.13rem;
+  margin-bottom: 16px;
+}
+
+.howitworks-feature-description {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.97rem;
+  color: #6B7280;
+  margin-top: 0.7em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Use Cases Section */
+.howitworks-usecases-section {
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.howitworks-usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+.howitworks-usecase-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
+  padding: 2em 1.5em;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
+}
+
+.howitworks-usecase-card:hover {
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
+  transform: translateY(-4px);
+}
+
+.howitworks-usecase-badge {
+  font-family: "Nunito", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  background: #ECFDF5;
+  color: #10B981;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid #d1fae5;
+}
+
+.howitworks-usecase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.howitworks-usecase-section {
+  padding: 0;
+}
+
+.howitworks-usecase-label {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3B82F6;
+  margin-bottom: 10px;
+}
+
+.howitworks-usecase-query {
+  font-family: "Nunito", sans-serif;
+  background: #F3F4F6;
+  padding: 15px;
+  border-radius: 12px;
+  color: #374151;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  border: 1px solid #E5E7EB;
+}
+
+.howitworks-usecase-response {
+  font-family: "Nunito", sans-serif;
+  background: #EFF6FF;
+  padding: 15px;
+  border-radius: 12px;
+  color: #1F2937;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  border: 1px solid #DBEAFE;
+}
+
+/* HowItWorks CTA Section Styles */
+.howitworks-cta-section {
+  background: transparent;
+  padding: 0 20px;
+}
+
+.howitworks-cta-container {
+  background: rgb(117, 135, 236);
+  border-radius: 16px;
+  padding: 2em;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  border: 1px solid #E5E7EB;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+
+.howitworks-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.howitworks-cta-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.howitworks-cta-description {
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  color: #E5E7EB;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.howitworks-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.howitworks-cta-primary,
+.howitworks-cta-secondary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 180px;
+  font-family: "Nunito", sans-serif;
+}
+
+.howitworks-cta-primary {
+  background: black;
+  color: white;
+  box-shadow: 0 2px 16px rgba(59,130,246,.20);
+}
+
+.howitworks-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.4);
+}
+
+.howitworks-cta-secondary {
+  background: transparent;
+  color: black;
+  border: 2px solid black;
+}
+
+.howitworks-cta-secondary:hover {
+  background: #3B82F6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 16px rgba(59,130,246,.18);
+}
+
+/* Responsive Design - Large Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .howitworks-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .howitworks-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .howitworks-usecases-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .howitworks-hero {
+    padding: 60px 20px 40px;
+    margin-top: 70px;
+  }
+
+  .howitworks-cta-title {
+    font-size: 2.2rem;
+  }
+
+  .howitworks-step-card {
+    min-height: 300px;
+  }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+  .howitworks-hero {
+    padding: 50px 20px 30px;
+    margin-top: 60px;
+  }
+
+  .howitworks-hero-title {
+    font-size: 2rem;
+  }
+
+  .howitworks-hero-description {
+    font-size: 1.05rem;
+    padding: 0 10px;
+  }
+
+  .howitworks-section-title {
+    font-size: 1.75rem;
+  }
+
+  .howitworks-section-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .howitworks-steps-grid,
+  .howitworks-features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .howitworks-usecases-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .howitworks-step-card,
+  .howitworks-feature-card {
+    min-height: auto;
+    padding: 1.5em 1.2em;
+  }
+
+  .howitworks-step-header {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .howitworks-step-number {
+    font-size: 2rem;
+  }
+
+  .howitworks-step-icon,
+  .howitworks-feature-icon {
+    font-size: 2rem;
+  }
+
+  .howitworks-step-title,
+  .howitworks-feature-title {
+    font-size: 1.05rem;
+  }
+
+  .howitworks-step-description,
+  .howitworks-feature-description {
+    font-size: 0.95rem;
+  }
+
+  .howitworks-cta-container {
+    padding: 1.75em 1.25em;
+    border-radius: 12px;
+  }
+
+  .howitworks-cta-title {
+    font-size: 1.85rem;
+    margin-bottom: 16px;
+  }
+
+  .howitworks-cta-description {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+  }
+
+  .howitworks-cta-buttons {
+    gap: 16px;
+  }
+
+  .howitworks-cta-primary,
+  .howitworks-cta-secondary {
+    font-size: 1rem;
+    padding: 14px 28px;
+    min-width: 160px;
+  }
+
+  .howitworks-sections-section,
+  .howitworks-features-section {
+    padding: 20px 15px;
+  }
+}
+
+/* Responsive Design - Large Mobile */
+@media (max-width: 640px) {
+  .howitworks-container {
+    padding-bottom: 60px;
+  }
+
+  .howitworks-hero {
+    padding: 40px 15px 25px;
+    margin-top: 50px;
+  }
+
+  .howitworks-hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .howitworks-hero-description {
+    font-size: 1rem;
+  }
+
+  .howitworks-section-container {
+    padding: 0 15px;
+  }
+
+  .howitworks-section-header {
+    margin-bottom: 1.5em;
+  }
+
+  .howitworks-section-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .howitworks-section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .howitworks-step-detail-item {
+    font-size: 0.85rem;
+  }
+
+  .howitworks-usecase-card {
+    padding: 1.5em 1.2em;
+  }
+
+  .howitworks-usecase-badge {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .howitworks-usecase-label {
+    font-size: 0.9rem;
+  }
+
+  .howitworks-usecase-query,
+  .howitworks-usecase-response {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 480px) {
+  .howitworks-hero {
+    padding: 35px 12px 20px;
+    margin-top: 45px;
+  }
+
+  .howitworks-hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .howitworks-hero-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .howitworks-section-container {
+    padding: 0 12px;
+  }
+
+  .howitworks-section-title {
+    font-size: 1.4rem;
+  }
+
+  .howitworks-section-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .howitworks-steps-section,
+  .howitworks-features-section {
+    padding: 15px 10px;
+  }
+
+  .howitworks-steps-grid,
+  .howitworks-features-grid {
+    gap: 16px;
+    padding: 0 5px;
+  }
+
+  .howitworks-step-card,
+  .howitworks-feature-card {
+    padding: 1.25em 1em;
+    border-radius: 12px;
+  }
+
+  .howitworks-step-header {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .howitworks-step-number {
+    font-size: 1.75rem;
+  }
+
+  .howitworks-step-icon,
+  .howitworks-feature-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5em;
+  }
+
+  .howitworks-step-title,
+  .howitworks-feature-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .howitworks-step-description,
+  .howitworks-feature-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .howitworks-step-detail-item {
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+  }
+
+  .howitworks-bullet {
+    font-size: 0.9rem;
+  }
+
+  .howitworks-cta-section {
+    padding: 0 12px;
+  }
+
+  .howitworks-cta-container {
+    padding: 1.5em 1em;
+    border-radius: 10px;
+  }
+
+  .howitworks-cta-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .howitworks-cta-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .howitworks-cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .howitworks-cta-primary,
+  .howitworks-cta-secondary {
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    min-width: 140px;
+  }
+
+  .howitworks-cta-primary:hover,
+  .howitworks-cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+}

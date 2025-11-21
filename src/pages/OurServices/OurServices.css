@@ -1,0 +1,716 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Body and heading styles for Services page */
+.ourservices-page-container {
+  margin: 0;
+  background: #e9eaf7;
+  color: #1F2937;
+  font-family: "Lora", serif;
+  min-height: 80vh;
+  padding: 0;
+  padding-bottom: 55px;
+}
+
+.ourservices-page-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ourservices-page-container h1,
+.ourservices-page-container h2,
+.ourservices-page-container h3,
+.ourservices-page-container h4,
+.ourservices-page-container h5 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  margin: 0.5em 0;
+}
+
+.ourservices-page-container p {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  margin: 0.1em 6;
+}
+
+/* Services hero section */
+.ourservices-hero-section {
+  background: transparent;
+  text-align: center;
+  padding: 80px 20px 60px 20px;
+  position: relative;
+  margin-top: 85px;
+}
+
+.ourservices-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ourservices-hero-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.ourservices-hero-subtitle {
+  font-family: "Lora", serif;
+  font-size: 1.15rem;
+  margin-bottom: 1.7em;
+  font-weight: 500;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Section wrappers */
+.ourservices-main-wrapper,
+.ourservices-additional-wrapper,
+.ourservices-how-wrapper,
+.ourservices-cta-wrapper {
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ourservices-main-container,
+.ourservices-additional-container,
+.ourservices-how-container {
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+  padding: 2em;
+}
+
+.ourservices-cta-container {
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  border-radius: 16px;
+  padding: 2em;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
+}
+
+/* Section headers */
+.ourservices-section-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.ourservices-section-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  margin: 0 auto 16px auto;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ourservices-section-subtitle {
+  font-family: "Lora", serif;
+  font-size: 1.08rem;
+  color: #6B7280;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Main Services Grid */
+.ourservices-main-grid {
+  display: grid;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  .ourservices-main-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 700px) and (max-width: 1023px) {
+  .ourservices-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 699px) {
+  .ourservices-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Main Service Card Style */
+.ourservices-service-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
+  padding: 2em 1.5em;
+  text-align: center;
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+}
+
+.ourservices-service-card:hover {
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
+  transform: translateY(-4px);
+}
+
+.ourservices-card-header {
+  margin-bottom: 1.5em;
+}
+
+/* blue gradient in icon */
+.ourservices-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #3B82F6 0%, #162d48 100%);
+  font-size: 2.5rem;
+  color: white;
+}
+
+.ourservices-card-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3B82F6;
+  margin-bottom: 16px;
+}
+
+.ourservices-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ourservices-card-description {
+  font-family: "Lora", serif;
+  font-size: 0.97rem;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.ourservices-features {
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.ourservices-features-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3B82F6;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ourservices-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* blue accent on feature badge */
+.ourservices-feature-badge {
+  font-family: "Lora", serif;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #3B82F6;
+}
+
+/* Button Styles */
+.ourservices-card-button {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #3B82F6 0%, #162d48 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  box-shadow: 0 2px 16px rgba(59,130,246,.15);
+}
+
+.ourservices-card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.23);
+}
+
+/* How It Works Grid */
+.ourservices-how-grid {
+  display: grid;
+  grid-gap: 32px;
+  margin: 2em auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  .ourservices-how-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 700px) and (max-width: 1023px) {
+  .ourservices-how-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 699px) {
+  .ourservices-how-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* How It Works Card Style */
+.ourservices-how-step-card {
+  background: #e9eaf7;
+  border-radius: 16px;
+  padding: 2em 1.5em;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
+  border: 1px solid #E5E7EB;
+  min-height: 280px;
+}
+.ourservices-how-step-card:hover {
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.15);
+  transform: translateY(-5px);
+}
+.ourservices-step-number {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 auto 24px;
+}
+.ourservices-step-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #3B82F6;
+  margin-bottom: 16px;
+}
+.ourservices-step-description {
+  font-family: "Lora", serif;
+  font-size: 0.97rem;
+  color: #6B7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Call to Action Section */
+.ourservices-cta-container {
+  background: rgb(117, 135, 236);
+  color: white;
+  text-align: center;
+}
+
+.ourservices-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.ourservices-cta-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+.ourservices-cta-description {
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  color: #E5E7EB;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.ourservices-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ourservices-cta-primary,
+.ourservices-cta-secondary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 180px;
+  font-family: "Nunito", sans-serif;
+}
+.ourservices-cta-primary {
+  background: black;
+  color: white;
+  box-shadow: 0 2px 16px rgba(59,130,246,.20);
+}
+.ourservices-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.4);
+}
+.ourservices-cta-secondary {
+  background: transparent;
+  color: black;
+  border: 2px solid black;
+}
+.ourservices-cta-secondary:hover {
+  background: #3B82F6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 16px rgba(59,130,246,.18);
+}
+
+/* Responsive Design - Large Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .ourservices-hero-section {
+    padding: 60px 20px 40px;
+    margin-top: 70px;
+  }
+
+  .ourservices-cta-title {
+    font-size: 2.2rem;
+  }
+
+  .ourservices-service-card {
+    min-height: 400px;
+  }
+
+  .ourservices-how-step-card {
+    min-height: 260px;
+  }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+  .ourservices-hero-section {
+    padding: 50px 20px 30px;
+    margin-top: 60px;
+  }
+
+  .ourservices-hero-title {
+    font-size: 2rem;
+  }
+
+  .ourservices-hero-subtitle {
+    font-size: 1.05rem;
+    padding: 0 10px;
+  }
+
+  .ourservices-section-title {
+    font-size: 1.75rem;
+  }
+
+  .ourservices-section-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .ourservices-main-grid,
+  .ourservices-how-grid {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .ourservices-service-card,
+  .ourservices-how-step-card {
+    min-height: auto;
+    padding: 1.5em 1.2em;
+  }
+
+  .ourservices-icon-wrapper {
+    width: 75px;
+    height: 75px;
+    font-size: 2.3rem;
+  }
+
+  .ourservices-card-title {
+    font-size: 1.25rem;
+  }
+
+  .ourservices-card-description {
+    font-size: 0.95rem;
+  }
+
+  .ourservices-features-title {
+    font-size: 0.95rem;
+  }
+
+  .ourservices-feature-badge {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+
+  .ourservices-card-button {
+    padding: 13px 24px;
+    font-size: 0.98rem;
+  }
+
+  .ourservices-step-number {
+    width: 65px;
+    height: 65px;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .ourservices-step-title {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+
+  .ourservices-step-description {
+    font-size: 0.95rem;
+  }
+
+  .ourservices-cta-container {
+    padding: 1.75em 1.25em;
+    border-radius: 12px;
+  }
+
+  .ourservices-cta-title {
+    font-size: 1.85rem;
+    margin-bottom: 16px;
+  }
+
+  .ourservices-cta-description {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+  }
+
+  .ourservices-cta-buttons {
+    gap: 16px;
+  }
+
+  .ourservices-cta-primary,
+  .ourservices-cta-secondary {
+    font-size: 1rem;
+    padding: 14px 28px;
+    min-width: 160px;
+  }
+
+  .ourservices-main-wrapper,
+  .ourservices-how-wrapper {
+    padding: 20px 15px;
+  }
+}
+
+/* Responsive Design - Large Mobile */
+@media (max-width: 640px) {
+  .ourservices-page-container {
+    padding-bottom: 60px;
+  }
+
+  .ourservices-hero-section {
+    padding: 40px 15px 25px;
+    margin-top: 50px;
+  }
+
+  .ourservices-hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .ourservices-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .ourservices-main-container,
+  .ourservices-how-container {
+    padding: 0 15px;
+  }
+
+  .ourservices-section-header {
+    margin-bottom: 1.5em;
+  }
+
+  .ourservices-section-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .ourservices-section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .ourservices-service-card {
+    padding: 1.5em 1.2em;
+  }
+
+  .ourservices-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .ourservices-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+  }
+
+  .ourservices-feature-badge {
+    font-size: 0.75rem;
+    padding: 4px 9px;
+  }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 480px) {
+  .ourservices-hero-section {
+    padding: 35px 12px 20px;
+    margin-top: 45px;
+  }
+
+  .ourservices-hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .ourservices-hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .ourservices-main-container,
+  .ourservices-how-container {
+    padding: 0 12px;
+  }
+
+  .ourservices-section-title {
+    font-size: 1.4rem;
+  }
+
+  .ourservices-section-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .ourservices-main-wrapper,
+  .ourservices-how-wrapper {
+    padding: 15px 10px;
+  }
+
+  .ourservices-main-grid,
+  .ourservices-how-grid {
+    gap: 16px;
+    padding: 0 5px;
+  }
+
+  .ourservices-service-card,
+  .ourservices-how-step-card {
+    padding: 1.25em 1em;
+    border-radius: 12px;
+  }
+
+  .ourservices-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    font-size: 1.9rem;
+    margin-bottom: 16px;
+  }
+
+  .ourservices-card-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .ourservices-card-description,
+  .ourservices-step-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .ourservices-feature-badge {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+  }
+
+  .ourservices-card-button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .ourservices-step-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+
+  .ourservices-step-title {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+
+  .ourservices-cta-wrapper {
+    padding: 0 12px;
+  }
+
+  .ourservices-cta-container {
+    padding: 1.5em 1em;
+    border-radius: 10px;
+  }
+
+  .ourservices-cta-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .ourservices-cta-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .ourservices-cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ourservices-cta-primary,
+  .ourservices-cta-secondary {
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    min-width: 140px;
+  }
+
+  .ourservices-cta-primary:hover,
+  .ourservices-cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+}

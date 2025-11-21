@@ -1,0 +1,404 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Card wrapper for the entire CTA section */
+.cta-wrapper {
+  color: black;
+  padding: 80px 20px;
+  font-family: "Lora", serif;
+  position: relative;
+  margin-bottom: 55px;
+}
+
+.cta-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.cta-card {
+  background-color: #e9eaf7;
+  max-width: 1800px;
+  max-height: 480px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 26px;
+  z-index: -1;
+}
+
+.cta-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Lora", serif;
+}
+
+.content-center {
+  text-align: center;
+  max-width: 600px;
+  padding: 0 20px;
+  z-index: 10;
+  position: relative;
+}
+
+.content-center h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 24px;
+  line-height: 0.8;
+  letter-spacing: -0.5px;
+}
+
+.content-center p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 32px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 23px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+/* Optional: Add a decorative element with script font */
+.content-center::before {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  color: #999;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Alternative script font styling for special text */
+.script-text {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #777;
+  font-style: italic;
+}
+
+.floating-avatar {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.floating-avatar:hover {
+  transform: scale(1.1);
+}
+
+.floating-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Avatar positioning - matching the exact layout from the image */
+.avatar-1 {
+  width: 65px;
+  height: 65px;
+  top: 20%;
+  left: 5%;
+}
+
+.avatar-2 {
+  width: 65px;
+  height: 65px;
+  top: 9%;
+  left: 25%;
+}
+
+.avatar-3 {
+  width: 65px;
+  height: 65px;
+  top: 9%;
+  right: 20%;
+}
+
+.avatar-4 {
+  width: 65px;
+  height: 65px;
+  top: 19%;
+  right: 8%;
+}
+
+.avatar-5 {
+  width: 65px;
+  height: 65px;
+  top: 42%;
+  left: 15%;
+}
+
+.avatar-6 {
+  width: 65px;
+  height: 65px;
+  top: 45%;
+  right: 8%;
+}
+
+.avatar-7 {
+  width: 65px;
+  height: 65px;
+  bottom: 30%;
+  left: 5%;
+}
+
+.avatar-8 {
+  width: 65px;
+  height: 65px;
+  bottom: 25%;
+  left: 34%;
+}
+
+.avatar-9 {
+  width: 65px;
+  height: 65px;
+  bottom: 25%;
+  right: 17%;
+}
+
+.avatar-10 {
+  width: 65px;
+  height: 65px;
+  bottom: 15%;
+  right: 31%;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-avatar:nth-child(odd) {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-avatar:nth-child(even) {
+  animation: float 6s ease-in-out infinite reverse;
+  animation-delay: 3s;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .cta-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cta-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-wrapper {
+    padding: 50px 10px;
+  }
+  
+  .cta-card {
+    padding: 35px;
+    border-radius: 0;
+    background: #d9dcd6;
+    backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    border-radius: 24px;
+    max-height: 600px;
+  }
+  
+  .content-center h1 {
+    font-size: 36px;
+    padding-top: 25px;
+  }
+  
+  .content-center p {
+    font-size: 16px;
+  }
+  
+  /* Hide specific avatars on mobile to keep only 6 visible */
+  .hide-mobile {
+    display: none;
+  }
+  
+  /* Reposition remaining avatars for better mobile layout */
+  .avatar-1 {
+    width: 60px;
+    height: 60px;
+    top: 15%;
+    left: 8%;
+  }
+  
+  .avatar-2 {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    right: 8%;
+  }
+  
+  .avatar-3 {
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    left: 3%;
+  }
+  
+  .avatar-5 {
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    right: 3%;
+  }
+  
+  .avatar-6 {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    left: 8%;
+  }
+  
+  .avatar-9 {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    right: 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-wrapper {
+    padding: 50px 15px;
+  }
+  
+  .cta-card {
+    padding: 15px;
+    background: #e9eaf7;
+    backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    border-radius: 24px;
+  }
+  
+  .content-center h1 {
+    font-size: 25px;
+  }
+  
+  .content-center p {
+    font-size: 12px;
+    padding: 0 9px;
+  }
+  
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  /* Further adjustments for very small screens */
+  .avatar-1,
+  .avatar-2,
+  .avatar-3,
+  .avatar-5,
+  .avatar-6,
+  .avatar-9 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Adjust positioning for smaller screens */
+  .avatar-1 {
+    top: 21%;
+    left: 9%;
+  }
+  
+  .avatar-2 {
+    top: 4%;
+    left: 43%;
+  }
+  
+  .avatar-3 {
+    top: 21%;
+    left: 75%;
+  }
+  
+  .avatar-5 {
+    top: 75%;
+    left: 9%;
+  }
+  
+  .avatar-6 {
+    top: 90%;
+    left: 43%;
+  }
+  
+  .avatar-9 {
+    bottom: 15%;
+    right: 12%;
+  }
+}
