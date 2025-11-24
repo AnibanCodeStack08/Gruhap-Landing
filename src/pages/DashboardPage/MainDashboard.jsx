@@ -27,9 +27,16 @@ const MainDashboard = () => {
   const [isLoginPopOpen, setIsLoginPopOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAiTyping, setIsAiTyping] = useState(false);
+  const [chatHistory, setChatHistory] = useState([]);
+  const [activeChatId, setActiveChatId] = useState(null);
+  const [chatCounter, setChatCounter] = useState(1);
+  const [openMenuId, setOpenMenuId] = useState(null);
+  const [editingChatId, setEditingChatId] = useState(null);
+  const [editingName, setEditingName] = useState('');
   const textareaRef = useRef(null);
   const typedInstanceRef = useRef(null);
   const messagesEndRef = useRef(null);
+  const editInputRef = useRef(null);
 
   const userInfo = {
     name: 'Anirban Sarkar',
@@ -73,19 +80,8 @@ const MainDashboard = () => {
     },
   ];
 
-  const sidebarCategories = [
-    'Mental Health',
-    'Fitness',
-    'Nutritionist'
-  ];
-
-  const recentChats = [];
-
-  const categories = [
-    'Mental Health',
-    'Fitness',
-    'Nutritionist'
-  ];
+  const sidebarCategories = ['Mental Health', 'Fitness', 'Nutritionist'];
+  const categories = ['Mental Health', 'Fitness', 'Nutritionist'];
 
   const quickActions = [
     { text: "Stress", iconType: "stress" },
@@ -116,7 +112,145 @@ const MainDashboard = () => {
     setIsInputCategoryOpen(false);
   };
 
+  const toggleChatMenu = (e, chatId) => {
+    e.stopPropagation();
+    setOpenMenuId(openMenuId === chatId ? null : chatId);
+  };
+
+  const handleDeleteChat = (e, chatId) => {
+    e.stopPropagation();
+    setChatHistory(prev => prev.filter(chat => chat.id !== chatId));
+    if (activeChatId === chatId) {
+      setMessages([]);
+      setHasSubmitted(false);
+      setActiveChatId(null);
+    }
+    setOpenMenuId(null);
+  };
+
+  const handleStartRename = (e, chat) => {
+    e.stopPropagation();
+    setEditingChatId(chat.id);
+    setEditingName(chat.name);
+    setOpenMenuId(null);
+  };
+
+  const handleRenameChange = (e) => {
+    setEditingName(e.target.value);
+  };
+
+  const handleRenameSubmit = (e, chatId) => {
+    e.preventDefault();
+    if (editingName.trim()) {
+      setChatHistory(prev => prev.map(chat => 
+        chat.id === chatId ? { ...chat, name: editingName.trim() } : chat
+      ));
+    }
+    setEditingChatId(null);
+    setEditingName('');
+  };
+
+  const handleRenameKeyDown = (e, chatId) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleRenameSubmit(e, chatId);
+    } else if (e.key === 'Escape') {
+      setEditingChatId(null);
+      setEditingName('');
+    }
+  };
+
+  const saveCurrentChat = () => {
+    if (messages.length > 0) {
+      const existingChatIndex = chatHistory.findIndex(chat => chat.id === activeChatId);
+      
+      if (existingChatIndex !== -1) {
+        const updatedHistory = [...chatHistory];
+        updatedHistory[existingChatIndex] = {
+          ...updatedHistory[existingChatIndex],
+          messages: [...messages],
+          updatedAt: new Date().toISOString()
+        };
+        setChatHistory(updatedHistory);
+      } else {
+        const newChat = {
+          id: `chat-${Date.now()}`,
+          name: `Chat History ${chatCounter}`,
+          messages: [...messages],
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        };
+        
+        let updatedHistory = [newChat, ...chatHistory];
+        if (updatedHistory.length > 10) {
+          updatedHistory = updatedHistory.slice(0, 10);
+        }
+        
+        setChatHistory(updatedHistory);
+        setChatCounter(prev => prev + 1);
+        setActiveChatId(newChat.id);
+      }
+    }
+  };
+
+  const handleNewChat = () => {
+    saveCurrentChat();
+    
+    if (typedInstanceRef.current) {
+      typedInstanceRef.current.destroy();
+      typedInstanceRef.current = null;
+    }
+    
+    setMessages([]);
+    setInputValue('');
+    setHasSubmitted(false);
+    setIsAiTyping(false);
+    setSelectedCategory('Category');
+    setActiveSection('chats');
+    setActiveChatId(null);
+    setOpenMenuId(null);
+    setEditingChatId(null);
+    
+    if (isMobile) {
+      setIsMobileSidebarOpen(false);
+    }
+    
+    setTimeout(() => {
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+      }
+    }, 100);
+  };
+
+  const loadChat = (chatId) => {
+    if (editingChatId) return;
+    saveCurrentChat();
+    
+    const chatToLoad = chatHistory.find(chat => chat.id === chatId);
+    if (chatToLoad) {
+      if (typedInstanceRef.current) {
+        typedInstanceRef.current.destroy();
+        typedInstanceRef.current = null;
+      }
+      
+      setMessages([...chatToLoad.messages]);
+      setHasSubmitted(true);
+      setActiveChatId(chatId);
+      setInputValue('');
+      setIsAiTyping(false);
+      setOpenMenuId(null);
+      
+      if (isMobile) {
+        setIsMobileSidebarOpen(false);
+      }
+    }
+  };
+
   const handleNavItemClick = (itemId) => {
+    if (itemId === 'new-chat') {
+      handleNewChat();
+      return;
+    }
     if (itemId === 'category') {
       toggleSidebarCategory();
       return;
@@ -129,7 +263,6 @@ const MainDashboard = () => {
     }
   };
 
-  // Simulate AI response
   const generateAiResponse = (userMessage) => {
     const responses = [
       "I understand you're looking for support. How can I help you today?",
@@ -143,20 +276,15 @@ const MainDashboard = () => {
 
   const handleSubmit = () => {
     if (inputValue.trim()) {
-      // Add user message
       const userMessage = { text: inputValue, sender: 'user' };
       setMessages(prev => [...prev, userMessage]);
       setInputValue('');
       setHasSubmitted(true);
-
-      // Show AI typing indicator
       setIsAiTyping(true);
 
-      // Increment message count only if NOT authenticated
       if (!isAuthenticated) {
         const newCount = messageCount + 1;
         setMessageCount(newCount);
-
         if (newCount >= 6) {
           setIsLoginPopOpen(true);
         }
@@ -167,15 +295,11 @@ const MainDashboard = () => {
         typedInstanceRef.current = null;
       }
 
-      // Simulate AI response delay
       setTimeout(() => {
-        const aiResponse = {
-          text: generateAiResponse(inputValue),
-          sender: 'ai'
-        };
+        const aiResponse = { text: generateAiResponse(inputValue), sender: 'ai' };
         setMessages(prev => [...prev, aiResponse]);
         setIsAiTyping(false);
-      }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+      }, 1000 + Math.random() * 1000);
     }
   };
 
@@ -188,7 +312,6 @@ const MainDashboard = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-
     if (typedInstanceRef.current && e.target.value) {
       typedInstanceRef.current.destroy();
       typedInstanceRef.current = null;
@@ -200,24 +323,13 @@ const MainDashboard = () => {
     setIsModalOpen(true);
   };
 
-  const handleCloseLoginPop = () => {
-    setIsLoginPopOpen(false);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  const handleCloseLoginPop = () => setIsLoginPopOpen(false);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   const renderIcon = (iconType) => {
     const icons = {
-      stress: '😰',
-      anxiety: '😟',
-      depression: '😔',
-      burnout: '😫',
-      productivity: '📈',
-      sleep: '😴',
-      nutrition: '🥗',
-      fitness: '💪'
+      stress: '😰', anxiety: '😟', depression: '😔', burnout: '😫',
+      productivity: '📈', sleep: '😴', nutrition: '🥗', fitness: '💪'
     };
     return <span className="dashboard-action-icon">{icons[iconType] || '🎯'}</span>;
   };
@@ -226,9 +338,7 @@ const MainDashboard = () => {
     const checkScreenSize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (!mobile) {
-        setIsMobileSidebarOpen(false);
-      }
+      if (!mobile) setIsMobileSidebarOpen(false);
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -237,87 +347,63 @@ const MainDashboard = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest('.dashboard-category-dropdown')) {
-        setIsCategoryOpen(false);
+      if (!event.target.closest('.dashboard-category-dropdown')) setIsCategoryOpen(false);
+      if (!event.target.closest('.sidebar-category-container')) setIsSidebarCategoryOpen(false);
+      if (!event.target.closest('.top-avatar-container')) setIsAvatarMenuOpen(false);
+      if (!event.target.closest('.input-category-dropdown-container')) setIsInputCategoryOpen(false);
+      if (!event.target.closest('.chat-menu-container')) setOpenMenuId(null);
+      if (!event.target.closest('.chat-rename-input') && editingChatId) {
+        setEditingChatId(null);
+        setEditingName('');
       }
-      if (!event.target.closest('.sidebar-category-container')) {
-        setIsSidebarCategoryOpen(false);
-      }
-      if (!event.target.closest('.top-avatar-container')) {
-        setIsAvatarMenuOpen(false);
-      }
-      if (!event.target.closest('.input-category-dropdown-container')) {
-        setIsInputCategoryOpen(false);
-      }
-      if (isMobile &&
-        !event.target.closest('.dashboard-sidebar') &&
-        !event.target.closest('.mobile-menu-btn') &&
-        !event.target.closest('.mobile-sidebar-overlay') &&
-        !event.target.closest('.sidebar-category-menu') &&
-        !event.target.closest('.sidebar-category-container')) {
+      if (isMobile && !event.target.closest('.dashboard-sidebar') && !event.target.closest('.mobile-menu-btn') &&
+          !event.target.closest('.mobile-sidebar-overlay') && !event.target.closest('.sidebar-category-menu') &&
+          !event.target.closest('.sidebar-category-container')) {
         setIsMobileSidebarOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMobile]);
+  }, [isMobile, editingChatId]);
+
+  useEffect(() => {
+    if (editingChatId && editInputRef.current) {
+      editInputRef.current.focus();
+      editInputRef.current.select();
+    }
+  }, [editingChatId]);
 
   useEffect(() => {
     if (!textareaRef.current || hasSubmitted || inputValue) return;
-
     const desktopStrings = [
-      "Ask Gruhap to manage stress...",
-      "Ask Gruhap to find work-life balance...",
-      "Ask Gruhap for a healthy lifestyle...",
-      "Ask Gruhap to make a personalised meal plan..."
+      "Ask Gruhap to manage stress...", "Ask Gruhap to find work-life balance...",
+      "Ask Gruhap for a healthy lifestyle...", "Ask Gruhap to make a personalised meal plan..."
     ];
-
     const mobileStrings = [
-      "Ask Gruhap: Manage stress...",
-      "Ask Gruhap: Work balance...",
-      "Ask Gruhap: Healthy lifestyle...",
-      "Ask Gruhap: Meal plan..."
+      "Ask Gruhap: Manage stress...", "Ask Gruhap: Work balance...",
+      "Ask Gruhap: Healthy lifestyle...", "Ask Gruhap: Meal plan..."
     ];
-
     const typed = new Typed(textareaRef.current, {
       strings: isMobile ? mobileStrings : desktopStrings,
-      typeSpeed: 30,
-      backSpeed: 20,
-      backDelay: 900,
-      startDelay: 500,
-      loop: true,
-      showCursor: false,
-      smartBackspace: true,
-      attr: "placeholder",
+      typeSpeed: 30, backSpeed: 20, backDelay: 900, startDelay: 500,
+      loop: true, showCursor: false, smartBackspace: true, attr: "placeholder",
       onBegin: () => setIsTyping(true),
       preStringTyped: () => setIsTyping(true),
       onStringTyped: () => setIsTyping(false),
       onDestroy: () => setIsTyping(false),
     });
-
     typedInstanceRef.current = typed;
-
-    return () => {
-      if (typedInstanceRef.current) {
-        typedInstanceRef.current.destroy();
-        typedInstanceRef.current = null;
-      }
-    };
+    return () => { if (typedInstanceRef.current) { typedInstanceRef.current.destroy(); typedInstanceRef.current = null; } };
   }, [hasSubmitted, inputValue, isMobile]);
 
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (messagesEndRef.current) messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isAiTyping]);
 
   return (
     <div className="dashboard-container">
       {isMobile && isMobileSidebarOpen && (
-        <div
-          className="mobile-sidebar-overlay"
-          onClick={() => setIsMobileSidebarOpen(false)}
-        />
+        <div className="mobile-sidebar-overlay" onClick={() => setIsMobileSidebarOpen(false)} />
       )}
 
       <aside className={`dashboard-sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile && isMobileSidebarOpen ? 'mobile-open' : ''}`}>
@@ -330,16 +416,10 @@ const MainDashboard = () => {
             </div>
             {!sidebarCollapsed && <span className="brand-name">GruhaP</span>}
           </div>
-
           {!isMobile && (
-            <button
-              className="sidebar-toggle-btn"
-              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              aria-label="Toggle sidebar"
-            >
+            <button className="sidebar-toggle-btn" onClick={() => setSidebarCollapsed(!sidebarCollapsed)} aria-label="Toggle sidebar">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="4" y1="8" x2="20" y2="8" />
-                <line x1="4" y1="16" x2="12" y2="16" />
+                <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="12" y2="16" />
               </svg>
             </button>
           )}
@@ -357,17 +437,9 @@ const MainDashboard = () => {
                   <span className="nav-icon">{item.icon}</span>
                   {!sidebarCollapsed && <span className="nav-label">{item.label}</span>}
                   {!sidebarCollapsed && item.id === 'category' && (
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`sidebar-dropdown-arrow ${isSidebarCategoryOpen ? 'open' : ''}`}
-                    >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                      strokeLinecap="round" strokeLinejoin="round"
+                      className={`sidebar-dropdown-arrow ${isSidebarCategoryOpen ? 'open' : ''}`}>
                       <polyline points="6,9 12,15 18,9"></polyline>
                     </svg>
                   )}
@@ -375,17 +447,8 @@ const MainDashboard = () => {
                 {!sidebarCollapsed && item.id === 'category' && isSidebarCategoryOpen && (
                   <div className="sidebar-category-menu">
                     {sidebarCategories.map((category, index) => (
-                      <button
-                        key={index}
-                        className="sidebar-category-item"
-                        onClick={() => {
-                          console.log('Selected:', category);
-                          if (isMobile) {
-                            setIsMobileSidebarOpen(false);
-                            setIsSidebarCategoryOpen(false);
-                          }
-                        }}
-                      >
+                      <button key={index} className="sidebar-category-item"
+                        onClick={() => { console.log('Selected:', category); if (isMobile) { setIsMobileSidebarOpen(false); setIsSidebarCategoryOpen(false); } }}>
                         {category}
                       </button>
                     ))}
@@ -399,11 +462,69 @@ const MainDashboard = () => {
             <div className="recents-section">
               <h3 className="section-title">CHATS</h3>
               <div className="recent-items">
-                {recentChats.map((item, index) => (
-                  <button key={index} className="recent-item">
-                    <span className="recent-text">{item}</span>
-                  </button>
-                ))}
+                {chatHistory.length === 0 ? (
+                  <p className="no-chats-text">No chat history yet</p>
+                ) : (
+                  chatHistory.map((chat) => (
+                    <div key={chat.id} className={`recent-item-container ${activeChatId === chat.id ? 'active' : ''}`}>
+                      {editingChatId === chat.id ? (
+                        <input
+                          ref={editInputRef}
+                          type="text"
+                          className="chat-rename-input"
+                          value={editingName}
+                          onChange={handleRenameChange}
+                          onKeyDown={(e) => handleRenameKeyDown(e, chat.id)}
+                          onBlur={(e) => handleRenameSubmit(e, chat.id)}
+                        />
+                      ) : (
+                        <button 
+                          className={`recent-item ${activeChatId === chat.id ? 'active' : ''}`}
+                          onClick={() => loadChat(chat.id)}
+                        >
+                          <span className="recent-text">{chat.name}</span>
+                        </button>
+                      )}
+                      <div className="chat-menu-container">
+                        <button 
+                          className="chat-menu-btn"
+                          onClick={(e) => toggleChatMenu(e, chat.id)}
+                          aria-label="Chat options"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <circle cx="12" cy="19" r="2" />
+                          </svg>
+                        </button>
+                        {openMenuId === chat.id && (
+                          <div className="chat-dropdown-menu">
+                            <button 
+                              className="chat-dropdown-item"
+                              onClick={(e) => handleStartRename(e, chat)}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                              </svg>
+                              Rename
+                            </button>
+                            <button 
+                              className="chat-dropdown-item delete"
+                              onClick={(e) => handleDeleteChat(e, chat.id)}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                              </svg>
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           )}
@@ -413,24 +534,14 @@ const MainDashboard = () => {
       <main className="dashboard-main">
         <div className="main-header">
           {isMobile && (
-            <button
-              className="mobile-menu-btn"
-              onClick={toggleMobileSidebar}
-              aria-label="Open menu"
-            >
+            <button className="mobile-menu-btn" onClick={toggleMobileSidebar} aria-label="Open menu">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="4" y1="8" x2="20" y2="8" />
-                <line x1="4" y1="16" x2="12" y2="16" />
+                <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="12" y2="16" />
               </svg>
             </button>
           )}
           <div className="top-avatar-container">
-            <img
-              src={topRightAvatar}
-              alt="Top Avatar"
-              className="top-avatar"
-              onClick={toggleAvatarMenu}
-            />
+            <img src={topRightAvatar} alt="Top Avatar" className="top-avatar" onClick={toggleAvatarMenu} />
             {isAvatarMenuOpen && (
               <div className="top-avatar-menu">
                 <button className="top-avatar-item">Buy Token</button>
@@ -445,9 +556,7 @@ const MainDashboard = () => {
         <div className="main-content">
           {!hasSubmitted && (
             <div className="welcome-section">
-              <h1 className="welcome-title">
-                Welcome back, {userInfo.name.split(' ')[0]}!
-              </h1>
+              <h1 className="welcome-title">Welcome back, {userInfo.name.split(' ')[0]}!</h1>
             </div>
           )}
 
@@ -455,18 +564,12 @@ const MainDashboard = () => {
             <div className="messages-container">
               {messages.map((message, index) => (
                 <div key={index} className={`message-wrapper ${message.sender === 'ai' ? 'ai-message-wrapper' : 'user-message-wrapper'}`}>
-                  <div className={`message ${message.sender === 'user' ? 'user-message' : 'ai-message'}`}>
-                    {message.text}
-                  </div>
+                  <div className={`message ${message.sender === 'user' ? 'user-message' : 'ai-message'}`}>{message.text}</div>
                 </div>
               ))}
               {isAiTyping && (
                 <div className="message-wrapper ai-message-wrapper">
-                  <div className="message ai-message typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
+                  <div className="message ai-message typing-indicator"><span></span><span></span><span></span></div>
                 </div>
               )}
               <div ref={messagesEndRef} />
@@ -476,51 +579,20 @@ const MainDashboard = () => {
           <div className={`dashboard-chat-section ${hasSubmitted ? 'chat-submitted' : ''}`}>
             {isMobile && !hasSubmitted && (
               <div className="mobile-category-buttons">
-                <button
-                  id="mobile-category-wellness"
-                  className="mobile-category-btn-one mobile-category-mental-health"
-                >
-                  <img
-                    src={wellnessImg}
-                    alt="Wellness"
-                    className="mobile-category-icon-img"
-                  />
+                <button id="mobile-category-wellness" className="mobile-category-btn-one mobile-category-mental-health">
+                  <img src={wellnessImg} alt="Wellness" className="mobile-category-icon-img" />
                   <span className="mobile-category-text">Wellness</span>
                 </button>
-
-                <button
-                  id="mobile-category-fitness"
-                  className="mobile-category-btn-two mobile-category-fitness"
-                >
-                  <img
-                    src={fitnessImg}
-                    alt="Fitness"
-                    className="mobile-category-icon-img"
-                  />
+                <button id="mobile-category-fitness" className="mobile-category-btn-two mobile-category-fitness">
+                  <img src={fitnessImg} alt="Fitness" className="mobile-category-icon-img" />
                   <span className="mobile-category-text">Fitness</span>
                 </button>
-
-                <button
-                  id="mobile-category-nutrition"
-                  className="mobile-category-btn-three mobile-category-nutritionist"
-                >
-                  <img
-                    src={nutritionImg}
-                    alt="Nutrition"
-                    className="mobile-category-icon-img"
-                  />
+                <button id="mobile-category-nutrition" className="mobile-category-btn-three mobile-category-nutritionist">
+                  <img src={nutritionImg} alt="Nutrition" className="mobile-category-icon-img" />
                   <span className="mobile-category-text">Nutrition</span>
                 </button>
-
-                <button
-                  id="mobile-category-more"
-                  className="mobile-category-btn-four mobile-category-more"
-                >
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
-                    alt="More"
-                    className="mobile-category-icon-img"
-                  />
+                <button id="mobile-category-more" className="mobile-category-btn-four mobile-category-more">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="More" className="mobile-category-icon-img" />
                   <span className="mobile-category-text">More</span>
                 </button>
               </div>
@@ -529,55 +601,28 @@ const MainDashboard = () => {
             <div className="dashboard-input-container">
               <div className="dashboard-input-left">
                 <div className="input-category-dropdown-container">
-                  <button
-                    className="dashboard-add-btn"
-                    aria-label="Category dropdown"
-                    onClick={toggleInputCategoryDropdown}
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className={`dropdown-arrow-icon ${isInputCategoryOpen ? 'open' : ''}`}
-                    >
+                  <button className="dashboard-add-btn" aria-label="Category dropdown" onClick={toggleInputCategoryDropdown}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                      className={`dropdown-arrow-icon ${isInputCategoryOpen ? 'open' : ''}`}>
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </button>
                   {isInputCategoryOpen && (
                     <div className="input-category-dropdown">
                       {categories.map((category, index) => (
-                        <button
-                          key={index}
-                          className="input-category-item"
-                          onClick={() => handleInputCategorySelect(category)}
-                        >
-                          {category}
-                        </button>
+                        <button key={index} className="input-category-item" onClick={() => handleInputCategorySelect(category)}>{category}</button>
                       ))}
                     </div>
                   )}
                 </div>
               </div>
               <div className="dashboard-input-top">
-                <textarea
-                  ref={textareaRef}
-                  className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
-                  rows="1"
-                  value={inputValue}
-                  onChange={handleInputChange}
-                  onKeyPress={handleKeyPress}
-                  placeholder={hasSubmitted ? "Ask anything" : ""}
-                />
+                <textarea ref={textareaRef} className={`dashboard-textarea ${isTyping ? "typing-active" : ""}`}
+                  rows="1" value={inputValue} onChange={handleInputChange} onKeyPress={handleKeyPress}
+                  placeholder={hasSubmitted ? "Ask anything" : ""} />
               </div>
               <div className="dashboard-input-right">
-                <button
-                  className="dashboard-submit-btn"
-                  aria-label="Submit"
-                  onClick={handleSubmit}
-                >
+                <button className="dashboard-submit-btn" aria-label="Submit" onClick={handleSubmit}>
                   <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 11l5-5m0 0l5 5m-5-5v12" />
                   </svg>
@@ -601,18 +646,8 @@ const MainDashboard = () => {
         </div>
       </main>
 
-      {!isAuthenticated && (
-        <LoginPop 
-          isOpen={isLoginPopOpen}
-          onClose={handleCloseLoginPop}
-          onContinueToLogin={handleContinueToLogin}
-        />
-      )}
-      
-      <Modal 
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+      {!isAuthenticated && <LoginPop isOpen={isLoginPopOpen} onClose={handleCloseLoginPop} onContinueToLogin={handleContinueToLogin} />}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

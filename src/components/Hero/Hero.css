@@ -19,15 +19,15 @@
 }
 
 /* Position-specific layouts for desktop */
-/* Top-left, bottom-left, and bottom-right: Avatar on LEFT, bubble on RIGHT */
+/* Top-left and bottom-left: Avatar on LEFT, bubble on RIGHT */
 .floating-message-top-left,
-.floating-message-bottom-left,
-.floating-message-bottom-right {
+.floating-message-bottom-left {
   flex-direction: row; /* Avatar on left, bubble on right */
 }
 
-/* Top-right: Avatar on RIGHT, bubble on LEFT */
-.floating-message-top-right {
+/* Top-right and bottom-right: Avatar on RIGHT, bubble on LEFT */
+.floating-message-top-right,
+.floating-message-bottom-right {
   flex-direction: row-reverse; /* Avatar on right, bubble on left */
 }
 
@@ -53,7 +53,7 @@
   animation-delay: 3s;
 }
 
-/* Bottom-right positioned from right but avatar still on left */
+/* Bottom-right positioned from right with avatar on right */
 .floating-message-bottom-right {
   bottom: 30%;
   right: 8%;
@@ -119,13 +119,8 @@
   font-weight: 500;
   font-style: italic;
   line-height: 1.4;
-  text-align: center;
-  font-family: "Lora", serif;
-}
-
-/* Text alignment for bottom-right: start from left (near avatar) */
-.floating-message-bottom-right .message-text {
   text-align: left;
+  font-family: "Lora", serif;
 }
 
 /* Base Message Avatar Styles */
@@ -188,10 +183,9 @@
 }
 
 /* Tail pointing LEFT (avatar is on the left side) */
-/* This applies to top-left, bottom-left, AND bottom-right */
+/* This applies to top-left and bottom-left */
 .floating-message-top-left .message-tail,
-.floating-message-bottom-left .message-tail,
-.floating-message-bottom-right .message-tail {
+.floating-message-bottom-left .message-tail {
   left: -10px;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
@@ -199,8 +193,9 @@
 }
 
 /* Tail pointing RIGHT (avatar is on the right side) */
-/* This only applies to top-right */
-.floating-message-top-right .message-tail {
+/* This applies to top-right and bottom-right */
+.floating-message-top-right .message-tail,
+.floating-message-bottom-right .message-tail {
   right: -10px;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;

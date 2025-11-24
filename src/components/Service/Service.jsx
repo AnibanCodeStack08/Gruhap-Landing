@@ -15,6 +15,11 @@ import img10 from '../../Images/10.png'
 import img11 from '../../Images/11.png'
 import img12 from '../../Images/12.png'
 import img13 from '../../Images/13.png'
+import img14 from '../../Images/14.jpg'
+import img15 from '../../Images/15.webp'
+import img16 from '../../Images/16.jpg'
+
+
 
 const Service = () => {
     // --- Data Definition ---
@@ -23,6 +28,7 @@ const Service = () => {
         { img: img1, title: "Stress Management", category: "Mental Health" },
         { img: img2, title: "Burnout Prevention", category: "Mental Health" },
         { img: img3, title: "Anxiety Management", category: "Mental Health" },
+        { img: img14, title: "Depression Management", category: "Mental Health" },
         { img: img4, title: "Work-Life Balance", category: "Mental Health" },
         { img: img5, title: "Empathy Buddy", category: "Mental Health" },
 
@@ -37,6 +43,9 @@ const Service = () => {
         { img: img11, title: "Personalized Plan", category: "Nutritionist" },
         { img: img12, title: "Nutritional Tracking", category: "Nutritionist" },
         { img: img13, title: "Weight Loss Meal", category: "Nutritionist" },
+        { img: img15, title: "Muscle-building plan", category: "Nutritionist" },
+        { img: img16, title: "Diabetic plan", category: "Nutritionist" },
+
     ]
 
     const desktopCategories = ['Mental Health', 'Fitness', 'Nutritionist'];
