@@ -60,7 +60,7 @@
 .navbar-nav-links {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .navbar-nav-link {
@@ -76,6 +76,71 @@
   color: #16a34a !important;
 }
 
+/* ========================================
+   GSAP PILL ANIMATION STYLES
+   ======================================== */
+
+.navbar-pill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 50px;
+  color: black !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  font-size: 0.91rem;
+  font-family: "Lora", serif;
+}
+
+.hover-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  background: #212425;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.label-stack {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3em;
+}
+
+.pill-label,
+.pill-label-hover {
+  display: block;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.pill-label {
+  position: relative;
+  color: black;
+}
+
+.pill-label-hover {
+  color: #ffffff;
+  font-weight: 600;
+  opacity: 0;
+}
+
+/* ======================================== */
+
 .navbar-nav-actions {
   display: none;
   align-items: center;
@@ -83,34 +148,37 @@
 }
 
 .navbar-login-btn {
-  background-color: #f0f0f0!important; /* light cream background */
-  border: none !important; /* no border */
-  color: #000000 !important; /* black text */
+  background-color: transparent !important; /* blue background matching image */
+  /* border: 2px solid #6b8cce !important; */
+  /* color: black !important; */
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.7rem 1.40rem;
-  border-radius: 0.5rem; /* rounded corners */
+  border-radius: 2rem; /* more rounded like image */
   font-family: "Lora", serif;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* subtle shadow */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   text-decoration: none !important;
   display: inline-block;
 }
 
 .navbar-login-btn:hover {
-  color: #16a34a !important;
-  background-color: rgba(22, 163, 74, 0.05) !important;
+  background-color: #5a7ab8 !important;
+  /* border-color: #5a7ab8 !important; */
+  transform: translateY(-1px);
+  /* box-shadow: 0 4px 8px rgba(107, 140, 206, 0.3); */
   text-decoration: none !important;
+  color: #ffffff !important;
 }
 
 .navbar-get-started-btn {
-  background: black !important;
+  background: #1a1d1f !important;
   backdrop-filter: blur(10px);
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid #1a1d1f !important;
   padding: 0.70rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem; /* more rounded like image */
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.90rem;
@@ -118,12 +186,14 @@
   font-family: "Lora", serif;
   text-decoration: none !important;
   display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-get-started-btn:hover {
-  background: rgba(0, 0, 0, 0.8) !important;
+  background: #2d3236 !important;
+  border-color: #2d3236 !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   text-decoration: none !important;
   color: white !important;
 }
@@ -218,12 +288,12 @@
 }
 
 .navbar-mobile-login-btn {
-  background: #f0f0f0 !important;
-  border: 1px solid rgba(0, 0, 0, 0.2) !important;
-  color: black !important;
+  background: #6b8cce !important;
+  border: 2px solid #6b8cce !important;
+  color: white !important;
   cursor: pointer;
   padding: 0.875rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: 500;
@@ -237,19 +307,21 @@
 
 .navbar-mobile-login-btn:hover,
 .navbar-mobile-login-btn:active {
-  background-color: rgba(22, 163, 74, 0.05) !important;
-  border-color: #16a34a !important;
-  color: #16a34a !important;
+  background-color: #5a7ab8 !important;
+  border-color: #5a7ab8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(107, 140, 206, 0.3);
   text-decoration: none !important;
+  color: white !important;
 }
 
 .navbar-mobile-get-started-btn {
-  background: black !important;
+  background: #1a1d1f !important;
   color: white !important;
-  border: none !important;
+  border: 2px solid #1a1d1f !important;
   cursor: pointer;
   padding: 0.875rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: 500;
@@ -263,9 +335,10 @@
 
 .navbar-mobile-get-started-btn:hover,
 .navbar-mobile-get-started-btn:active {
-  background: rgba(0, 0, 0, 0.85) !important;
+  background: #2d3236 !important;
+  border-color: #2d3236 !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   text-decoration: none !important;
   color: white !important;
 }
@@ -327,7 +400,7 @@ body {
     font-size: 1.35rem;
   }
 
-  .navbar-nav-link {
+  .navbar-pill {
     font-size: 0.95rem;
   }
 

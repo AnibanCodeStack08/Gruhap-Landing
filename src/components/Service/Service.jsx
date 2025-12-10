@@ -60,7 +60,7 @@ const Service = () => {
     const desktopScrollContainerRef = useRef(null)
     const [desktopCanScrollLeft, setDesktopCanScrollLeft] = useState(false)
     const [desktopCanScrollRight, setDesktopCanScrollRight] = useState(true)
-    const [desktopSelectedCategory, setDesktopSelectedCategory] = useState(desktopCategories[0]) // Default to first category
+    const [desktopSelectedCategory, setDesktopSelectedCategory] = useState(null) // Changed to null to show all by default
 
     // --- Mobile Multi-Carousel State & Refs ---
     const mobileScrollRefs = useRef({});
@@ -94,7 +94,13 @@ const Service = () => {
     }
 
     const handleDesktopCategorySelect = (category) => {
-        setDesktopSelectedCategory(category)
+        // Toggle behavior: if clicking the same category, show all; otherwise filter
+        if (desktopSelectedCategory === category) {
+            setDesktopSelectedCategory(null) // Show all cards
+        } else {
+            setDesktopSelectedCategory(category) // Filter to selected category
+        }
+        
         if (desktopScrollContainerRef.current) desktopScrollContainerRef.current.scrollLeft = 0
         // Small delay to ensure scroll update after filtering
         setTimeout(() => handleDesktopScroll(), 100)
@@ -134,6 +140,7 @@ const Service = () => {
     }, []);
 
     // Filter cards for desktop display based on selected category
+    // Changed: Show all cards when desktopSelectedCategory is null
     const filteredDesktopCards = desktopSelectedCategory ? allCards.filter(card => card.category === desktopSelectedCategory) : allCards;
 
 
@@ -164,7 +171,7 @@ const Service = () => {
                             <div className="header-right">
                                 <button className="view-all-btn desktop-view-all">
                                     <span>View All</span>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M7 7H17V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>

@@ -374,7 +374,7 @@ const Hero = () => {
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="hero-title-main">
-              {isMobile ? "Your Wellness Buddy" : "Your Wellness Buddy"}
+              {isMobile ? "Your Trusted Buddy" : "Your Trusted Buddy"}
             </span>
           </h1>
           <p className="hero-subtitle">

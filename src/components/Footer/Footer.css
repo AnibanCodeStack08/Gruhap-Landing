@@ -2,24 +2,11 @@
 
 /* Footer.css */
 .footer {
+  background-color:#e9eaf7;;
   color: black;
-  padding: 0px 20px;
+  padding: 60px 20px;
   font-family: "Nunito", sans-serif;
   position: relative;
-  zoom: 0.8;
-  margin-bottom: 50px;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-  background-size: 60px 60px;
-  pointer-events: none;
 }
 
 .footer-container {
@@ -29,34 +16,12 @@
   z-index: 1;
 }
 
-/* Card Styling */
-.footer-card {
-  /* background: linear-gradient(135deg, #2c5f5a 0%, #4a7c75 100%); */
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Content Styling */
+.footer-content {
   display: flex;
   justify-content: space-between;
   gap: 60px;
   position: relative;
-  overflow: hidden;
-}
-
-.footer-card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-  border-radius: 26px;
-  z-index: -1;
 }
 
 /* Brand Section */
@@ -70,11 +35,6 @@
   font-weight: 700;
   margin: 0 0 20px 0;
   color: black;
-  background: black;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-brand-description {
@@ -83,7 +43,6 @@
   line-height: 1.6;
   margin: 0 0 35px 0;
   color: black;
-  opacity: 0.9;
 }
 
 /* Social Icons */
@@ -95,7 +54,7 @@
 .social-icon {
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   border-radius: 12px;
   display: flex;
@@ -105,7 +64,7 @@
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -123,9 +82,9 @@
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
 .social-icon:hover::before {
@@ -212,7 +171,7 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .footer-card {
+  .footer-content {
     gap: 40px;
   }
   
@@ -222,8 +181,11 @@
 }
 
 @media (max-width: 1024px) {
-  .footer-card {
-    padding: 40px;
+  .footer {
+    padding: 50px 20px;
+  }
+  
+  .footer-content {
     gap: 40px;
   }
   
@@ -231,23 +193,19 @@
     gap: 30px;
   }
   
-  .brand-description {
+  .footer-brand-description {
     font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 0px 20px;
-    margin-bottom: 0px;
+    padding: 40px 20px;
   }
   
-  .footer-card {
+  .footer-content {
     flex-direction: column;
     gap: 40px;
-    padding: 35px;
-    border-radius: 20px;
-
   }
   
   .footer-brand {
@@ -255,7 +213,7 @@
     text-align: center;    
   }
   
-  .brand-description {
+  .footer-brand-description {
     margin-left: auto;
     margin-right: auto;
     max-width: 370px;
@@ -293,13 +251,7 @@
 
 @media (max-width: 600px) {
   .footer {
-    padding: 0px 15px;
-    margin-bottom: 0px;
-  }
-  
-  .footer-card {
-    padding: 30px 20px;
-    border-radius: 18px;
+    padding: 35px 15px;
   }
   
   .footer-links {
@@ -319,11 +271,11 @@
     font-size: 12px;
   }
   
-  .brand-name {
+  .footer-brand-name {
     font-size: 30px;
   }
   
-  .brand-description {
+  .footer-brand-description {
     font-size: 14px;
     line-height: 1.5;
   }
@@ -337,12 +289,7 @@
 
 @media (max-width: 400px) {
   .footer {
-    padding: 0px 15px;
-    margin-bottom: 0px;
-  }
-  
-  .footer-card {
-    padding: 25px 20px;
+    padding: 30px 15px;
   }
   
   .footer-links {
@@ -362,11 +309,11 @@
     font-size: 11px;
   }
   
-  .brand-name {
+  .footer-brand-name {
     font-size: 26px;
   }
   
-  .brand-description {
+  .footer-brand-description {
     font-size: 13px;
     text-align: center;
   }
