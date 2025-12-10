@@ -148,28 +148,22 @@
 }
 
 .navbar-login-btn {
-  background-color: transparent !important; /* blue background matching image */
-  /* border: 2px solid #6b8cce !important; */
-  /* color: black !important; */
+  background-color: transparent !important;
+  border: none !important;
+  color: black !important;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.7rem 1.40rem;
-  border-radius: 2rem; /* more rounded like image */
+  border-radius: 2rem;
   font-family: "Lora", serif;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   text-decoration: none !important;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .navbar-login-btn:hover {
-  background-color: #5a7ab8 !important;
-  /* border-color: #5a7ab8 !important; */
-  transform: translateY(-1px);
-  /* box-shadow: 0 4px 8px rgba(107, 140, 206, 0.3); */
   text-decoration: none !important;
-  color: #ffffff !important;
 }
 
 .navbar-get-started-btn {
@@ -178,7 +172,7 @@
   color: white !important;
   border: 2px solid #1a1d1f !important;
   padding: 0.70rem 1.5rem;
-  border-radius: 2rem; /* more rounded like image */
+  border-radius: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.90rem;
@@ -263,7 +257,7 @@
 
 .navbar-mobile-nav-link {
   display: block;
-  color: black !important;
+  color: #6b7280 !important;
   text-decoration: none !important;
   padding: 1rem 1.5rem;
   transition: all 0.3s ease;
@@ -272,9 +266,13 @@
   font-family: "Lora", serif;
 }
 
+.navbar-mobile-nav-link.active {
+  color: black !important;
+  font-weight: 600;
+}
+
 .navbar-mobile-nav-link:hover,
 .navbar-mobile-nav-link:active {
-  background-color: rgba(22, 163, 74, 0.1);
   color: #16a34a !important;
   text-decoration: none !important;
 }
@@ -288,9 +286,9 @@
 }
 
 .navbar-mobile-login-btn {
-  background: #6b8cce !important;
-  border: 2px solid #6b8cce !important;
-  color: white !important;
+  background: transparent !important;
+  border: 2px solid #e5e7eb !important;
+  color: #1f2937 !important;
   cursor: pointer;
   padding: 0.875rem 1rem;
   border-radius: 2rem;
@@ -307,12 +305,10 @@
 
 .navbar-mobile-login-btn:hover,
 .navbar-mobile-login-btn:active {
-  background-color: #5a7ab8 !important;
-  border-color: #5a7ab8 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(107, 140, 206, 0.3);
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
   text-decoration: none !important;
-  color: white !important;
+  color: #1f2937 !important;
 }
 
 .navbar-mobile-get-started-btn {

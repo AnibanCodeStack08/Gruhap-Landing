@@ -1,286 +1,233 @@
-import React, { useState } from 'react';
-import './Contact.css';
+import { useState } from "react";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, HelpCircle, Building } from "lucide-react";
+import { useToast } from "./useToast";
+import "./Contact.css";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email Us",
+    value: "hello@gruhap.com",
+    description: "We'll respond within 24 hours",
+  },
+  {
+    icon: Phone,
+    title: "Call Us",
+    value: "+1 (555) 123-4567",
+    description: "Mon-Fri, 9am-6pm EST",
+  },
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    value: "123 Wellness Ave, San Francisco",
+    description: "CA 94102, USA",
+  },
+  {
+    icon: Clock,
+    title: "Working Hours",
+    value: "24/7 AI Support",
+    description: "Human support: Mon-Fri",
+  },
+];
+
+const supportOptions = [
+  {
+    icon: MessageCircle,
+    title: "Live Chat",
+    description: "Chat with our AI assistant for instant help with common questions.",
+    action: "Start Chat",
+  },
+  {
+    icon: HelpCircle,
+    title: "Help Center",
+    description: "Browse our comprehensive FAQ and knowledge base articles.",
+    action: "Visit Help Center",
+  },
+  {
+    icon: Building,
+    title: "Enterprise",
+    description: "Looking for team or enterprise solutions? Let's talk.",
+    action: "Contact Sales",
+  },
+];
 
 const Contact = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    setIsSubmitting(true);
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Message Sent!",
+      description: "We'll get back to you within 24 hours.",
+    });
+    
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(false);
   };
-
-  const contactMethods = [
-    {
-      icon: '💬',
-      title: 'Live Chat',
-      description: 'Chat with our support team in real-time',
-      action: 'Start Chat',
-      availability: '24/7 Available'
-    },
-    {
-      icon: '✉️',
-      title: 'Email Support',
-      description: 'Send us a detailed message',
-      action: 'Send Email',
-      availability: 'Response within 24 hours'
-    },
-    {
-      icon: '📞',
-      title: 'Phone Support',
-      description: 'Speak directly with our team',
-      action: 'Call Now',
-      availability: 'Mon-Fri, 9AM-6PM EST'
-    }
-  ];
-
-  const officeInfo = [
-    {
-      icon: '📍',
-      label: 'Address',
-      value: '123 Wellness Street, Health District, San Francisco, CA 94102'
-    },
-    {
-      icon: '📞',
-      label: 'Phone',
-      value: '+1 (555) 123-4567'
-    },
-    {
-      icon: '✉️',
-      label: 'Email',
-      value: 'hello@gruhap.com'
-    },
-    {
-      icon: '🕐',
-      label: 'Business Hours',
-      value: 'Monday - Friday: 9AM - 6PM EST'
-    }
-  ];
 
   return (
-    <>
-      <Navbar/>
-      {/* Hero Section */}
-      <section className="contact-hero">
-        <div className="contact-container">
-          <h1 className="contact-hero-title">Contact Us</h1>
-          <p className="contact-hero-subtitle">
-            We're here for you! Get in touch for any questions, feedback, or support.
-          </p>
-        </div>
-      </section>
-      
-      <div className="contact-page">
-        {/* Contact Methods */}
-        <section className="contact-methods-section">
-          <div className="contact-container">
-            <div className="contact-section-header">
-              <h2 className="contact-section-title">Get in Touch</h2>
-              <p className="contact-section-subtitle">
-                Choose the method that works best for you. Our team is ready to assist.
+    <div className="contact-page">
+      <Navbar />
+      <main className="contact-main">
+        {/* Hero Section */}
+        <section className="contact-hero">
+          <div className="contact-hero-container">
+            <div className="contact-hero-content">
+              <span className="contact-hero-badge">Contact Us</span>
+              <h1 className="contact-hero-title">
+                We'd Love to{" "}
+                <span className="contact-hero-title-highlight">Hear From You</span>
+              </h1>
+              <p className="contact-hero-description">
+                Have questions, feedback, or need support? Our team is here to help you on your wellness journey.
               </p>
-            </div>
-            
-            <div className="contact-cards-wrapper">
-              <div className="contact-methods-grid">
-                {contactMethods.map((method, index) => (
-                  <div key={index} className="contact-method-card">
-                    <div className="contact-method-icon">
-                      {method.icon}
-                    </div>
-                    <h3 className="contact-method-title">{method.title}</h3>
-                    <p className="contact-method-description">{method.description}</p>
-                    <span className="contact-availability-badge">
-                      {method.availability}
-                    </span>
-                    <button className="contact-method-button">
-                      {method.action}
-                    </button>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Form & Office Info */}
-        <section className="contact-form-section">
-          <div className="contact-container">
-            <div className="contact-section-header">
-              <h2 className="contact-section-title">Send us a Message</h2>
-              <p className="contact-section-subtitle">
-                Fill out the form below and we'll get back to you within 24 hours.
-              </p>
-            </div>
-            
-            <div className="contact-form-wrapper">
-              <div className="contact-form-grid">
-                {/* Contact Form Card */}
-                <div className="contact-form-card">
-                  <div className="contact-card-header">
-                    <h2 className="contact-card-title">
-                      <span>📝</span> Contact Form
-                    </h2>
-                    <p className="contact-card-subtitle">
-                      Tell us how we can help you with your wellness journey.
-                    </p>
+        {/* Contact Info Cards */}
+        <section className="contact-info-section">
+          <div className="contact-info-container">
+            <div className="contact-info-grid">
+              {contactInfo.map((info, index) => (
+                <div
+                  key={info.title}
+                  className="contact-info-card"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="contact-info-card-icon-wrapper">
+                    <info.icon className="contact-info-card-icon" />
                   </div>
-                  <form onSubmit={handleSubmit} className="contact-form">
-                    <div className="contact-form-row">
-                      <div className="contact-form-group">
-                        <label htmlFor="firstName" className="contact-label">First Name</label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          className="contact-input"
-                          placeholder="John"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="contact-form-group">
-                        <label htmlFor="lastName" className="contact-label">Last Name</label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          className="contact-input"
-                          placeholder="Doe"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                    </div>
+                  <h3 className="contact-info-card-title">{info.title}</h3>
+                  <p className="contact-info-card-value">{info.value}</p>
+                  <p className="contact-info-card-description">{info.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form & Support Options */}
+        <section className="contact-form-section">
+          <div className="contact-form-container">
+            <div className="contact-form-grid">
+              {/* Contact Form */}
+              <div className="contact-form-wrapper">
+                <h2 className="contact-form-title">Send Us a Message</h2>
+                <p className="contact-form-subtitle">
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </p>
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="contact-form-row">
                     <div className="contact-form-group">
-                      <label htmlFor="email" className="contact-label">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="contact-input"
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                    <div className="contact-form-group">
-                      <label htmlFor="subject" className="contact-label">Subject</label>
+                      <label className="contact-form-label">Your Name</label>
                       <input
                         type="text"
-                        id="subject"
-                        name="subject"
-                        className="contact-input"
-                        placeholder="How can we help you?"
-                        value={formData.subject}
-                        onChange={handleInputChange}
+                        placeholder="John Doe"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
+                        className="contact-form-input"
                       />
                     </div>
                     <div className="contact-form-group">
-                      <label htmlFor="message" className="contact-label">Message</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        className="contact-textarea"
-                        placeholder="Tell us more about your question or feedback..."
-                        rows="5"
-                        value={formData.message}
-                        onChange={handleInputChange}
+                      <label className="contact-form-label">Email Address</label>
+                      <input
+                        type="email"
+                        placeholder="john@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         required
-                      ></textarea>
-                    </div>
-                    <button type="submit" className="contact-submit-button">
-                      <span>📤</span> Send Message
-                    </button>
-                  </form>
-                </div>
-
-                {/* Office Information Cards */}
-                <div className="contact-info-column">
-                  <div className="contact-office-card">
-                    <div className="contact-card-header">
-                      <h2 className="contact-card-title">
-                         Office Information
-                      </h2>
-                    </div>
-                    <div className="contact-office-info">
-                      {officeInfo.map((info, index) => (
-                        <div key={index} className="contact-info-item">
-                          <span className="contact-info-icon">{info.icon}</span>
-                          <div className="contact-info-content">
-                            <p className="contact-info-label">{info.label}</p>
-                            <p className="contact-info-value">{info.value}</p>
-                          </div>
-                        </div>
-                      ))}
+                        className="contact-form-input"
+                      />
                     </div>
                   </div>
+                  <div className="contact-form-group">
+                    <label className="contact-form-label">Subject</label>
+                    <input
+                      type="text"
+                      placeholder="How can we help?"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      required
+                      className="contact-form-input"
+                    />
+                  </div>
+                  <div className="contact-form-group">
+                    <label className="contact-form-label">Message</label>
+                    <textarea
+                      placeholder="Tell us more about your inquiry..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      rows={5}
+                      className="contact-form-textarea"
+                    />
+                  </div>
+                  <button type="submit" className="contact-form-submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    <Send className="contact-form-submit-icon" />
+                  </button>
+                </form>
+              </div>
 
-                  <div className="contact-social-card">
-                    <div className="contact-card-header">
-                      <h2 className="contact-card-title">
-                        <span>👥</span> Follow Us
-                      </h2>
-                    </div>
-                    <div className="contact-social-content">
-                      <p className="contact-social-text">
-                        Stay connected with our wellness community
-                      </p>
-                      <div className="contact-social-buttons">
-                        <button className="contact-social-button">Twitter</button>
-                        <button className="contact-social-button">LinkedIn</button>
-                        <button className="contact-social-button">Instagram</button>
+              {/* Support Options */}
+              <div className="contact-support-wrapper">
+                <div className="contact-support-header">
+                  <h2 className="contact-support-title">Other Ways to Get Help</h2>
+                  <p className="contact-support-subtitle">
+                    Choose the support option that works best for you.
+                  </p>
+                </div>
+                {supportOptions.map((option, index) => (
+                  <div
+                    key={option.title}
+                    className="contact-support-card"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="contact-support-card-content">
+                      <div className="contact-support-card-icon-wrapper">
+                        <option.icon className="contact-support-card-icon" />
+                      </div>
+                      <div className="contact-support-card-body">
+                        <h3 className="contact-support-card-title">{option.title}</h3>
+                        <p className="contact-support-card-description">{option.description}</p>
+                        <button className="contact-support-card-button">
+                          {option.action}
+                        </button>
                       </div>
                     </div>
                   </div>
+                ))}
+
+                {/* Map */}
+                <div className="contact-map-wrapper">
+                  <img
+                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop"
+                    alt="Office location map"
+                    className="contact-map-image"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        {/* CTA Section - Contact */}
-        <section className="contact-cta-wrapper">
-          <div className="contact-cta-container">
-            <div className="contact-cta-content">
-              <h2 className="contact-cta-title">Ready to Start Your Wellness Journey?</h2>
-              <p className="contact-cta-description">
-                Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
-              </p>
-              <div className="contact-cta-buttons">
-                <button className="contact-cta-primary">
-                  Get Started Today
-                </button>
-                <button className="contact-cta-secondary">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <Footer/>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

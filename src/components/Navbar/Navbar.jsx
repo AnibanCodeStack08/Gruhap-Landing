@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import Modal from "../../pages/Auth/Modal";
 import "./Navbar.css";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const location = useLocation();
 
   const circleRefs = useRef([]);
   const tlRefs = useRef([]);
@@ -35,7 +36,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // GSAP Pill Animation Setup
+  // GSAP Pill Animation Setup (includes login button now)
   useEffect(() => {
     const layout = () => {
       circleRefs.current.forEach((circle, index) => {
@@ -159,10 +160,24 @@ const Navbar = () => {
         {/* Desktop Actions */}
         <div className="navbar-nav-actions">
           <button
-            className="navbar-login-btn"
+            className="navbar-login-btn navbar-pill"
             onClick={() => setIsLoginModalOpen(true)}
+            onMouseEnter={() => handleEnter(navItems.length)}
+            onMouseLeave={() => handleLeave(navItems.length)}
           >
-            Login
+            <span
+              className="hover-circle"
+              aria-hidden="true"
+              ref={el => {
+                circleRefs.current[navItems.length] = el;
+              }}
+            />
+            <span className="label-stack">
+              <span className="pill-label">Login</span>
+              <span className="pill-label-hover" aria-hidden="true">
+                Login
+              </span>
+            </span>
           </button>
           <Link to="/MainDashBoard" className="navbar-get-started-btn">Get Started</Link>
         </div>
@@ -208,7 +223,7 @@ const Navbar = () => {
                 <Link 
                   key={item.href}
                   to={item.href} 
-                  className="navbar-mobile-nav-link" 
+                  className={`navbar-mobile-nav-link ${location.pathname === item.href ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
                   {item.label}

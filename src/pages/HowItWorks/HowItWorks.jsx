@@ -1,142 +1,151 @@
-import React from 'react';
-import './HowItWorks.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { UserPlus, MessageSquare, TrendingUp, Award, ArrowRight, Play } from "lucide-react";
+import './HowItWorks.css';
+
+const steps = [
+  {
+    number: "01",
+    icon: UserPlus,
+    title: "Create Your Profile",
+    description: "Sign up in seconds and tell us about your wellness goals, preferences, and current health status. Our AI learns your unique needs.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
+  },
+  {
+    number: "02",
+    icon: MessageSquare,
+    title: "Chat with AI Professionals",
+    description: "Get instant, personalized guidance from our AI wellness experts. Ask anything about mental health, fitness, or nutrition anytime.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+  },
+  {
+    number: "03",
+    icon: TrendingUp,
+    title: "Track Your Progress",
+    description: "Monitor your wellness journey with detailed insights and analytics. See how far you've come and what areas need more attention.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+  },
+  {
+    number: "04",
+    icon: Award,
+    title: "Achieve Your Goals",
+    description: "Celebrate your milestones and achievements. Our AI continuously adapts to help you maintain and improve your wellness.",
+    image: "https://images.unsplash.com/photo-1552581234-26160f608093?w=600&h=400&fit=crop",
+  },
+];
+
+const features = [
+  {
+    title: "24/7 Availability",
+    description: "Access wellness support whenever you need it, day or night.",
+  },
+  {
+    title: "Personalized Approach",
+    description: "AI that learns and adapts to your unique wellness journey.",
+  },
+  {
+    title: "Evidence-Based",
+    description: "Guidance backed by the latest research in health and wellness.",
+  },
+  {
+    title: "Privacy First",
+    description: "Your data is encrypted and never shared with third parties.",
+  },
+];
 
 const HowItWorks = () => {
-  const steps = [
-    {
-      number: "01",
-      icon: "💬",
-      title: "Start a Conversation",
-      description: "Simply type your wellness question or concern in natural language. No forms, no complicated setup.",
-      details: ["Ask about stress, fitness, nutrition, or any wellness topic", "Use voice or text input", "Available 24/7"]
-    },
-    {
-      number: "02",
-      icon: "🧠",
-      title: "AI Analysis",
-      description: "Our AI professionals analyze your query using advanced algorithms and evidence-based practices.",
-      details: ["Instant response within seconds", "Draws from thousands of research studies", "Considers your personal context"]
-    },
-    {
-      number: "03",
-      icon: "🎯",
-      title: "Personalized Guidance",
-      description: "Receive tailored recommendations, action plans, and resources specific to your situation.",
-      details: ["Customized to your goals and preferences", "Step-by-step actionable advice", "Evidence-based recommendations"]
-    },
-    {
-      number: "04",
-      icon: "📈",
-      title: "Track Progress",
-      description: "Monitor your wellness journey with ongoing support and plan adjustments as needed.",
-      details: ["Regular check-ins and progress reviews", "Adaptive recommendations", "Long-term wellness tracking"]
-    }
-  ];
-
-  const features = [
-    {
-      icon: "🛡️",
-      title: "Privacy & Security",
-      description: "Your conversations are encrypted and confidential"
-    },
-    {
-      icon: "⏰",
-      title: "24/7 Availability",
-      description: "Get support whenever you need it, day or night"
-    },
-    {
-      icon: "👥",
-      title: "Expert Knowledge",
-      description: "Backed by licensed professionals and research"
-    },
-    {
-      icon: "⚡",
-      title: "Instant Response",
-      description: "No waiting times or appointment scheduling"
-    }
-  ];
-
-  const useCases = [
-    {
-      scenario: "Stress at Work",
-      query: "I'm feeling overwhelmed with my workload and having trouble sleeping",
-      response: "Provides stress management techniques, sleep hygiene tips, and work-life balance strategies"
-    },
-    {
-      scenario: "Fitness Goals",
-      query: "I want to start exercising but don't know where to begin",
-      response: "Creates a beginner-friendly workout plan based on your fitness level and preferences"
-    },
-    {
-      scenario: "Healthy Eating",
-      query: "I want to eat healthier but I'm always busy",
-      response: "Suggests quick healthy meals, meal prep strategies, and nutrition tips for busy lifestyles"
-    }
-  ];
-
   return (
-    <>
+    <div className="howitworks-page">
       <Navbar />
-      {/* Hero Section */}
-      <section className="howitworks-hero">
-        <div className="howitworks-hero-content">
-          <h1 className="howitworks-hero-title">How It Works</h1>
-          <p className="howitworks-hero-description">
-            Wellness with Gruhap is simple: just a conversation with AI to guide your goals.
-          </p>
-        </div>
-      </section>
-      <div className="howitworks-container">
-        {/* Steps Section */}
-        <section className="howitworks-steps-section">
-          <div className="howitworks-section-container">
-            <div className="howitworks-section-header">
-              <h2 className="howitworks-section-title">Four Simple Steps</h2>
-              <p className="howitworks-section-subtitle">
-                From your first question to achieving your wellness goals, we make the process effortless.
+      <main className="howitworks-main">
+        {/* Hero Section */}
+        <section className="howitworks-hero">
+          <div className="howitworks-container">
+            <div className="howitworks-hero-content">
+              <span className="howitworks-badge">
+                How It Works
+              </span>
+              <h1 className="howitworks-title">
+                Your Journey to{" "}
+                <span className="howitworks-title-gradient">Better Wellness</span>
+              </h1>
+              <p className="howitworks-description">
+                Getting started is simple. Follow these four easy steps to begin your transformation.
               </p>
+              <div className="howitworks-hero-buttons">
+                <button className="howitworks-btn-primary">
+                  Start Your Journey
+                  <ArrowRight size={16} />
+                </button>
+                <button className="howitworks-btn-outline">
+                  <Play size={16} />
+                  Watch Demo
+                </button>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div className="howitworks-steps-grid">
+        {/* Steps Section */}
+        <section className="howitworks-steps">
+          <div className="howitworks-container">
+            <div className="howitworks-steps-wrapper">
               {steps.map((step, index) => (
-                <div key={index} className="howitworks-step-card">
-                  <div className="howitworks-step-header">
-                    <span className="howitworks-step-number">{step.number}</span>
-                    <span className="howitworks-step-icon">{step.icon}</span>
+                <div
+                  key={step.number}
+                  className={`howitworks-step ${index % 2 === 1 ? 'howitworks-step-reverse' : ''}`}
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className="howitworks-step-content">
+                    <div className="howitworks-step-header">
+                      <span className="howitworks-step-number">{step.number}</span>
+                      <div className="howitworks-step-icon-wrapper">
+                        <step.icon className="howitworks-step-icon" />
+                      </div>
+                    </div>
+                    <h3 className="howitworks-step-title">
+                      {step.title}
+                    </h3>
+                    <p className="howitworks-step-description">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="howitworks-step-title">{step.title}</h3>
-                  <p className="howitworks-step-description">{step.description}</p>
-                  <ul className="howitworks-step-details">
-                    {step.details.map((detail, idx) => (
-                      <li key={idx} className="howitworks-step-detail-item">
-                        <span className="howitworks-bullet">•</span>
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="howitworks-step-image-wrapper">
+                    <div className="howitworks-step-image-container">
+                      <img
+                        src={step.image}
+                        alt={step.title}
+                        className="howitworks-step-image"
+                      />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="howitworks-features-section">
-          <div className="howitworks-section-container">
-            <div className="howitworks-section-header">
-              <h2 className="howitworks-section-title">Why Choose Gruhap?</h2>
-              <p className="howitworks-section-subtitle">
-                Our platform combines the convenience of AI with the expertise of licensed professionals.
+        {/* Features Grid */}
+        <section className="howitworks-features">
+          <div className="howitworks-container">
+            <div className="howitworks-features-header">
+              <h2 className="howitworks-features-title">
+                Why Choose Gruhap?
+              </h2>
+              <p className="howitworks-features-subtitle">
+                Experience wellness support that truly understands you
               </p>
             </div>
-
             <div className="howitworks-features-grid">
               {features.map((feature, index) => (
-                <div key={index} className="howitworks-feature-card">
-                  <div className="howitworks-feature-icon">{feature.icon}</div>
-                  <h3 className="howitworks-feature-title">{feature.title}</h3>
+                <div
+                  key={feature.title}
+                  className="howitworks-feature-card"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <h3 className="howitworks-feature-title">
+                    {feature.title}
+                  </h3>
                   <p className="howitworks-feature-description">{feature.description}</p>
                 </div>
               ))}
@@ -144,63 +153,41 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Use Cases Section
-      <section className="howitworks-usecases-section">
-        <div className="howitworks-section-container">
-          <div className="howitworks-section-header">
-            <h2 className="howitworks-section-title">Real-World Examples</h2>
-            <p className="howitworks-section-subtitle">
-              See how Gruhap helps with common wellness challenges.
-            </p>
-          </div>
-          
-          <div className="howitworks-usecases-grid">
-            {useCases.map((useCase, index) => (
-              <div key={index} className="howitworks-usecase-card">
-                <div className="howitworks-usecase-badge">{useCase.scenario}</div>
-                <div className="howitworks-usecase-content">
-                  <div className="howitworks-usecase-section">
-                    <h4 className="howitworks-usecase-label">User Query:</h4>
-                    <p className="howitworks-usecase-query">
-                      "{useCase.query}"
-                    </p>
-                  </div>
-                  <div className="howitworks-usecase-section">
-                    <h4 className="howitworks-usecase-label">Gruhap Response:</h4>
-                    <p className="howitworks-usecase-response">
-                      {useCase.response}
-                    </p>
-                  </div>
+        {/* FAQ Preview */}
+        <section className="howitworks-faq">
+          <div className="howitworks-container">
+            <div className="howitworks-faq-card">
+              <div className="howitworks-faq-grid">
+                <div>
+                  <h2 className="howitworks-faq-title">
+                    Still Have Questions?
+                  </h2>
+                  <p className="howitworks-faq-description">
+                    Our team is here to help you get started. Reach out to us anytime for support or more information about how Gruhap can help you.
+                  </p>
+                  <button className="howitworks-btn-primary">
+                    Contact Support
+                    <ArrowRight size={16} />
+                  </button>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-        {/* CTA Section - HowItWorks */}
-        <section className="howitworks-cta-section">
-          <div className="howitworks-cta-container">
-            <div className="howitworks-cta-content">
-              <h2 className="howitworks-cta-title">Ready to Start Your Wellness Journey?</h2>
-              <p className="howitworks-cta-description">
-                Join thousands of users who have improved their mental health, fitness, and overall well-being with Gruhap.
-              </p>
-              <div className="howitworks-cta-buttons">
-                <button className="howitworks-cta-primary">
-                  Get Started Today
-                </button>
-                <button className="howitworks-cta-secondary">
-                  Learn More
-                </button>
+                <div className="howitworks-faq-questions">
+                  {[
+                    "Is Gruhap really free to start?",
+                    "How does the AI personalization work?",
+                    "Can I cancel my subscription anytime?",
+                  ].map((question) => (
+                    <div key={question} className="howitworks-faq-question">
+                      <p className="howitworks-faq-question-text">{question}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
-
-      </div>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,727 +1,417 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Container and Layout */
-.howitworks-container {
+.howitworks-page {
   min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  background: #FAFAFA;
-  color: #1F2937;
-  font-family: "Nunito", sans-serif;
-  padding: 0;
-  padding-bottom: 85px;
+  background-image: radial-gradient(circle, 
+    #ccd0fc, 
+    #ccd0fc, 
+    #ccd0fc, 
+    #ccd0fc, 
+    #ccd0fc);
 }
 
-.howitworks-container a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.howitworks-container h1,
-.howitworks-container h2,
-.howitworks-container h3,
-.howitworks-container h4,
-.howitworks-container h5 {
-  font-weight: 700;
-  margin: 0.5em 0;
-}
-
-.howitworks-container p {
-  font-family: "Lora", serif;
-  font-weight: 400;
-  margin: 0.1em 6;
+.howitworks-main {
+  padding-top: 6rem;
 }
 
 /* Hero Section */
 .howitworks-hero {
-  background: transparent;
-  text-align: center;
-  padding: 80px 20px 60px 20px;
-  position: relative;
-  margin-top: 85px;
+  padding: 4rem 0;
+}
+
+.howitworks-hero-lg {
+  padding: 6rem 0;
+}
+
+.howitworks-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .howitworks-hero-content {
-  max-width: 1000px;
+  max-width: 48rem;
   margin: 0 auto;
+  text-align: center;
 }
 
-.howitworks-hero-title {
-  font-family: "Nunito", sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 24px;
-  font-weight: 700;
-}
-
-.howitworks-hero-description {
-  font-family: "Lora", serif;
-  font-size: 1.15rem;
-  margin-bottom: 1.7em;
+.howitworks-badge {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border-radius: 9999px;
+  font-size: 0.875rem;
   font-weight: 500;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  animation: howitworks-fade-in 0.5s ease-out;
 }
 
-/* Section Containers */
-.howitworks-section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.howitworks-section-header {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-.howitworks-section-title {
-  font-family: "Nunito", sans-serif;
-  font-size: 2rem;
-  margin: 0 auto 16px auto;
+.howitworks-title {
+  font-size: 2.25rem;
   font-weight: 700;
-  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  animation: howitworks-slide-up 0.5s ease-out;
 }
 
-.howitworks-section-subtitle {
-  font-family: "Nunito", sans-serif;
-  font-size: 1.08rem;
-  color: #6B7280;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+.howitworks-title-gradient {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.howitworks-description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  animation: howitworks-slide-up 0.5s ease-out 0.1s both;
+}
+
+.howitworks-hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  animation: howitworks-slide-up 0.5s ease-out 0.2s both;
+}
+
+.howitworks-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.howitworks-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.5);
+}
+
+.howitworks-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.howitworks-btn-outline:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
 }
 
 /* Steps Section */
-.howitworks-steps-section {
-  width: 100%;
-  padding: 30px 20px;
+.howitworks-steps {
+  padding: 4rem 0;
+}
+
+.howitworks-steps-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.howitworks-steps-grid {
+.howitworks-step {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 32px;
-  margin: 2em auto;
-  padding: 0 16px;
+  gap: 2rem;
+  align-items: center;
+  opacity: 0;
+  animation: howitworks-slide-up 0.5s ease-out forwards;
 }
 
-.howitworks-step-card {
-  background: #e9eaf7;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
-  padding: 2em 1em;
-  text-align: center;
-  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
-  border: 1px solid #E5E7EB;
-  min-height: 320px;
+.howitworks-step-content {
+  order: 1;
 }
 
-.howitworks-step-card:hover {
-  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
-  transform: translateY(-4px);
+.howitworks-step-image-wrapper {
+  order: 2;
 }
 
 .howitworks-step-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .howitworks-step-number {
-  font-family: "Lora", serif;
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(99, 102, 241, 0.2);
+}
+
+.howitworks-step-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .howitworks-step-icon {
-  font-size: 2.3rem;
-  color: #14B8A6;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #6366f1;
 }
 
 .howitworks-step-title {
-  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #3B82F6;
-  font-size: 1.13rem;
-  margin-bottom: 16px;
+  color: #1f2937;
+  margin-bottom: 1rem;
 }
 
 .howitworks-step-description {
-  font-family: "Lora", serif;
-  font-size: 0.97rem;
-  color: #6B7280;
-  margin-top: 0.7em;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 1.125rem;
+  color: #6b7280;
 }
 
-.howitworks-step-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.howitworks-step-image-container {
+  aspect-ratio: 3 / 2;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  border: 1px solid #e5e7eb;
 }
 
-.howitworks-step-detail-item {
-  font-family: "Lora", serif;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 10px;
-  color: #6B7280;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  text-align: left;
-}
-
-.howitworks-bullet {
-  color: #10B981;
-  font-size: 1rem;
-  line-height: 1.2;
-  flex-shrink: 0;
+.howitworks-step-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Features Section */
-.howitworks-features-section {
-  width: 100%;
-  padding: 30px 20px;
-  display: flex;
-  justify-content: center;
-  background: transparent;
+.howitworks-features {
+  padding: 4rem 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.howitworks-features-header {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 3rem;
+}
+
+.howitworks-features-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.howitworks-features-subtitle {
+  color: #6b7280;
 }
 
 .howitworks-features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 32px;
-  margin: 2em auto;
-  padding: 0 16px;
+  gap: 1.5rem;
 }
 
 .howitworks-feature-card {
-  background: #e9eaf7;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
-  padding: 2em 1em;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
   text-align: center;
-  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
-  border: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: howitworks-scale-in 0.3s ease-out forwards;
 }
 
 .howitworks-feature-card:hover {
-  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
-  transform: translateY(-4px);
-}
-
-.howitworks-feature-icon {
-  font-size: 2.3rem;
-  color: #14B8A6;
-  margin-bottom: 0.6em;
-  display: inline-block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .howitworks-feature-title {
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  color: #3B82F6;
-  font-size: 1.13rem;
-  margin-bottom: 16px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
 .howitworks-feature-description {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.97rem;
-  color: #6B7280;
-  margin-top: 0.7em;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* FAQ Section */
+.howitworks-faq {
+  padding: 4rem 0;
+}
+
+.howitworks-faq-card {
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.howitworks-faq-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.howitworks-faq-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.howitworks-faq-description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.howitworks-faq-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.howitworks-faq-question {
+  background-color: #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.howitworks-faq-question-text {
+  font-weight: 500;
+  color: #1f2937;
   margin: 0;
 }
 
-/* Use Cases Section */
-.howitworks-usecases-section {
-  width: 100%;
-  padding: 30px 20px;
-  display: flex;
-  justify-content: center;
-  background: transparent;
+/* Animations */
+@keyframes howitworks-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.howitworks-usecases-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 32px;
-  margin: 2em auto;
-  padding: 0 16px;
+@keyframes howitworks-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.howitworks-usecase-card {
-  background: #e9eaf7;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.09);
-  padding: 2em 1.5em;
-  transition: all 0.22s cubic-bezier(.4, 0, .2, 1);
-  border: 1px solid #E5E7EB;
+@keyframes howitworks-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.howitworks-usecase-card:hover {
-  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.17);
-  transform: translateY(-4px);
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .howitworks-hero-buttons {
+    flex-direction: row;
+  }
 }
 
-.howitworks-usecase-badge {
-  font-family: "Nunito", sans-serif;
-  display: inline-flex;
-  align-items: center;
-  background: #ECFDF5;
-  color: #10B981;
-  padding: 8px 16px;
-  border-radius: 16px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-  border: 1px solid #d1fae5;
-}
-
-.howitworks-usecase-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.howitworks-usecase-section {
-  padding: 0;
-}
-
-.howitworks-usecase-label {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #3B82F6;
-  margin-bottom: 10px;
-}
-
-.howitworks-usecase-query {
-  font-family: "Nunito", sans-serif;
-  background: #F3F4F6;
-  padding: 15px;
-  border-radius: 12px;
-  color: #374151;
-  font-style: italic;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  border: 1px solid #E5E7EB;
-}
-
-.howitworks-usecase-response {
-  font-family: "Nunito", sans-serif;
-  background: #EFF6FF;
-  padding: 15px;
-  border-radius: 12px;
-  color: #1F2937;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  border: 1px solid #DBEAFE;
-}
-
-/* HowItWorks CTA Section Styles */
-.howitworks-cta-section {
-  background: transparent;
-  padding: 0 20px;
-}
-
-.howitworks-cta-container {
-  background: rgb(117, 135, 236);
-  border-radius: 16px;
-  padding: 2em;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  border: 1px solid #E5E7EB;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: white;
-  text-align: center;
-}
-
-.howitworks-cta-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.howitworks-cta-title {
-  font-family: "Nunito", sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.howitworks-cta-description {
-  font-family: "Lora", serif;
-  font-size: 1.2rem;
-  color: #E5E7EB;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-.howitworks-cta-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.howitworks-cta-primary,
-.howitworks-cta-secondary {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 16px 32px;
-  border-radius: 16px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 180px;
-  font-family: "Nunito", sans-serif;
-}
-
-.howitworks-cta-primary {
-  background: black;
-  color: white;
-  box-shadow: 0 2px 16px rgba(59,130,246,.20);
-}
-
-.howitworks-cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 32px rgba(59, 130, 246, 0.4);
-}
-
-.howitworks-cta-secondary {
-  background: transparent;
-  color: black;
-  border: 2px solid black;
-}
-
-.howitworks-cta-secondary:hover {
-  background: #3B82F6;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 16px rgba(59,130,246,.18);
-}
-
-/* Responsive Design - Large Tablets and Small Laptops */
-@media (max-width: 1024px) {
-  .howitworks-steps-grid {
+@media (min-width: 768px) {
+  .howitworks-features-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .howitworks-hero {
+    padding: 6rem 0;
+  }
+
+  .howitworks-title {
+    font-size: 3.75rem;
+  }
+
+  .howitworks-steps {
+    padding: 6rem 0;
+  }
+
+  .howitworks-steps-wrapper {
+    gap: 6rem;
+  }
+
+  .howitworks-step {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+
+  .howitworks-step-reverse .howitworks-step-content {
+    order: 2;
+  }
+
+  .howitworks-step-reverse .howitworks-step-image-wrapper {
+    order: 1;
+  }
+
+  .howitworks-step-title {
+    font-size: 1.875rem;
+  }
+
+  .howitworks-features {
+    padding: 6rem 0;
+  }
+
+  .howitworks-features-title {
+    font-size: 2.25rem;
   }
 
   .howitworks-features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .howitworks-faq {
+    padding: 6rem 0;
+  }
+
+  .howitworks-faq-card {
+    padding: 4rem;
+  }
+
+  .howitworks-faq-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
   }
 
-  .howitworks-usecases-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .howitworks-hero {
-    padding: 60px 20px 40px;
-    margin-top: 70px;
-  }
-
-  .howitworks-cta-title {
-    font-size: 2.2rem;
-  }
-
-  .howitworks-step-card {
-    min-height: 300px;
-  }
-}
-
-/* Responsive Design - Tablets */
-@media (max-width: 768px) {
-  .howitworks-hero {
-    padding: 50px 20px 30px;
-    margin-top: 60px;
-  }
-
-  .howitworks-hero-title {
-    font-size: 2rem;
-  }
-
-  .howitworks-hero-description {
-    font-size: 1.05rem;
-    padding: 0 10px;
-  }
-
-  .howitworks-section-title {
-    font-size: 1.75rem;
-  }
-
-  .howitworks-section-subtitle {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-
-  .howitworks-steps-grid,
-  .howitworks-features-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
-  }
-
-  .howitworks-usecases-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .howitworks-step-card,
-  .howitworks-feature-card {
-    min-height: auto;
-    padding: 1.5em 1.2em;
-  }
-
-  .howitworks-step-header {
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .howitworks-step-number {
-    font-size: 2rem;
-  }
-
-  .howitworks-step-icon,
-  .howitworks-feature-icon {
-    font-size: 2rem;
-  }
-
-  .howitworks-step-title,
-  .howitworks-feature-title {
-    font-size: 1.05rem;
-  }
-
-  .howitworks-step-description,
-  .howitworks-feature-description {
-    font-size: 0.95rem;
-  }
-
-  .howitworks-cta-container {
-    padding: 1.75em 1.25em;
-    border-radius: 12px;
-  }
-
-  .howitworks-cta-title {
-    font-size: 1.85rem;
-    margin-bottom: 16px;
-  }
-
-  .howitworks-cta-description {
-    font-size: 1.05rem;
-    margin-bottom: 30px;
-  }
-
-  .howitworks-cta-buttons {
-    gap: 16px;
-  }
-
-  .howitworks-cta-primary,
-  .howitworks-cta-secondary {
-    font-size: 1rem;
-    padding: 14px 28px;
-    min-width: 160px;
-  }
-
-  .howitworks-sections-section,
-  .howitworks-features-section {
-    padding: 20px 15px;
-  }
-}
-
-/* Responsive Design - Large Mobile */
-@media (max-width: 640px) {
-  .howitworks-container {
-    padding-bottom: 60px;
-  }
-
-  .howitworks-hero {
-    padding: 40px 15px 25px;
-    margin-top: 50px;
-  }
-
-  .howitworks-hero-title {
-    font-size: 1.75rem;
-    margin-bottom: 18px;
-  }
-
-  .howitworks-hero-description {
-    font-size: 1rem;
-  }
-
-  .howitworks-section-container {
-    padding: 0 15px;
-  }
-
-  .howitworks-section-header {
-    margin-bottom: 1.5em;
-  }
-
-  .howitworks-section-title {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
-  }
-
-  .howitworks-section-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .howitworks-step-detail-item {
-    font-size: 0.85rem;
-  }
-
-  .howitworks-usecase-card {
-    padding: 1.5em 1.2em;
-  }
-
-  .howitworks-usecase-badge {
-    font-size: 0.85rem;
-    padding: 6px 14px;
-  }
-
-  .howitworks-usecase-label {
-    font-size: 0.9rem;
-  }
-
-  .howitworks-usecase-query,
-  .howitworks-usecase-response {
-    font-size: 0.9rem;
-    padding: 12px;
-  }
-}
-
-/* Responsive Design - Small Mobile */
-@media (max-width: 480px) {
-  .howitworks-hero {
-    padding: 35px 12px 20px;
-    margin-top: 45px;
-  }
-
-  .howitworks-hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-  }
-
-  .howitworks-hero-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .howitworks-section-container {
-    padding: 0 12px;
-  }
-
-  .howitworks-section-title {
-    font-size: 1.4rem;
-  }
-
-  .howitworks-section-subtitle {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .howitworks-steps-section,
-  .howitworks-features-section {
-    padding: 15px 10px;
-  }
-
-  .howitworks-steps-grid,
-  .howitworks-features-grid {
-    gap: 16px;
-    padding: 0 5px;
-  }
-
-  .howitworks-step-card,
-  .howitworks-feature-card {
-    padding: 1.25em 1em;
-    border-radius: 12px;
-  }
-
-  .howitworks-step-header {
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-
-  .howitworks-step-number {
-    font-size: 1.75rem;
-  }
-
-  .howitworks-step-icon,
-  .howitworks-feature-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.5em;
-  }
-
-  .howitworks-step-title,
-  .howitworks-feature-title {
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-
-  .howitworks-step-description,
-  .howitworks-feature-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  .howitworks-step-detail-item {
-    font-size: 0.82rem;
-    margin-bottom: 8px;
-  }
-
-  .howitworks-bullet {
-    font-size: 0.9rem;
-  }
-
-  .howitworks-cta-section {
-    padding: 0 12px;
-  }
-
-  .howitworks-cta-container {
-    padding: 1.5em 1em;
-    border-radius: 10px;
-  }
-
-  .howitworks-cta-title {
-    font-size: 1.5rem;
-    line-height: 1.3;
-    margin-bottom: 14px;
-  }
-
-  .howitworks-cta-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 25px;
-  }
-
-  .howitworks-cta-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .howitworks-cta-primary,
-  .howitworks-cta-secondary {
-    font-size: 0.95rem;
-    padding: 12px 24px;
-    min-width: 140px;
-  }
-
-  .howitworks-cta-primary:hover,
-  .howitworks-cta-secondary:hover {
-    transform: translateY(-2px);
+  .howitworks-faq-title {
+    font-size: 2.25rem;
   }
 }
