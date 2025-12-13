@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 /* Footer.css */
 .footer {
-  background-color:#e9eaf7;;
-  color: black;
-  padding: 60px 20px;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  padding: 60px 20px 0;
   font-family: "Nunito", sans-serif;
   position: relative;
 }
 
 .footer-container {
-  max-width: 1850px;
-  margin: 0px auto;
+  max-width: 1400px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -20,29 +21,54 @@
 .footer-content {
   display: flex;
   justify-content: space-between;
-  gap: 60px;
+  gap: 80px;
   position: relative;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #d2d2d7;
 }
 
 /* Brand Section */
 .footer-brand {
-  flex: 1.2;
-  max-width: 380px;
+  flex: 1;
+  max-width: 320px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
 }
 
 .footer-brand-name {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
-  margin: 0 0 20px 0;
-  color: black;
+  margin: 0;
+  color: #1d1d1f;
+  font-family: "Nunito", sans-serif;
 }
 
 .footer-brand-description {
-  font-size: 16px;
-  font-family: "Lora", serif;
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
   line-height: 1.6;
-  margin: 0 0 35px 0;
-  color: black;
+  margin: 0 0 24px 0;
+  color: #6e6e73;
 }
 
 /* Social Icons */
@@ -60,11 +86,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: #1d1d1f;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -76,25 +102,30 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .social-icon:hover::before {
   opacity: 1;
 }
 
+.social-icon:active {
+  transform: translateY(-1px);
+}
+
 /* Footer Links */
 .footer-links {
   display: flex;
-  gap: 50px;
+  gap: 80px;
   flex: 2;
 }
 
@@ -103,24 +134,12 @@
 }
 
 .column-title {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   font-family: "Nunito", sans-serif; 
-  margin: 0 0 25px 0;
-  color: black;
+  margin: 0 0 20px 0;
+  color: #1d1d1f;
   position: relative;
-  padding-bottom: 10px;
-}
-
-.column-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 3px;
-  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3));
-  border-radius: 2px;
 }
 
 .link-list {
@@ -130,174 +149,174 @@
 }
 
 .link-list li {
-  margin-bottom: 15px;
-  transition: transform 0.2s ease;
-}
-
-.link-list li:hover {
-  transform: translateX(5px);
+  margin-bottom: 12px;
 }
 
 .link-list a {
-  color: black;
+  color: #6e6e73;
   text-decoration: none;
-  font-size: 15px;
-  font-family: "Lora", serif;
-  line-height: 1.4;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 5px 0;
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: color 0.2s ease;
   display: inline-block;
 }
 
-.link-list a::before {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5));
-  transition: width 0.3s ease;
-}
-
 .link-list a:hover {
-  color: #ffffff;
+  color: #1d1d1f;
 }
 
-.link-list a:hover::before {
-  width: 100%;
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: #6e6e73;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+.footer-social {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.social-link {
+  color: #6e6e73;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.social-link:hover {
+  color: #1d1d1f;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
   .footer-content {
-    gap: 40px;
+    gap: 60px;
   }
   
   .footer-links {
-    gap: 30px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 1024px) {
   .footer {
-    padding: 50px 20px;
+    padding: 50px 20px 0;
   }
   
   .footer-content {
-    gap: 40px;
+    gap: 50px;
   }
   
   .footer-links {
-    gap: 30px;
-  }
-  
-  .footer-brand-description {
-    font-size: 15px;
+    gap: 40px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .footer {
-    padding: 40px 20px;
+    padding: 45px 20px 0;
   }
   
   .footer-content {
-    flex-direction: column;
-    gap: 40px;
+    gap: 45px;
   }
   
-  .footer-brand {
-    max-width: 100%;
-    text-align: center;    
-  }
-  
-  .footer-brand-description {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 370px;
-  }
-
   .footer-links {
-    display: flex;
-    gap: 25px;
-    justify-content: space-between;
-  }
-  
-  .footer-column {
-    flex: 1;
-    text-align: center;
+    gap: 35px;
   }
   
   .column-title {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .column-title::after {
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 15px;
   }
   
   .link-list a {
     font-size: 13px;
   }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 0;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 35px;
+  }
+  
+  .footer-brand {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .brand-logo {
+    justify-content: center;
+  }
+  
+  .footer-brand-description {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .social-icons {
     justify-content: center;
   }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .footer-social {
+    gap: 24px;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .footer {
-    padding: 35px 15px;
+    padding: 35px 18px 0;
+  }
+  
+  .footer-content {
+    gap: 35px;
+    padding-bottom: 30px;
   }
   
   .footer-links {
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
   }
   
   .column-title {
     font-size: 15px;
-    margin-bottom: 18px;
-  }
-  
-  .link-list li {
-    margin-bottom: 12px;
-  }
-  
-  .link-list a {
-    font-size: 12px;
-  }
-  
-  .footer-brand-name {
-    font-size: 30px;
-  }
-  
-  .footer-brand-description {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  .social-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 400px) {
-  .footer {
-    padding: 30px 15px;
-  }
-  
-  .footer-links {
-    gap: 15px;
-  }
-  
-  .column-title {
-    font-size: 14px;
     margin-bottom: 15px;
   }
   
@@ -306,16 +325,150 @@
   }
   
   .link-list a {
-    font-size: 11px;
+    font-size: 13px;
   }
   
   .footer-brand-name {
-    font-size: 26px;
+    font-size: 22px;
+  }
+  
+  .logo-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+  
+  .footer-brand-description {
+    font-size: 14px;
+    max-width: 350px;
+  }
+  
+  .social-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+  
+  .footer-copyright,
+  .social-link {
+    font-size: 12px;
+  }
+  
+  .footer-social {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 16px 0;
+  }
+  
+  .footer-content {
+    gap: 32px;
+    padding-bottom: 28px;
+  }
+  
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+  
+  .column-title {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  
+  .link-list li {
+    margin-bottom: 9px;
+  }
+  
+  .link-list a {
+    font-size: 12px;
+  }
+  
+  .footer-brand-name {
+    font-size: 21px;
+  }
+  
+  .logo-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
   
   .footer-brand-description {
     font-size: 13px;
-    text-align: center;
+    max-width: 320px;
+    line-height: 1.5;
+  }
+  
+  .social-icons {
+    gap: 13px;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .footer-bottom {
+    padding: 18px 0;
+    gap: 14px;
+  }
+  
+  .footer-copyright,
+  .social-link {
+    font-size: 11px;
+  }
+  
+  .footer-social {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    padding: 30px 14px 0;
+  }
+  
+  .footer-content {
+    gap: 30px;
+    padding-bottom: 26px;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .column-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .link-list li {
+    margin-bottom: 8px;
+  }
+  
+  .link-list a {
+    font-size: 12px;
+  }
+  
+  .footer-brand-name {
+    font-size: 20px;
+  }
+  
+  .logo-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+  }
+  
+  .footer-brand-description {
+    font-size: 13px;
+    max-width: 100%;
   }
   
   .social-icons {
@@ -326,5 +479,94 @@
     width: 38px;
     height: 38px;
     font-size: 14px;
+  }
+  
+  .footer-bottom {
+    padding: 16px 0;
+    gap: 12px;
+  }
+  
+  .footer-copyright,
+  .social-link {
+    font-size: 11px;
+  }
+  
+  .footer-social {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    padding: 28px 12px 0;
+  }
+  
+  .footer-content {
+    gap: 28px;
+    padding-bottom: 24px;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  
+  .column-title {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .link-list li {
+    margin-bottom: 8px;
+  }
+  
+  .link-list a {
+    font-size: 11px;
+  }
+  
+  .footer-brand-name {
+    font-size: 19px;
+  }
+  
+  .brand-logo {
+    gap: 10px;
+  }
+  
+  .logo-circle {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+  
+  .footer-brand-description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .social-icons {
+    gap: 11px;
+  }
+  
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  .footer-bottom {
+    padding: 16px 0;
+    gap: 12px;
+  }
+  
+  .footer-copyright,
+  .social-link {
+    font-size: 10px;
+  }
+  
+  .footer-social {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

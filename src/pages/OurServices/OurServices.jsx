@@ -127,7 +127,7 @@ const OurServices = () => {
                   <ArrowRight className="ourservices-arrow-icon" />
                 </button>
                 <button className="ourservices-btn-outline ourservices-btn-lg">
-                  View Pricing
+                  Learn More
                 </button>
               </div>
             </div>

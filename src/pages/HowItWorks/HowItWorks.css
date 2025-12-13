@@ -1,11 +1,6 @@
 .howitworks-page {
   min-height: 100vh;
-  background-image: radial-gradient(circle, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc);
+  background-color: #dfe1f4;;
 }
 
 .howitworks-main {

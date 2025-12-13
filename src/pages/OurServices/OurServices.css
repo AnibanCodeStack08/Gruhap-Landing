@@ -2,12 +2,7 @@
 
 .ourservices-page {
   min-height: 100vh;
-  background-image: radial-gradient(circle, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc, 
-    #ccd0fc);
+  background-color: #dfe1f4;
 }
 
 .ourservices-main {
@@ -87,6 +82,7 @@
 /* Services Grid Section */
 .ourservices-grid-section {
   padding: 4rem 0;
+  background: #f1f1f9;
 }
 
 @media (min-width: 1024px) {
