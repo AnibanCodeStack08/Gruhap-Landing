@@ -17,7 +17,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: radial-gradient(ellipse at top, rgba(120, 119, 198, 0.1) 0%, transparent 70%); */
   pointer-events: none;
 }
 
@@ -25,15 +24,11 @@
   max-width: 2000px;
   margin: 0 8px;
   position: relative;
-  /* background: white; */
-  /* border-radius: 15px; */
-  /* padding: 2rem; */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Cards Background */
 .cards-background {
-  /* background: #EFFFFD; */
   background: #e9eaf7;
   padding: 1.875rem;
   border-radius: 40px;
@@ -84,7 +79,7 @@
   align-items: center;
   gap: 0.75rem;
   width: 100%;
-  overflow: hidden; /* Critical for containing scroll area */
+  overflow: hidden;
 }
 
 /* Service Grid - FIXED */
@@ -96,75 +91,90 @@
   padding: 0.75rem 0;
   scroll-behavior: smooth;
   flex: 1;
-  min-width: 0; /* Critical for flex child scrolling */
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  min-width: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .service-grid::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+  display: none;
 }
 
+/* Updated Service Card */
 .service-card {
-  background: rgba(96, 77, 77, 0.416);
-  border-radius: 40px;
+  background: transparent;
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
   transition: all 0.4s ease;
-  backdrop-filter: blur(20px);
   width: 225px;
-  height: 280px;
+  height: 320px;
   flex-shrink: 0;
   position: relative;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .service-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  border-color: rgba(0, 0, 0, 0.2);
-  background: rgba(62, 32, 32, 0.05);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
-.card-image {
-  height: 300.5px;
+/* Card Image Wrapper - Contains image and overlay */
+.card-image-wrapper {
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.card-image img {
+.card-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.service-card:hover .card-image img {
-  transform: scale(1.1);
+.service-card:hover .card-image-wrapper img {
+  transform: scale(1.08);
 }
 
-.card-content {
-  padding: 0.75rem;
+/* Card Overlay - White box at bottom */
+.card-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgb(233,234,247);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .card-overlay {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-title {
-  font-size: 0.975rem;
-  font-weight: 600;
-  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
   margin: 0;
-  color: #333333;
+  color: #1a1a1a;
   text-align: center;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 /* --- DESKTOP LAYOUT Specific Styles --- */
 .desktop-layout {
-  display: block; /* Default for desktop */
+  display: block;
 }
 
 .service-header {
@@ -221,7 +231,7 @@
 .nav-btn {
   background: transparent;
   border: none;
-  color: #666;
+  color: black;
   padding: 0.65rem 1.5rem;
   border-radius: 50px;
   cursor: pointer;
@@ -246,7 +256,7 @@
 }
 
 .view-all-btn {
-  background: #f5f5f7;
+  background: rgb(218,210,218);
   border: none;
   color: #000;
   padding: 0.65rem 1.5rem;
@@ -282,7 +292,7 @@
 
 /* --- MOBILE LAYOUT Specific Styles --- */
 .mobile-layout {
-  display: none; /* Hidden by default, shown on mobile */
+  display: none;
 }
 
 /* Mobile Header */
@@ -337,7 +347,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
-  padding-right: 3rem; /* Add padding to show peek of next card */
+  padding-right: 3rem;
 }
 
 .mobile-layout .mobile-service-grid::-webkit-scrollbar {
@@ -346,26 +356,25 @@
 
 /* Mobile rectangular cards - Portrait/Vertical format */
 .mobile-layout .service-card.mobile-card {
-  width: 45%; /* Narrower width */
+  width: 45%;
   min-width: 160px;
   max-width: 200px;
-  height: auto;
-  aspect-ratio: 3/4; /* Portrait rectangular aspect ratio (taller than wide) */
+  height: 280px;
   scroll-snap-align: start;
   flex-shrink: 0;
 }
 
-.mobile-layout .service-card.mobile-card .card-image {
-  height: 75%; /* Image takes 75% of card height */
-}
-
-.mobile-layout .service-card.mobile-card .card-content {
-  height: 25%; /* Content takes 25% of card height */
-  padding: 0.5rem;
+.mobile-layout .service-card.mobile-card .card-overlay {
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
 }
 
 .mobile-layout .service-card.mobile-card .card-title {
   font-size: 0.85rem;
+  font-weight: 700;
 }
 
 /* Explicitly hide any nav arrows in mobile layout */
@@ -377,15 +386,14 @@
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
   .desktop-layout {
-    display: none; /* Hide desktop layout on mobile */
+    display: none;
   }
   .mobile-layout {
-    display: block; /* Show mobile multi-carousel layout */
+    display: block;
     margin-top: 12px;
     margin-bottom: 12px;
   }
 
-  /* Ensure no remnants of original mobile nav/grid from previous turns */
   .mobile-nav-row,
   .service-nav-mobile,
   .mobile-view-all,
@@ -424,6 +432,7 @@
     width: 48%;
     min-width: 150px;
     max-width: 190px;
+    height: 260px;
   }
 
   .mobile-layout .service-card.mobile-card .card-title {
@@ -453,10 +462,18 @@
     width: 50%;
     min-width: 140px;
     max-width: 180px;
+    height: 240px;
   }
 
   .mobile-layout .service-card.mobile-card .card-title {
     font-size: 0.75rem;
+  }
+
+  .mobile-layout .service-card.mobile-card .card-overlay {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 8px 12px;
   }
 
   .mobile-layout .mobile-service-grid {

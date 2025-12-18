@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Typed from "typed.js";
 import "./Hero.css";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -11,15 +13,12 @@ const Hero = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [inputText, setInputText] = useState("");
   
   const scrollWrapperRef = useRef(null);
   const heroActionsRef = useRef(null);
-
-  // For Typed.js placeholder
   const textareaRef = useRef(null);
   const basePlaceholder = "";
-
-  // Refs for message bubble typing animations
   const messageBubbleRefs = useRef([]);
 
   const categories = [
@@ -73,74 +72,29 @@ const Hero = () => {
     };
   }, [isMobile]);
 
-  // Typed.js for message bubbles
-  useEffect(() => {
-    if (isMobile) return; // Only run on desktop
+  const handleInputChange = (e) => {
+    setInputText(e.target.value);
+  };
 
-    const typedInstances = [];
-
-    avatars.forEach((avatar, index) => {
-      const element = messageBubbleRefs.current[index];
-      if (!element) return;
-
-      let strings = [];
-      
-      // Different strings based on avatar position/theme
-      switch(avatar.position) {
-        case 'top-left': // Mindfulness theme
-          strings = [
-            "Let's practice mindfulness together today",
-            "Take a deep breath and relax",
-            "Your mental wellness journey starts here",
-            "Find your inner peace with guided meditation"
-          ];
-          break;
-        case 'top-right': // Fitness theme
-          strings = [
-            "Ready for your fitness journey",
-            "Let's build healthy habits together",
-            "Your personalized workout plan awaits",
-            "Transform your body and mind"
-          ];
-          break;
-        case 'bottom-left': // Nutrition theme
-          strings = [
-            "Healthy eating starts right here",
-            "Discover nutritious meal plans for you",
-            "Fuel your body with the right foods",
-            "Custom nutrition guidance at your fingertips"
-          ];
-          break;
-        case 'bottom-right': // Mental health theme
-          strings = [
-            "Your mental wellness matters most",
-            "We're here to support your journey",
-            "Professional guidance when you need it",
-            "Take the first step towards better health"
-          ];
-          break;
-        default:
-          strings = [avatar.dialog];
-      }
-
-      const typed = new Typed(element, {
-        strings: strings,
-        typeSpeed: 40,
-        backSpeed: 30,
-        backDelay: 2000,
-        startDelay: index * 800, // Stagger start times
-        loop: true,
-        showCursor: false,
-        smartBackspace: true,
+  // MODIFIED: Navigate without auto-submit flag
+  const handleSubmit = () => {
+    if (inputText.trim()) {
+      navigate('/MainDashBoard', { 
+        state: { 
+          userInput: inputText,
+          category: selectedCategory !== "Category" ? selectedCategory : null,
+          autoSubmit: false // Don't auto-submit, just pre-fill
+        } 
       });
+    }
+  };
 
-      typedInstances.push(typed);
-    });
-
-    return () => {
-      typedInstances.forEach(typed => typed.destroy());
-    };
-  }, [isMobile]);
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
 
   const toggleCategoryDropdown = () => {
     setIsCategoryOpen(!isCategoryOpen);
@@ -151,16 +105,23 @@ const Hero = () => {
     setIsCategoryOpen(false);
   };
 
-  // Handle click - removed pause functionality for mobile
   const handleQuickActionClick = (action) => {
-    // Only add functionality for desktop if needed
     if (!isMobile) {
       // Desktop behavior if needed
     }
     console.log(`Action clicked: ${action.text}`);
+    
+    // Pre-fill input with quick action text but don't auto-submit
+    const quickMessage = `Help me with ${action.text.toLowerCase()}`;
+    navigate('/MainDashBoard', { 
+      state: { 
+        userInput: quickMessage,
+        category: selectedCategory !== "Category" ? selectedCategory : null,
+        autoSubmit: false
+      } 
+    });
   };
 
-  // Mouse event handlers for desktop only
   const handleMouseEnter = () => {
     if (isMobile) return;
     setIsScrollPaused(true);
@@ -171,7 +132,6 @@ const Hero = () => {
     setIsScrollPaused(false);
   };
 
-  // Touch/drag handlers for mobile manual scrolling
   const handleTouchStart = (e) => {
     if (!isMobile) return;
     setIsDragging(true);
@@ -184,14 +144,13 @@ const Hero = () => {
     if (!isMobile || !isDragging) return;
     e.preventDefault();
     const x = e.touches[0].pageX - scrollWrapperRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
+    const walk = (x - startX) * 2;
     scrollWrapperRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleTouchEnd = () => {
     if (!isMobile) return;
     setIsDragging(false);
-    // Resume auto-scroll after a delay
     setTimeout(() => {
       setIsScrollPaused(false);
     }, 2000);
@@ -222,41 +181,16 @@ const Hero = () => {
   };
 
   const quickActions = [
-    { 
-      text: "Stress",
-      iconType: "stress"
-    },
-    { 
-      text: "Anxiety",
-      iconType: "anxiety"
-    },
-    { 
-      text: "Depression",
-      iconType: "depression"
-    },
-    { 
-      text: "Burnout",
-      iconType: "burnout"
-    },
-    { 
-      text: "Productivity",
-      iconType: "productivity"
-    },
-    { 
-      text: "Sleep",
-      iconType: "sleep"
-    },
-    { 
-      text: "Nutrition",
-      iconType: "nutrition"
-    },
-    { 
-      text: "Fitness",
-      iconType: "fitness"
-    },
+    { text: "Stress", iconType: "stress" },
+    { text: "Anxiety", iconType: "anxiety" },
+    { text: "Depression", iconType: "depression" },
+    { text: "Burnout", iconType: "burnout" },
+    { text: "Productivity", iconType: "productivity" },
+    { text: "Sleep", iconType: "sleep" },
+    { text: "Nutrition", iconType: "nutrition" },
+    { text: "Fitness", iconType: "fitness" },
   ];
 
-  // Triple the array for smoother infinite scroll
   const scrollingActions = [...quickActions, ...quickActions, ...quickActions];
 
   const renderIcon = (iconType) => {
@@ -317,32 +251,28 @@ const Hero = () => {
   const avatars = [
     {
       id: 1,
-      image:
-        "https://media.istockphoto.com/id/2050253321/photo/happy-businessman-enjoying-on-the-city-street.jpg?s=612x612&w=0&k=20&c=GkLY6U9xCvhsPT0Vo01FzR7TivWQV_0EpSwlmDGMx9M=",
+      image: "https://media.istockphoto.com/id/2050253321/photo/happy-businessman-enjoying-on-the-city-street.jpg?s=612x612&w=0&k=20&c=GkLY6U9xCvhsPT0Vo01FzR7TivWQV_0EpSwlmDGMx9M=",
       dialog: "Let's practice mindfulness together today",
       position: "top-left",
       name: "Sarah",
     },
     {
       id: 2,
-      image:
-        "https://thumbs.dreamstime.com/b/portrait-young-smiling-happy-handsome-successful-businessman-entrepreneur-freelancer-working-home-office-laptop-202854209.jpg",
+      image: "https://thumbs.dreamstime.com/b/portrait-young-smiling-happy-handsome-successful-businessman-entrepreneur-freelancer-working-home-office-laptop-202854209.jpg",
       dialog: "Ready for your fitness journey",
       position: "top-right",
       name: "Alex",
     },
     {
       id: 3,
-      image:
-        "https://media.istockphoto.com/id/1459178010/photo/fashion-industry-black-woman-and-designer-portrait-of-clothing-tailor-with-business-vision.jpg?s=612x612&w=0&k=20&c=XmGyalprlJMrpEPuduBA-YTrcbEXl8p0PFgTxWi0vvU=",
+      image: "https://media.istockphoto.com/id/1459178010/photo/fashion-industry-black-woman-and-designer-portrait-of-clothing-tailor-with-business-vision.jpg?s=612x612&w=0&k=20&c=XmGyalprlJMrpEPuduBA-YTrcbEXl8p0PFgTxWi0vvU=",
       dialog: "Healthy eating starts right here",
       position: "bottom-left",
       name: "Maya",
     },
     {
       id: 4,
-      image:
-        "https://imageio.forbes.com/specials-images/imageserve/64521da578415a15b6b510dc/retail-ecommerce-lorin-winata/0x0.jpg?format=jpg&height=1080&width=1080",
+      image: "https://imageio.forbes.com/specials-images/imageserve/64521da578415a15b6b510dc/retail-ecommerce-lorin-winata/0x0.jpg?format=jpg&height=1080&width=1080",
       dialog: "Your mental wellness matters most",
       position: "bottom-right",
       name: "David",
@@ -351,7 +281,6 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      {/* Floating Message Bubbles - show all on desktop */}
       {!isMobile && avatars.map((avatar, index) => (
         <div key={avatar.id} className={`floating-message floating-message-${avatar.position}`}>
           <div className="message-avatar">
@@ -369,7 +298,6 @@ const Hero = () => {
         </div>
       ))}
 
-      {/* Main Content */}
       <div className="hero-main">
         <div className="hero-content">
           <h1 className="hero-title">
@@ -384,95 +312,100 @@ const Hero = () => {
             }
           </p>
         </div>
-          <div className="hero-input-container">
-            <div className="hero-input-top">
-              {/* Typed.js animates the textarea placeholder directly */}
-              <textarea
-                ref={textareaRef}
-                placeholder={basePlaceholder}
-                className={`hero-input ${isTyping ? "typing-active" : ""}`}
-                rows={isMobile ? "2" : "3"}
-              />
-            </div>
-            <div className="hero-input-controls">
-              <div className="hero-input-left">
-                {/* Category Dropdown */}
-                <div className="hero-category-dropdown">
-                  <button 
-                    className="hero-category-btn"
-                    onClick={toggleCategoryDropdown}
-                    aria-label="Select category"
+        
+        <div className="hero-input-container">
+          <div className="hero-input-top">
+            <textarea
+              ref={textareaRef}
+              value={inputText}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+              placeholder={basePlaceholder}
+              className={`hero-input ${isTyping ? "typing-active" : ""}`}
+              rows={isMobile ? "2" : "3"}
+            />
+          </div>
+          <div className="hero-input-controls">
+            <div className="hero-input-left">
+              <div className="hero-category-dropdown">
+                <button 
+                  className="hero-category-btn"
+                  onClick={toggleCategoryDropdown}
+                  aria-label="Select category"
+                >
+                  <span>{selectedCategory}</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`hero-dropdown-arrow ${isCategoryOpen ? 'open' : ''}`}
                   >
-                    <span>{selectedCategory}</span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`hero-dropdown-arrow ${isCategoryOpen ? 'open' : ''}`}
-                    >
-                      <polyline points="6,9 12,15 18,9"></polyline>
-                    </svg>
-                  </button>
-                  
-                  {isCategoryOpen && (
-                    <div className="hero-category-dropdown-menu">
-                      {categories.map((category, index) => (
-                        <button
-                          key={index}
-                          className="hero-category-dropdown-item"
-                          onClick={() => handleCategorySelect(category)}
-                        >
-                          {category}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="hero-input-right">
-                <button className="hero-submit-btn" aria-label="Submit">
-                  <svg width="30" height="30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                    <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </button>
+                
+                {isCategoryOpen && (
+                  <div className="hero-category-dropdown-menu">
+                    {categories.map((category, index) => (
+                      <button
+                        key={index}
+                        className="hero-category-dropdown-item"
+                        onClick={() => handleCategorySelect(category)}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
-          </div>
-
-          {/* Quick Actions Wrapper */}
-          <div 
-            className="quick-actions-wrapper"
-            ref={scrollWrapperRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMoveWrapper}
-            onMouseUp={handleMouseUp}
-          >
-            <div 
-              ref={heroActionsRef}
-              className={`hero-actions ${isScrollPaused ? 'paused' : ''}`}
-            >
-              {scrollingActions.map((action, index) => (
-                <button 
-                  key={index} 
-                  className="hero-action-btn"
-                  onClick={() => handleQuickActionClick(action)}
-                >
-                  {renderIcon(action.iconType)}
-                  <span className="hero-action-text">{action.text}</span>
-                </button>
-              ))}
+            <div className="hero-input-right">
+              <button 
+                className="hero-submit-btn" 
+                aria-label="Submit"
+                onClick={handleSubmit}
+              >
+                <svg width="30" height="30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                </svg>
+              </button>
             </div>
           </div>
+        </div>
+
+        <div 
+          className="quick-actions-wrapper"
+          ref={scrollWrapperRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMoveWrapper}
+          onMouseUp={handleMouseUp}
+        >
+          <div 
+            ref={heroActionsRef}
+            className={`hero-actions ${isScrollPaused ? 'paused' : ''}`}
+          >
+            {scrollingActions.map((action, index) => (
+              <button 
+                key={index} 
+                className="hero-action-btn"
+                onClick={() => handleQuickActionClick(action)}
+              >
+                {renderIcon(action.iconType)}
+                <span className="hero-action-text">{action.text}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

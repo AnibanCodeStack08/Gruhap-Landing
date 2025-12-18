@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Typed from "typed.js";
 import './MainDashboard.css';
 import LoginPop from '../Auth/LoginPop';
@@ -10,6 +11,8 @@ import nutritionImg from '../../Images/nutrition-plan.png';
 
 const MainDashboard = () => {
   const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  
   const [activeSection, setActiveSection] = useState('chats');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Category');
@@ -33,6 +36,7 @@ const MainDashboard = () => {
   const [openMenuId, setOpenMenuId] = useState(null);
   const [editingChatId, setEditingChatId] = useState(null);
   const [editingName, setEditingName] = useState('');
+  
   const textareaRef = useRef(null);
   const typedInstanceRef = useRef(null);
   const messagesEndRef = useRef(null);
@@ -95,6 +99,40 @@ const MainDashboard = () => {
   ];
 
   const scrollingActions = [...quickActions, ...quickActions, ...quickActions];
+
+  // MODIFIED: Handle incoming data from Hero component - only pre-fill, don't submit
+  useEffect(() => {
+    if (location.state?.userInput) {
+      const { userInput, category } = location.state;
+      
+      // Set the category if provided
+      if (category) {
+        setSelectedCategory(category);
+      }
+      
+      // ONLY pre-fill the textarea, don't submit
+      setInputValue(userInput);
+      
+      // Destroy any existing Typed instance so it doesn't interfere
+      if (typedInstanceRef.current) {
+        typedInstanceRef.current.destroy();
+        typedInstanceRef.current = null;
+      }
+      
+      // Focus the textarea so user knows they need to press Enter/Submit
+      setTimeout(() => {
+        if (textareaRef.current) {
+          textareaRef.current.focus();
+          // Place cursor at end of text
+          const length = textareaRef.current.value.length;
+          textareaRef.current.setSelectionRange(length, length);
+        }
+      }, 100);
+
+      // Clear the location state to prevent re-triggering on refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const toggleCategoryDropdown = () => setIsCategoryOpen(!isCategoryOpen);
   const toggleSidebarCategory = () => setIsSidebarCategoryOpen(!isSidebarCategoryOpen);

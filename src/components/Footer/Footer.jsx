@@ -12,19 +12,19 @@ const Footer = () => {
               <h2 className="footer-brand-name">Gruhap</h2>
             </div>
             <p className="footer-brand-description">
-              Your AI-powered wellness companion for a healthier, happier life.
+              Gruhap is an AI wellness platform for stress, sleep, focus, fitness, nutrition, and balance. Secure, private, and available anytime.
             </p>
             <div className="social-icons">
-              <a href="#" className="social-icon">
+              <a href="#" className="social-icon" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a href="#" className="social-icon" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a href="#" className="social-icon" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a href="#" className="social-icon" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
@@ -32,41 +32,34 @@ const Footer = () => {
 
           <div className="footer-links">
             <div className="footer-column">
-              <h3 className="column-title">Product</h3>
+              <h3 className="column-title">Company</h3>
               <ul className="link-list">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Integrations</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Blog</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
-              <h3 className="column-title">Company</h3>
+              <h3 className="column-title">Support</h3>
               <ul className="link-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Press</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cancellation Policy</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
               <h3 className="column-title">Resources</h3>
               <ul className="link-list">
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h3 className="column-title">Legal</h3>
-              <ul className="link-list">
-                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Knowledge Base</a></li>
+                <li><a href="#">Security</a></li>
                 <li><a href="#">Terms</a></li>
-                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Sitemap</a></li>
               </ul>
             </div>
           </div>
@@ -75,11 +68,6 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-copyright">
             © 2024 Gruhap. All rights reserved.
-          </div>
-          <div className="footer-social">
-            <a href="#" className="social-link">Twitter</a>
-            <a href="#" className="social-link">LinkedIn</a>
-            <a href="#" className="social-link">Instagram</a>
           </div>
         </div>
       </div>

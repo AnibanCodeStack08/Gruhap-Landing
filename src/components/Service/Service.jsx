@@ -188,11 +188,11 @@ const Service = () => {
                             <div className="service-grid" ref={desktopScrollContainerRef} onScroll={handleDesktopScroll}>
                                 {filteredDesktopCards.map((card, index) => (
                                     <div className="service-card" key={index}>
-                                        <div className="card-image">
+                                        <div className="card-image-wrapper">
                                             <img src={card.img} alt={card.title} />
-                                        </div>
-                                        <div className="card-content">
-                                            <h3 className="card-title">{card.title}</h3>
+                                            <div className="card-overlay">
+                                                <h3 className="card-title">{card.title}</h3>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -220,11 +220,11 @@ const Service = () => {
                                     >
                                         {allCards.filter(card => card.category === cat.dataCategory).map((card, index) => (
                                             <div className="service-card mobile-card" key={index}>
-                                                <div className="card-image">
+                                                <div className="card-image-wrapper">
                                                     <img src={card.img} alt={card.title} />
-                                                </div>
-                                                <div className="card-content">
-                                                    <h3 className="card-title">{card.title}</h3>
+                                                    <div className="card-overlay">
+                                                        <h3 className="card-title">{card.title}</h3>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}
