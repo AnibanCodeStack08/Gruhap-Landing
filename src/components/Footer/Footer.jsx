@@ -12,7 +12,7 @@ const Footer = () => {
               <h2 className="footer-brand-name">Gruhap</h2>
             </div>
             <p className="footer-brand-description">
-              Gruhap is an AI wellness platform for stress, sleep, focus, fitness, nutrition, and balance. Secure, private, and available anytime.
+              AI-powered learning platform for K12, NEET, JEE, and Olympiad success.
             </p>
             <div className="social-icons">
               <a href="#" className="social-icon" aria-label="Facebook">
@@ -36,30 +36,29 @@ const Footer = () => {
               <ul className="link-list">
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Partners</a></li>
-                <li><a href="#">Press</a></li>
                 <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
-              <h3 className="column-title">Support</h3>
+              <h3 className="column-title">Subjects</h3>
               <ul className="link-list">
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Cancellation Policy</a></li>
+                <li><a href="#">Physics</a></li>
+                <li><a href="#">Chemistry</a></li>
+                <li><a href="#">Mathematics</a></li>
+                <li><a href="#">Biology</a></li>
+                <li><a href="#">Physics</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
               <h3 className="column-title">Resources</h3>
               <ul className="link-list">
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Knowledge Base</a></li>
-                <li><a href="#">Security</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Sitemap</a></li>
+                <li><a href="#">Study Material</a></li>
+                <li><a href="#">Mock Tests</a></li>
+                <li><a href="#">Previous Papers</a></li>
+                <li><a href="#">Syllabus</a></li>
               </ul>
             </div>
           </div>
@@ -67,7 +66,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="footer-copyright">
-            © 2024 Gruhap. All rights reserved.
+            © 2026 Gruhap. All rights reserved.
           </div>
         </div>
       </div>

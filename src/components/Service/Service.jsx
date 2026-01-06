@@ -24,36 +24,36 @@ import img16 from '../../Images/16.jpg'
 const Service = () => {
     // --- Data Definition ---
     const allCards = [
-        // Mental Health Cards (Mapped to "Desi & Chill" for mobile display)
-        { img: img1, title: "Stress Management", category: "Mental Health" },
-        { img: img2, title: "Burnout Prevention", category: "Mental Health" },
-        { img: img3, title: "Anxiety Management", category: "Mental Health" },
-        { img: img14, title: "Depression Management", category: "Mental Health" },
-        { img: img4, title: "Work-Life Balance", category: "Mental Health" },
-        { img: img5, title: "Empathy Buddy", category: "Mental Health" },
+        // NEET Prep Cards (Previously Mental Health)
+        { img: img1, title: "Biology Mastery", category: "NEET Prep" },
+        { img: img2, title: "Physics Foundation", category: "NEET Prep" },
+        { img: img3, title: "Chemistry Concepts", category: "NEET Prep" },
+        { img: img14, title: "NEET Mock Tests", category: "NEET Prep" },
+        { img: img4, title: "Previous Year Papers", category: "NEET Prep" },
+        { img: img5, title: "Doubt Clearing", category: "NEET Prep" },
 
-        // Fitness Cards (Mapped to "Indian TV Dramas" for mobile display)
-        { img: img6, title: "Weight Loss", category: "Fitness" },
-        { img: img7, title: "Muscle Building", category: "Fitness" },
-        { img: img8, title: "Weight Maintenance", category: "Fitness" },
-        { img: img9, title: "Sleep and Recovery", category: "Fitness" },
-        { img: img10, title: "Activity Lifestyle", category: "Fitness" },
+        // JEE Prep Cards (Previously Fitness)
+        { img: img6, title: "Mathematics Advanced", category: "JEE Prep" },
+        { img: img7, title: "Physics Problems", category: "JEE Prep" },
+        { img: img8, title: "Chemistry Reactions", category: "JEE Prep" },
+        { img: img9, title: "JEE Mock Tests", category: "JEE Prep" },
+        { img: img10, title: "Concept Building", category: "JEE Prep" },
 
-        // Nutritionist Cards (Mapped to "Indian TV Thrillers & Mysteries" for mobile display)
-        { img: img11, title: "Personalized Plan", category: "Nutritionist" },
-        { img: img12, title: "Nutritional Tracking", category: "Nutritionist" },
-        { img: img13, title: "Weight Loss Meal", category: "Nutritionist" },
-        { img: img15, title: "Muscle-building plan", category: "Nutritionist" },
-        { img: img16, title: "Diabetic plan", category: "Nutritionist" },
+        // K12 Subjects Cards (Previously Nutritionist)
+        { img: img11, title: "Grade 9-10 Math", category: "K12 Subjects" },
+        { img: img12, title: "Science Foundation", category: "K12 Subjects" },
+        { img: img13, title: "English Grammar", category: "K12 Subjects" },
+        { img: img15, title: "Social Studies", category: "K12 Subjects" },
+        { img: img16, title: "Computer Science", category: "K12 Subjects" },
 
     ]
 
-    const desktopCategories = ['Mental Health', 'Fitness', 'Nutritionist'];
+    const desktopCategories = ['NEET Prep', 'JEE Prep', 'K12 Subjects'];
     // This map defines the display title for mobile vs. the actual data category for filtering
     const mobileDisplayMap = [
-        { displayTitle: 'Mental Health', dataCategory: 'Mental Health' },
-        { displayTitle: 'Fitness', dataCategory: 'Fitness' },
-        { displayTitle: 'Nutritionist', dataCategory: 'Nutritionist' }
+        { displayTitle: 'NEET Prep', dataCategory: 'NEET Prep' },
+        { displayTitle: 'JEE Prep', dataCategory: 'JEE Prep' },
+        { displayTitle: 'K12 Subjects', dataCategory: 'K12 Subjects' }
     ];
 
     // --- Desktop Carousel State & Refs ---
@@ -153,7 +153,7 @@ const Service = () => {
                     <div className="desktop-layout">
                         <div className="service-header">
                             <div className="header-left">
-                                <h2 className="service-title">AI Professionals</h2>
+                                <h2 className="service-title">AI Tutors</h2>
                             </div>
                             <div className="header-center">
                                 <div className="service-nav desktop-nav">
@@ -207,7 +207,7 @@ const Service = () => {
                     {/* --- MOBILE LAYOUT --- */}
                     <div className="mobile-layout">
                         <div className="mobile-header">
-                            <h2 className="mobile-service-title">AI Professionals</h2>
+                            <h2 className="mobile-service-title">Expert Tutors</h2>
                         </div>
                         {mobileDisplayMap.map((cat, catIndex) => (
                             <div className="category-section" key={cat.dataCategory} style={catIndex > 0 ? { marginTop: '2rem' } : {}}>

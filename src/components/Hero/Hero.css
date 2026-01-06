@@ -64,7 +64,7 @@
 /* Message Bubble Styles */
 .message-bubble {
   position: relative;
-  background: rgb(201, 211, 246);
+  background: white;
   backdrop-filter: blur(15px);
   border-radius: 24px;
   padding: 16px 20px;

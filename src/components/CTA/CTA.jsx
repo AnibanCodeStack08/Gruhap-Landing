@@ -38,12 +38,12 @@ const CTA = () => {
           </div>
 
           <div className="content-center">
-            <h1>Join the Movement</h1>
+            <h1>Join The Movement</h1>
             <p>
-              Connect, share, and grow with a supportive community.
+            Connect, share, and grow with Student Exclusive Community.
             </p>
             <button className="cta-button">
-              Join our community
+              Join Our Community
               <span className="arrow">→</span>
             </button>
           </div>

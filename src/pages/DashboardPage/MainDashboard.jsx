@@ -84,18 +84,18 @@ const MainDashboard = () => {
     },
   ];
 
-  const sidebarCategories = ['Mental Health', 'Fitness', 'Nutritionist'];
-  const categories = ['Mental Health', 'Fitness', 'Nutritionist'];
+  const sidebarCategories = ['CBSE', 'ICSE', 'IB', 'NEET', 'JEE', 'Olympiads'];
+  const categories = ['CBSE', 'ICSE', 'IB', 'NEET', 'JEE', 'Olympiads'];
 
   const quickActions = [
-    { text: "Stress", iconType: "stress" },
-    { text: "Anxiety", iconType: "anxiety" },
-    { text: "Depression", iconType: "depression" },
-    { text: "Burnout", iconType: "burnout" },
-    { text: "Productivity", iconType: "productivity" },
-    { text: "Sleep", iconType: "sleep" },
-    { text: "Nutrition", iconType: "nutrition" },
-    { text: "Fitness", iconType: "fitness" },
+    { text: "Physics", iconType: "physics" },
+    { text: "Chemistry", iconType: "chemistry" },
+    { text: "Mathematics", iconType: "mathematics" },
+    { text: "Algebra", iconType: "algebra" },
+    { text: "Calculus", iconType: "calculus" },
+    { text: "Trigonometry", iconType: "trigonometry" },
+    { text: "Organic Chemistry", iconType: "organic" },
+    { text: "Mechanics", iconType: "mechanics" },
   ];
 
   const scrollingActions = [...quickActions, ...quickActions, ...quickActions];
@@ -303,11 +303,11 @@ const MainDashboard = () => {
 
   const generateAiResponse = (userMessage) => {
     const responses = [
-      "I understand you're looking for support. How can I help you today?",
-      "That's a great question! Let me help you with that.",
-      "I'm here to assist you. Could you tell me more about what you need?",
-      "Thank you for sharing that with me. Let's work through this together.",
-      "I appreciate you reaching out. What specific aspect would you like to focus on?",
+      "Great question! Let me help you understand this concept step by step.",
+      "I can explain that topic for you. What specific part would you like to focus on?",
+      "Let's break down this problem together. I'm here to guide you through it.",
+      "That's an excellent question for exam preparation. Here's what you need to know.",
+      "I'll help you master this concept. Would you like detailed explanations or practice problems?",
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   };
@@ -366,10 +366,10 @@ const MainDashboard = () => {
 
   const renderIcon = (iconType) => {
     const icons = {
-      stress: '😰', anxiety: '😟', depression: '😔', burnout: '😫',
-      productivity: '📈', sleep: '😴', nutrition: '🥗', fitness: '💪'
+      physics: '⚡', chemistry: '🧪', mathematics: '🔢', algebra: '📐',
+      calculus: '📊', trigonometry: '📐', organic: '🧪', mechanics: '⚙️'
     };
-    return <span className="dashboard-action-icon">{icons[iconType] || '🎯'}</span>;
+    return <span className="dashboard-action-icon">{icons[iconType] || '📚'}</span>;
   };
 
   useEffect(() => {
@@ -414,12 +414,12 @@ const MainDashboard = () => {
   useEffect(() => {
     if (!textareaRef.current || hasSubmitted || inputValue) return;
     const desktopStrings = [
-      "Ask Gruhap to manage stress...", "Ask Gruhap to find work-life balance...",
-      "Ask Gruhap for a healthy lifestyle...", "Ask Gruhap to make a personalised meal plan..."
+      "Ask Gruhap to solve algebra problems...", "Ask Gruhap to explain physics concepts...",
+      "Ask Gruhap for chemistry formulas...", "Ask Gruhap to prepare for JEE exams..."
     ];
     const mobileStrings = [
-      "Ask Gruhap: Manage stress...", "Ask Gruhap: Work balance...",
-      "Ask Gruhap: Healthy lifestyle...", "Ask Gruhap: Meal plan..."
+      "Ask Gruhap: Solve algebra...", "Ask Gruhap: Explain physics...",
+      "Ask Gruhap: Chemistry help...", "Ask Gruhap: JEE prep..."
     ];
     const typed = new Typed(textareaRef.current, {
       strings: isMobile ? mobileStrings : desktopStrings,
@@ -618,16 +618,16 @@ const MainDashboard = () => {
             {isMobile && !hasSubmitted && (
               <div className="mobile-category-buttons">
                 <button id="mobile-category-wellness" className="mobile-category-btn-one mobile-category-mental-health">
-                  <img src={wellnessImg} alt="Wellness" className="mobile-category-icon-img" />
-                  <span className="mobile-category-text">Wellness</span>
+                  <img src={wellnessImg} alt="Mathematics" className="mobile-category-icon-img" />
+                  <span className="mobile-category-text">Mathematics</span>
                 </button>
                 <button id="mobile-category-fitness" className="mobile-category-btn-two mobile-category-fitness">
-                  <img src={fitnessImg} alt="Fitness" className="mobile-category-icon-img" />
-                  <span className="mobile-category-text">Fitness</span>
+                  <img src={fitnessImg} alt="Science" className="mobile-category-icon-img" />
+                  <span className="mobile-category-text">Science</span>
                 </button>
                 <button id="mobile-category-nutrition" className="mobile-category-btn-three mobile-category-nutritionist">
-                  <img src={nutritionImg} alt="Nutrition" className="mobile-category-icon-img" />
-                  <span className="mobile-category-text">Nutrition</span>
+                  <img src={nutritionImg} alt="Commerce" className="mobile-category-icon-img" />
+                  <span className="mobile-category-text">Commerce</span>
                 </button>
                 <button id="mobile-category-more" className="mobile-category-btn-four mobile-category-more">
                   <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="More" className="mobile-category-icon-img" />

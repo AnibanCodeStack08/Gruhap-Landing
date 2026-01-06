@@ -19,7 +19,7 @@ const Testimonial = () => {
     {
       id: 1,
       quote:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "The personalized study plans helped me focus on my weak areas. I improved my JEE rank by 5000 positions in just 3 months!",
       name: "Jenny Wilson",
       avatar:
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces&auto=format"
@@ -27,7 +27,7 @@ const Testimonial = () => {
     {
       id: 2,
       quote:
-        "Using a balanced layout keeps readers focused on what matters. Good typography and spacing create a more seamless experience.",
+        "Concept clarity improved dramatically with the AI tutor. The doubt-solving feature made complex physics problems so much easier to understand.",
       name: "David Carter",
       avatar:
         "https://plus.unsplash.com/premium_photo-1682144187125-b55e638cf286?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWFuJTIwcG9ydHJhaXR8ZW58MHx8MHx8fDA%3D"
@@ -35,7 +35,7 @@ const Testimonial = () => {
     {
       id: 3,
       quote:
-        "Clear messaging with a consistent visual rhythm helps people absorb content quickly without feeling overwhelmed.",
+        "Mock tests with instant analysis helped me identify patterns in my mistakes. My chemistry score jumped from 60% to 92% in NEET.",
       name: "Sophia Martinez",
       avatar:
         "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop&crop=faces&auto=format"
@@ -43,7 +43,7 @@ const Testimonial = () => {
     {
       id: 4,
       quote:
-        "The attention to detail and user experience makes all the difference. Every interaction feels thoughtful and purposeful.",
+        "The step-by-step solutions for mathematics problems were game-changing. I finally understood calculus concepts I struggled with for months.",
       name: "Michael Johnson",
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces&auto=format"
@@ -51,7 +51,7 @@ const Testimonial = () => {
     {
       id: 5,
       quote:
-        "What impressed me most was how intuitive everything felt. Complex processes became simple and enjoyable to navigate.",
+        "Previous year paper practice with detailed explanations boosted my confidence. Scored 680/720 in NEET on my first attempt!",
       name: "Emily Chen",
       avatar:
         "https://img.freepik.com/free-photo/close-up-excited-person-portrait_23-2151186653.jpg?semt=ais_hybrid&w=740&q=80"
@@ -59,7 +59,7 @@ const Testimonial = () => {
     {
       id: 6,
       quote:
-        "The seamless integration and smooth performance exceeded our expectations. It's rare to find such quality and reliability.",
+        "The organic chemistry module simplified complex reactions beautifully. What took hours to memorize now makes complete logical sense.",
       name: "Robert Anderson",
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=faces&auto=format"
@@ -67,7 +67,7 @@ const Testimonial = () => {
     {
       id: 7,
       quote:
-        "From concept to execution, every element was perfectly crafted. The result speaks for itself in user satisfaction and engagement.",
+        "From weak concepts to strong foundation, the AI tracked my progress perfectly. Cleared JEE Advanced with AIR 847 this year!",
       name: "Lisa Thompson",
       avatar:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces&auto=format"
@@ -75,7 +75,7 @@ const Testimonial = () => {
     {
       id: 8,
       quote:
-        "Outstanding support and incredible attention to detail. This solution has transformed how we approach our daily workflow completely.",
+        "24/7 doubt clearing and personalized attention transformed my preparation completely. Best decision I made for my medical entrance exam journey.",
       name: "Alex Rodriguez",
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces&auto=format"

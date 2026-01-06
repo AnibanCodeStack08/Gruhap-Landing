@@ -16,6 +16,7 @@
   transition: all 0.3s ease;
   box-sizing: border-box;
   height: 70px; /* Fixed height for consistency */
+  zoom: 0.90;
 }
 
 .navbar-scrolled {

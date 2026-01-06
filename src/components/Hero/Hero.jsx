@@ -22,9 +22,7 @@ const Hero = () => {
   const messageBubbleRefs = useRef([]);
 
   const categories = [
-    "Mental Health",
-    "Fitness", 
-    "Nutrition"
+    'CBSE', 'ICSE', 'IB', 'NEET', 'JEE'
   ];
 
   useEffect(() => {
@@ -40,15 +38,15 @@ const Hero = () => {
     if (!textareaRef.current) return;
 
     const typedSuffixes = isMobile ? [
-      "Ask gruhap to manage stress..",
-      "Ask gruhap to find work-life balance..",
-      "Ask gruhap for a healthy lifestyle..",
-      "Ask gruhap to make a personalised meal plan..",
+      "Ask gruhap to solve algebra problems..",
+      "Ask gruhap to explain physics concepts..",
+      "Ask gruhap for chemistry formulas..",
+      "Ask gruhap to prepare for JEE exams..",
     ] : [
-      "Ask gruhap to manage stress..",
-      "Ask gruhap to find work-life balance..",
-      "Ask gruhap for a healthy lifestyle..",
-      "Ask gruhap to make a personalised meal plan..",
+      "Ask gruhap to solve algebra problems..",
+      "Ask gruhap to explain physics concepts..",
+      "Ask gruhap for chemistry formulas..",
+      "Ask gruhap to prepare for JEE exams..",
     ];
 
     const typed = new Typed(textareaRef.current, {
@@ -76,14 +74,13 @@ const Hero = () => {
     setInputText(e.target.value);
   };
 
-  // MODIFIED: Navigate without auto-submit flag
   const handleSubmit = () => {
     if (inputText.trim()) {
       navigate('/MainDashBoard', { 
         state: { 
           userInput: inputText,
           category: selectedCategory !== "Category" ? selectedCategory : null,
-          autoSubmit: false // Don't auto-submit, just pre-fill
+          autoSubmit: false
         } 
       });
     }
@@ -111,7 +108,6 @@ const Hero = () => {
     }
     console.log(`Action clicked: ${action.text}`);
     
-    // Pre-fill input with quick action text but don't auto-submit
     const quickMessage = `Help me with ${action.text.toLowerCase()}`;
     navigate('/MainDashBoard', { 
       state: { 
@@ -181,66 +177,67 @@ const Hero = () => {
   };
 
   const quickActions = [
-    { text: "Stress", iconType: "stress" },
-    { text: "Anxiety", iconType: "anxiety" },
-    { text: "Depression", iconType: "depression" },
-    { text: "Burnout", iconType: "burnout" },
-    { text: "Productivity", iconType: "productivity" },
-    { text: "Sleep", iconType: "sleep" },
-    { text: "Nutrition", iconType: "nutrition" },
-    { text: "Fitness", iconType: "fitness" },
+    { text: "Physics", iconType: "physics" },
+    { text: "Chemistry", iconType: "chemistry" },
+    { text: "Mathematics", iconType: "mathematics" },
+    { text: "Algebra", iconType: "algebra" },
+    { text: "Calculus", iconType: "calculus" },
+    { text: "Trigonometry", iconType: "trigonometry" },
+    { text: "Organic Chemistry", iconType: "organic" },
+    { text: "Mechanics", iconType: "mechanics" },
   ];
 
   const scrollingActions = [...quickActions, ...quickActions, ...quickActions];
 
   const renderIcon = (iconType) => {
     switch(iconType) {
-      case 'stress':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-        );
-      case 'anxiety':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-        );
-      case 'depression':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
-        );
-      case 'burnout':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-          </svg>
-        );
-      case 'productivity':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-          </svg>
-        );
-      case 'sleep':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        );
-      case 'nutrition':
-        return (
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        );
-      case 'fitness':
+      case 'physics':
         return (
           <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        );
+      case 'chemistry':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+          </svg>
+        );
+      case 'mathematics':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        );
+      case 'algebra':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          </svg>
+        );
+      case 'calculus':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+          </svg>
+        );
+      case 'trigonometry':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+          </svg>
+        );
+      case 'organic':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+          </svg>
+        );
+      case 'mechanics':
+        return (
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="hero-action-icon">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         );
       default:
@@ -252,28 +249,28 @@ const Hero = () => {
     {
       id: 1,
       image: "https://media.istockphoto.com/id/2050253321/photo/happy-businessman-enjoying-on-the-city-street.jpg?s=612x612&w=0&k=20&c=GkLY6U9xCvhsPT0Vo01FzR7TivWQV_0EpSwlmDGMx9M=",
-      dialog: "Let's practice mindfulness together today",
+      dialog: "Let's master calculus concepts today",
       position: "top-left",
       name: "Sarah",
     },
     {
       id: 2,
       image: "https://thumbs.dreamstime.com/b/portrait-young-smiling-happy-handsome-successful-businessman-entrepreneur-freelancer-working-home-office-laptop-202854209.jpg",
-      dialog: "Ready for your fitness journey",
+      dialog: "Ready for your physics challenge",
       position: "top-right",
       name: "Alex",
     },
     {
       id: 3,
       image: "https://media.istockphoto.com/id/1459178010/photo/fashion-industry-black-woman-and-designer-portrait-of-clothing-tailor-with-business-vision.jpg?s=612x612&w=0&k=20&c=XmGyalprlJMrpEPuduBA-YTrcbEXl8p0PFgTxWi0vvU=",
-      dialog: "Healthy eating starts right here",
+      dialog: "Chemistry formulas made easy here",
       position: "bottom-left",
       name: "Maya",
     },
     {
       id: 4,
       image: "https://imageio.forbes.com/specials-images/imageserve/64521da578415a15b6b510dc/retail-ecommerce-lorin-winata/0x0.jpg?format=jpg&height=1080&width=1080",
-      dialog: "Your mental wellness matters most",
+      dialog: "Your JEE preparation starts now",
       position: "bottom-right",
       name: "David",
     },
